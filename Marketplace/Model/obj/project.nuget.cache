@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "GTDgJ+0wbLRDz5BLPBCaa5Wa0+WYnHvT8i7lqlS43SdA0ojFOOjYAogK58oPACOf/YUb5YxExuEMo4XoBsyDaw==",
   "success": true,
   "projectFilePath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Model\\Model.csproj",
+=======
+  "dgSpecHash": "3Wx7Q7WTHTNznVlKfXJ7kGN1nOT2gKFnU3mqYU+Pjg8yB/MArz7qVuzMpHwh0gTvNhpx8FBXrJm6d2kzY/TbKw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj",
+>>>>>>> 8c40965736371b9c8266e3befd66c859c0278a0d
   "expectedPackageFiles": [],
   "logs": []
 }
