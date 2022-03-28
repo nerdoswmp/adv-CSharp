@@ -16,14 +16,4 @@ namespace Model
         protected string login;
 
     }
-
-    class Owner : Person
-    {
-
-    }
-
-    class Client : Person
-    {
-
-    }
 }
