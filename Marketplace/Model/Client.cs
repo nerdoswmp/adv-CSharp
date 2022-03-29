@@ -10,14 +10,14 @@ namespace Model
     {
         private static Client instance;
 
-        public Client(Adress adress) : base(adress)
+        public Client(Address address) : base(address)
         { }
 
-        public static Client getInstance(Adress adress)
+        public static Client getInstance(Address address)
         {
             if (instance == null)
             {
-                instance = new Client(adress);
+                instance = new Client(address);
             }
 
             return instance;

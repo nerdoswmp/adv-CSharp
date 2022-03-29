@@ -10,14 +10,14 @@ namespace Model
     {
         private static Owner instance;
 
-        public Owner(Adress adress):base(adress)
+        public Owner(Address address):base(address)
         { }
 
-        public static Owner getInstance(Adress adress)
+        public static Owner getInstance(Address address)
         {
             if (instance == null)
             {
-                instance = new Owner(adress);
+                instance = new Owner(address);
             }
 
             return instance;
