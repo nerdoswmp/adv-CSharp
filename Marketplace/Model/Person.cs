@@ -15,12 +15,12 @@ namespace Model
         protected string email;
         protected string phone;
         protected string login;
-        protected Adress adress;
+        protected Address address;
 
         // Construtor
-        public Person(Adress adress)
+        public Person(Address address)
         {
-            this.adress = adress;
+            this.address = address;
         }
 
         // gets | sets

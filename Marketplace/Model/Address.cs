@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    internal class Adress
+    internal class Address
     {
         // vars
         private string street;
@@ -16,7 +16,7 @@ namespace Model
         private string poste_code;
 
         // Construtor
-        public Adress(string street, string city, string state, string country, string poste_code)
+        public Address(string street, string city, string state, string country, string poste_code)
         {
             this.street = street;
             this.city = city;
@@ -25,7 +25,7 @@ namespace Model
             this.poste_code = poste_code;
         }
 
-        public Adress() { }
+        public Address() { }
 
         // gets | sets
         public void setStreet(string street)
