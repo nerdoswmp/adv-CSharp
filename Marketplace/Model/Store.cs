@@ -11,7 +11,7 @@ namespace Model
         private string name;
         private string cnpj;         
         private Owner owner;
-        private List<Purchase> purchases;
+        private List<Purchase> purchases = new List<Purchase>();
 
 
         public string getName()
@@ -33,10 +33,6 @@ namespace Model
         public Owner getOwner()
         {
             return owner;
-        }
-        public void setOwner(Owner owner)
-        {
-            this.owner = owner;
         }
         public List<Purchase> getPurchases()
         {

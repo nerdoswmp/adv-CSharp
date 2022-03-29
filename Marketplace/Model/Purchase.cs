@@ -12,6 +12,9 @@ namespace Model
         private double payment;
         private string number_confirmation;
         private string number_nf;
+        private Client client;
+        private Product product;
+        private Store store;
 
         public DateTime getDatePurchase()
         {
@@ -45,10 +48,23 @@ namespace Model
         {
             this.number_nf = Number_nf;
         }
-
+        public Client getClient()
+        {
+            return client;
+        }
+        public Product getProduct()
+        {
+            return product;
+        }
+        public Store getStore()
+        {
+            return store;
+        }
         public Purchase(Client client,Store store, Product product) 
         { 
-                
+            this.client = client;
+            this.product = product;
+            this.store = store;
         }
     }
 }

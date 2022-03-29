@@ -9,15 +9,11 @@ namespace Model
     internal class Wishlist
     {
         private Client client;
-        private List<Product> products;
+        private List<Product> products = new List<Product>();
 
         public Client getClient()
         {
             return client;
-        }
-        public void setClient(Client client)
-        {
-            this.client = client;
         }
         public List<Product> getProducts()
         {
