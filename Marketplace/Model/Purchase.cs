@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    internal class Purchase
+    class Purchase
     {
         private DateTime date_purchase;
         private double payment;

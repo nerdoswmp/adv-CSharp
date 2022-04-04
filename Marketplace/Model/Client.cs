@@ -30,27 +30,26 @@ namespace Model
             if (obj.name == null)
                 return false;
 
-            else if (obj.phone == null)
+            if (obj.phone == null)
                 return false;
 
-            else if (obj.email == null)
+            if (obj.email == null)
                 return false;
 
-            else if (obj.document == null)
+            if (obj.document == null)
                 return false;
 
-            else if (obj.address == null)
+            if (obj.address == null)
                 return false;
 
-            else if (obj.date_of_birth >= DateTime.Now || 
+            if (obj.date_of_birth >= DateTime.Now || 
                     DateTime.Compare(obj.date_of_birth, new DateTime(1900, 1, 1)) < 0)
                 return false;
 
-            else if (obj.login == null)
+            if (obj.login == null)
                 return false;
 
-            else
-                return true;
+            return true;
         }
     }
 }

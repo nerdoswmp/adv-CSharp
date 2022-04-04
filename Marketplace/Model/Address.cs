@@ -84,20 +84,19 @@ namespace Model
             if (obj.street == null)
                 return false;
 
-            else if (obj.city == null)
+            if (obj.city == null)
                 return false;
 
-            else if (obj.state == null)
+            if (obj.state == null)
                 return false;
 
-            else if (obj.country == null)
+            if (obj.country == null)
                 return false;
 
-            else if (obj.poste_code == null)
+            if (obj.poste_code == null)
                 return false;
 
-            else
-                return false;
+            return false;
         }
     }
 }
