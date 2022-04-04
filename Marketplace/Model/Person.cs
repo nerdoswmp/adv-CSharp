@@ -10,7 +10,7 @@ namespace Model
     {
         // Vars
         protected string name;
-        protected int age;
+        protected DateTime date_of_birth;
         protected string document;
         protected string email;
         protected string phone;
@@ -34,14 +34,14 @@ namespace Model
             return this.name;
         }
 
-        public void setAge(int age)
+        public void setAge(DateTime age)
         {
-            this.age = age;
+            this.date_of_birth = age;
         }
 
-        public int getAge()
+        public DateTime getAge()
         {
-            return this.age;
+            return this.date_of_birth;
         }
 
         public void setDoc(string document)
