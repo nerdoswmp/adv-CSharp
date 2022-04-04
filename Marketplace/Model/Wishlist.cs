@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Interfaces;
 namespace Model
 {
-    internal class Wishlist
+    internal class Wishlist : IValidateDataObject<Wishlist>
     {
         private Client client;
         private List<Product> products = new List<Product>();
@@ -28,5 +28,20 @@ namespace Model
         {
             this.client=client;
         }
+        
+        public bool validateObject(Wishlist obj)
+        {
+            if(obj.client == null)
+            {
+                return false;
+            }
+            if(obj.products == null)
+            {
+                return false;
+            }         
+            return true;
+            
+        }
+        
     }    
 }

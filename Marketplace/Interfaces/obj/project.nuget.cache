@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "XV2c0x8Bdi5W2mcBV3cfMH5X+t8TPSnZVfaxES2t6nxWm3bJDilRR1VQimndx39Np81nhwtrZQ+t735rSKBD9g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Interfaces\\Interfaces.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\disrct\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\disrct\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
