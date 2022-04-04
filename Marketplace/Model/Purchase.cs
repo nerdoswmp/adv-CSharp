@@ -7,7 +7,11 @@ using Interfaces;
 using Enums;
 namespace Model
 {
-    internal class Purchase : IValidateDataObject<Purchase>
+<<<<<<< HEAD
+    public class Purchase : IValidateDataObject<Purchase>
+=======
+    class Purchase
+>>>>>>> 5d7c89c6e1bfd8ac748d9c8231d2b9ae7c8b17b4
     {
         private DateTime date_purchase;
         private double purchase_value;

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Interfaces;
 
 namespace Model
 {
-    internal class Address
+    public class Address : IValidateDataObject<Address>
     {
         // vars
         private string street;
@@ -76,6 +77,26 @@ namespace Model
         public string getPostCode()
         {
             return this.poste_code;
+        }
+            
+        public bool validateObject(Address obj)
+        {
+            if (obj.street == null)
+                return false;
+
+            if (obj.city == null)
+                return false;
+
+            if (obj.state == null)
+                return false;
+
+            if (obj.country == null)
+                return false;
+
+            if (obj.poste_code == null)
+                return false;
+
+            return false;
         }
     }
 }

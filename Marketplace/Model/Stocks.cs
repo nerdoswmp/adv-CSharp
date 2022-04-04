@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 namespace Model
 {
-    internal class Stocks : IValidateDataObject<Stocks>
+    public class Stocks : IValidateDataObject<Stocks>
     {
         private string quantity;
         private Store store;

@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 C:\Users\disrct\Desktop\Marketplace\Marketplace\testesAutomatizados\obj\Debug\net6.0\testesAutomatizados.csproj.AssemblyReference.cache
 C:\Users\disrct\Desktop\Marketplace\Marketplace\testesAutomatizados\obj\Debug\net6.0\testesAutomatizados.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\disrct\Desktop\Marketplace\Marketplace\testesAutomatizados\obj\Debug\net6.0\testesAutomatizados.AssemblyInfoInputs.cache
 C:\Users\disrct\Desktop\Marketplace\Marketplace\testesAutomatizados\obj\Debug\net6.0\testesAutomatizados.AssemblyInfo.cs
 C:\Users\disrct\Desktop\Marketplace\Marketplace\testesAutomatizados\obj\Debug\net6.0\testesAutomatizados.csproj.CoreCompileInputs.cache
+=======
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\testesAutomatizados\obj\Debug\net6.0\testesAutomatizados.csproj.AssemblyReference.cache
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\testesAutomatizados\obj\Debug\net6.0\testesAutomatizados.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\testesAutomatizados\obj\Debug\net6.0\testesAutomatizados.AssemblyInfoInputs.cache
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\testesAutomatizados\obj\Debug\net6.0\testesAutomatizados.AssemblyInfo.cs
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\testesAutomatizados\obj\Debug\net6.0\testesAutomatizados.csproj.CoreCompileInputs.cache
+>>>>>>> 5d7c89c6e1bfd8ac748d9c8231d2b9ae7c8b17b4

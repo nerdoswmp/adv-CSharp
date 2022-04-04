@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 namespace Model
 {
-    internal class Store : IValidateDataObject<Store>
+    public class Store : IValidateDataObject<Store>
     {
         private string name;
         private string cnpj;         

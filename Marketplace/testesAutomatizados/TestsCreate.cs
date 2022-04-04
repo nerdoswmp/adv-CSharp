@@ -183,6 +183,18 @@ namespace testesAutomatizados
             Assert.That(store.getName, Is.EqualTo("Loja de teste"));
             Assert.That(store.getCNPJ(), Is.EqualTo("584.5258.4582/0001-60"));
         }
+<<<<<<< HEAD
       
+=======
+
+        public List<Purchase> buildPurchaseList()
+        {
+
+            List<Purchase> purchases =  new List<Purchase>();
+
+
+            return purchases;
+        }
+>>>>>>> 5d7c89c6e1bfd8ac748d9c8231d2b9ae7c8b17b4
     }
 }

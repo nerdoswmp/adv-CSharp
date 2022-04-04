@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 namespace Model
 {
-    internal class Wishlist : IValidateDataObject<Wishlist>
+    public class Wishlist : IValidateDataObject<Wishlist>
     {
         private Client client;
         private List<Product> products = new List<Product>();

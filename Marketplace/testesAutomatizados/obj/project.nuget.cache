@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "A+YFS0cPWZ/5+aZK3JoKwXHpiw12JbdITSDYZc0Fc0cZv9fuXVXw1gSNIcFFdNcCkMing8VN8Ajfhvi+9dbSOQ==",
+  "dgSpecHash": "IIrqKDFIdBB4NGODE//Ch7HWznzv0knM8V1gmV6ha6OC1QTOzSQ4z5f/HUpC622p4J+PmByJzAgumIFhftTVfA==",
   "success": true,
   "projectFilePath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\testesAutomatizados\\testesAutomatizados.csproj",
   "expectedPackageFiles": [
@@ -68,5 +68,12 @@
     "C:\\Users\\disrct\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\testesAutomatizados\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

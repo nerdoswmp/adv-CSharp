@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 namespace Model
 {
-    internal class Product : IValidateDataObject<Product>
+    public class Product : IValidateDataObject<Product>
     {
         private string name;
         private double unit_price;
