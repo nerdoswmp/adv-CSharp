@@ -7,7 +7,7 @@ using Interfaces;
 
 namespace Model
 {
-    class Client : Person, IValidateDataObject<Client>
+    public class Client : Person, IValidateDataObject<Client>
     {
         private static Client instance;
 

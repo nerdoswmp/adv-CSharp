@@ -7,7 +7,7 @@ using Interfaces;
 
 namespace Model
 {
-    class Address : IValidateDataObject<Address>
+    public class Address : IValidateDataObject<Address>
     {
         // vars
         private string street;

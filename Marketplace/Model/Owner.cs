@@ -7,7 +7,7 @@ using Interfaces;
 
 namespace Model
 {
-    class Owner : Person, IValidateDataObject<Owner>
+    public class Owner : Person, IValidateDataObject<Owner>
     {
         private static Owner instance;
 
