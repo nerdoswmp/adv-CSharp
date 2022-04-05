@@ -8,15 +8,15 @@ namespace Model
 {
     public class Stocks : IValidateDataObject<Stocks>
     {
-        private string quantity;
+        private int quantity;
         private Store store;
         private Product product;
 
-        public string getQuantity()
+        public int getQuantity()
         {
             return quantity;
         }
-        public void setQuantity(string Quantity)
+        public void setQuantity(int Quantity)
         {
             this.quantity = Quantity;
         }
@@ -28,16 +28,18 @@ namespace Model
         {
             return product;
         }
-
-        public Stocks(Product product,Store store)
+        public void setStore(Store store)
         {
-            this.store=store;
-            this.product=product;
+            this.store = store;
+        }
+        public void setProduct(Product product)
+        {
+            this.product = product;
         }
 
         public bool validateObject(Stocks obj)
         {
-            if(obj.quantity == null)
+            if(obj.quantity <= 0)
             {
                 return false;
             }
