@@ -81,11 +81,7 @@ public class TestValidateDataObject
     [Test]
     public void ValidateOwnerWithOutPhone(){
         Owner testOwner = Owner.getInstance(adr);
-<<<<<<< HEAD
-        testOwner.setAge(25);        
-=======
         //testOwner.setAge(25);        
->>>>>>> 239c95f48e79195b04963d8e3c66715a714a3a1d
         testOwner.setEmail("joao@teste.com");
         testOwner.setName("João");
         testOwner.setLogin("joao@teste.com");
@@ -180,11 +176,11 @@ public class TestValidateDataObject
     public void ValidateStockWithProductWithoutQuantity(){
         Stocks stock = new Stocks();
 
-        Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450"); 
+        Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450");
 
         Owner testOwner = Owner.getInstance(adr);
 
-        Store store = new Store(testOwner);      
+        Store store = new Store(testOwner);
 
         Product product = new Product();
 
