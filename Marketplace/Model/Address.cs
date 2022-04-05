@@ -69,12 +69,12 @@ namespace Model
             return this.country;
         }
 
-        public void setPostCode(string poste_code)
+        public void setPostalCode(string poste_code)
         {
             this.poste_code = poste_code;
         }
 
-        public string getPostCode()
+        public string getPostalCode()
         {
             return this.poste_code;
         }

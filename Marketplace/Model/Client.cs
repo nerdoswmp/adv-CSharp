@@ -11,6 +11,8 @@ namespace Model
     {
         private static Client instance;
 
+        private Guid uuid = Guid.NewGuid();
+
         public Client(Address address) : base(address)
         { }
 

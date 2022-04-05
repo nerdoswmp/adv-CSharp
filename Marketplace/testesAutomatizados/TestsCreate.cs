@@ -16,7 +16,7 @@ namespace testesAutomatizados
 
             Client testClient = Client.getInstance(adr);
             
-            //testClient.setAge("")
+            //testClient.setAge(25);
             testClient.setEmail("joao@teste.com");
             testClient.setLogin("joao@teste.com");
             testClient.setName("João");
@@ -26,7 +26,7 @@ namespace testesAutomatizados
             Assert.That("joao@teste.com", Is.EqualTo(testClient.getEmail()));
             Assert.That("joao@teste.com", Is.EqualTo(testClient.getLogin()));
             Assert.That("4199999999", Is.EqualTo(testClient.getPhone()));
-            Assert.AreEqual(adr.getStreet(), testClient.getAddress().getStreet();
+            Assert.AreEqual(adr.getStreet(), testClient.getAddress().getStreet());
             Assert.AreEqual(adr.getCity(), testClient.getAddress().getCity());
             Assert.AreEqual(adr.getState(), testClient.getAddress().getState());
             Assert.AreEqual(adr.getCountry(), testClient.getAddress().getCountry());
@@ -108,7 +108,7 @@ namespace testesAutomatizados
 
             List<Product> products = new List<Product>();
 
-             Product product1 = new Product();
+            Product product1 = new Product();
             product1.setName("produto teste1");
 
             Product product2 = new Product();
@@ -163,11 +163,15 @@ namespace testesAutomatizados
         [Test]
         public void StoreCreateTest()
         {
-            Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450"); 
+            Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450");
 
-            Owner testOwner = Owner.getInstance(adr);
+            testOwner.setAge(25);
+            testOwner.setEmail("joao@teste.com");
+            testOwner.setLogin("joao@teste.com");
+            testOwner.setName("João");
+            testOwner.setPhone("4199999999");
 
-            //testOwner.setAge(25);
+            testOwner.setAge(25);
             testOwner.setEmail("joao@teste.com");
             testOwner.setLogin("joao@teste.com");
             testOwner.setName("João");
@@ -177,8 +181,6 @@ namespace testesAutomatizados
 
             store.setName("Loja de teste");
 
-            store.setCNPJ("584.5258.4582/0001-60");
-
             Assert.AreEqual(store.getOwner(), testOwner);
             Assert.That(store.getName, Is.EqualTo("Loja de teste"));
             Assert.That(store.getCNPJ(), Is.EqualTo("584.5258.4582/0001-60"));
@@ -187,11 +189,10 @@ namespace testesAutomatizados
         public List<Purchase> buildPurchaseList()
         {
 
-            List<Purchase> purchases =  new List<Purchase>();
+            List<Purchase> purchases = new List<Purchase>();
 
 
             return purchases;
         }
-
     }
 }
