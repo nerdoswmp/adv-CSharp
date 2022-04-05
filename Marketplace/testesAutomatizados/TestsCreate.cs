@@ -165,11 +165,7 @@ namespace testesAutomatizados
         {
             Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450");
 
-<<<<<<< HEAD
-            Owner testOwner = new Owner(adr);
-=======
             Owner testOwner = Owner.getInstance(adr);
->>>>>>> 323fc93b4db67155ba9081f3a944b87c8dd44d31
 
             //testOwner.setAge(25);
             testOwner.setEmail("joao@teste.com");
