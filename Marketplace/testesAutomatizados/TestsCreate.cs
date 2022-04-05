@@ -165,13 +165,15 @@ namespace testesAutomatizados
         {
             Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450");
 
-            testOwner.setAge(25);
+            Owner testOwner = new Owner(adr);
+
+            //testOwner.setAge(25);
             testOwner.setEmail("joao@teste.com");
             testOwner.setLogin("joao@teste.com");
             testOwner.setName("João");
             testOwner.setPhone("4199999999");
 
-            testOwner.setAge(25);
+            //testOwner.setAge(25);
             testOwner.setEmail("joao@teste.com");
             testOwner.setLogin("joao@teste.com");
             testOwner.setName("João");
@@ -181,8 +183,10 @@ namespace testesAutomatizados
 
             store.setName("Loja de teste");
 
+            store.setCNPJ("584.5258.4582/0001-60");
+
             Assert.AreEqual(store.getOwner(), testOwner);
-            Assert.That(store.getName, Is.EqualTo("Loja de teste"));
+            Assert.That(store.getName(), Is.EqualTo("Loja de teste"));
             Assert.That(store.getCNPJ(), Is.EqualTo("584.5258.4582/0001-60"));
         }
 
