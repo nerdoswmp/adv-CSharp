@@ -42,7 +42,7 @@ namespace Model
             {
                 return false;
             }
-            if(obj.unit_price == null)
+            if(obj.unit_price <= 0)
             {
                 return false;
             }
