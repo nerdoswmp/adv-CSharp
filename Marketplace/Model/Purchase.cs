@@ -16,25 +16,25 @@ namespace Model
         private Client client;
         private List<Product> products = new List<Product>();
         private Store store;
-        private PaymentEnum payment_type;
-        private PurchaseStatusEnum purchaseStatus;
+        private int payment_type;
+        private int purchaseStatus;
 
 
-        public PaymentEnum getPaymentType()
+        public int getPaymentType()
         {
             return payment_type;
         }
         public void setPaymentType(PaymentEnum PaymentType)
         {
-            this.payment_type = PaymentType;
+            this.payment_type = (int)PaymentType;
         }
-        public PurchaseStatusEnum getPurchaseStatus()
+        public int getPurchaseStatus()
         {
             return purchaseStatus;
         }
         public void setPurchaseStatus(PurchaseStatusEnum purchaseStatus)
         {
-            this.purchaseStatus = purchaseStatus;
+            this.purchaseStatus = (int)purchaseStatus;
         }
         public DateTime getDataPurchase()
         {
@@ -106,7 +106,7 @@ namespace Model
             if(obj.purchaseStatus == null) { return false; }
             return true; 
         }
-        public void updateStatus(PurchaseStatusEnum purchaseStatusEnum)
+        public void updateStatus(int purchaseStatusEnum)
         {
             this.purchaseStatus = purchaseStatusEnum;
         }
