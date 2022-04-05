@@ -9,40 +9,40 @@ namespace Model
 {
     public class Purchase : IValidateDataObject<Purchase>
     {
-        private DateTime date_purchase;
+        private DateTime dataPurchase;
         private double purchase_value;
         private string number_confirmation;
         private string number_nf;
         private Client client;
-        private Product product;
+        private List<Product> products = new List<Product>();
         private Store store;
-        private PaymentEnum paymentEnum;
-        private PurchaseStatusEnum purchaseStatusEnum;
+        private PaymentEnum payment_type;
+        private PurchaseStatusEnum purchaseStatus;
 
 
-        public PaymentEnum getPaymentEnum()
+        public PaymentEnum getPaymentType()
         {
-            return paymentEnum;
+            return payment_type;
         }
-        public void setPaymentEnum(PaymentEnum PaymentEnum)
+        public void setPaymentType(PaymentEnum PaymentType)
         {
-            this.paymentEnum = PaymentEnum;
+            this.payment_type = PaymentType;
         }
-        public PurchaseStatusEnum GetPurchaseStatusEnum()
+        public PurchaseStatusEnum getPurchaseStatus()
         {
-            return purchaseStatusEnum;
+            return purchaseStatus;
         }
-        public void setPurchaseStatusEnum(PurchaseStatusEnum purchaseStatusEnum)
+        public void setPurchaseStatus(PurchaseStatusEnum purchaseStatus)
         {
-            this.purchaseStatusEnum = purchaseStatusEnum;
+            this.purchaseStatus = purchaseStatus;
         }
-        public DateTime getDatePurchase()
+        public DateTime getDataPurchase()
         {
-            return date_purchase;
+            return dataPurchase;
         }
-        public void setDatePurchase(DateTime Date_purchase)
+        public void setDataPurchase(DateTime Date_purchase)
         {
-            this.date_purchase = Date_purchase;
+            this.dataPurchase = Date_purchase;
         }
         public double getPurchase_value()
         {
@@ -72,36 +72,43 @@ namespace Model
         {
             return client;
         }
-        public Product getProduct()
+        public void setClient(Client client)
         {
-            return product;
+            this.client = client;   
+        }
+        public List<Product> getProducts()
+        {
+            return products;
+        }
+        public void setProducts(List<Product> products)
+        {
+            this.products = products;
         }
         public Store getStore()
         {
             return store;
+        }        
+        public void setStore(Store store)
+        {
+            this.store = store;
         }
-        public Purchase(Client client,Store store, Product product) 
-        { 
-            this.client = client;
-            this.product = product;
-            this.store = store;            
-        }
+
         public bool validateObject(Purchase obj)
         {
-            if(obj.date_purchase == null) {return false;}
+            if(obj.dataPurchase == null) {return false;}
             if(obj.number_confirmation == null) {return false;}
             if(obj.number_nf == null) {return false;}
             if(obj.purchase_value == null) { return false;}
             if(obj.client == null) { return false;}
-            if(obj.product == null) { return false;}
+            if(obj.products == null) { return false;}
             if(obj.store == null) { return false;}
-            if(obj.paymentEnum == null) { return false; }
-            if(obj.purchaseStatusEnum == null) { return false; }
+            if(obj.payment_type == null) { return false; }
+            if(obj.purchaseStatus == null) { return false; }
             return true; 
         }
         public void updateStatus(PurchaseStatusEnum purchaseStatusEnum)
         {
-            this.purchaseStatusEnum = purchaseStatusEnum;
+            this.purchaseStatus = purchaseStatusEnum;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Model
     public class Store : IValidateDataObject<Store>
     {
         private string name;
-        private string cnpj;         
+        private string CNPJ;         
         private Owner owner;
         private List<Purchase> purchases = new List<Purchase>();
 
@@ -22,13 +22,13 @@ namespace Model
         {
             this.name = Name;
         }
-        public string getCnpj()
+        public string getCNPJ()
         {
-            return cnpj;
+            return CNPJ;
         }
-        public void setCnpj(string Cnpj)
+        public void setCNPJ(string Cnpj)
         {
-            this.cnpj = Cnpj;
+            this.CNPJ = Cnpj;
         }
         public Owner getOwner()
         {
@@ -54,7 +54,7 @@ namespace Model
             {
                 return false;
             }
-            if(obj.cnpj == null)
+            if(obj.CNPJ == null)
             {
                 return false;
             }

@@ -20,7 +20,7 @@ namespace Model
         {
             this.name = Name;
         }
-        public double getUnitPrice()
+        public double getUnitprice()
         {
             return unit_price;
         }
