@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Interfaces;
 namespace Model
 {
-    internal class Product
+    public class Product : IValidateDataObject<Product>
     {
         private string name;
         private double unit_price;
@@ -35,6 +35,22 @@ namespace Model
         public void setBarCode(string Bar_code)
         {
             this.bar_code = Bar_code;
+        }
+        public bool validateObject(Product obj)
+        {
+            if(obj.name == null)
+            {
+                return false;
+            }
+            if(obj.unit_price == null)
+            {
+                return false;
+            }
+            if(obj.bar_code == null)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

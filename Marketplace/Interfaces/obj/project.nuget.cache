@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "FbCyW1WqTRlPvsGdU2pJE0fqVZJcnOsZ46H6uMl8LcEHCbCR91onUwYtuyyt+BF45i4+YOBLGbePEXW8bJTIsA==",
+  "dgSpecHash": "ENwPwrWUYWz94ko5ANSusLsgtr31cfBKNWwBy9kBs9AU+Zmo9ijw77nNBQT2AKg09+dxTGVh3ogBlI5Bzm+waA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Interfaces\\Interfaces.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\disrct\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\disrct\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
-  ],
-  "logs": []
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

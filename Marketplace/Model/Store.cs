@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Interfaces;
 namespace Model
 {
-    internal class Store
+    public class Store : IValidateDataObject<Store>
     {
         private string name;
         private string cnpj;         
@@ -48,5 +48,27 @@ namespace Model
             this.owner=owner;
         }
  
+        public bool validateObject(Store obj)
+        {
+            if(obj.name == null)
+            {
+                return false;
+            }
+            if(obj.cnpj == null)
+            {
+                return false;
+            }
+            if(obj.owner == null)
+            {
+                return false;
+            }
+            if(obj.purchases == null)
+            {
+                return false;
+            }           
+            return true;
+            
+        }
+
     }
 }

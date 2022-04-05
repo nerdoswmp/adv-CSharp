@@ -3,19 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Interfaces;
+using Enums;
 namespace Model
 {
-    class Purchase
+    public class Purchase : IValidateDataObject<Purchase>
     {
         private DateTime date_purchase;
-        private double payment;
+        private double purchase_value;
         private string number_confirmation;
         private string number_nf;
         private Client client;
         private Product product;
         private Store store;
+        private PaymentEnum paymentEnum;
+        private PurchaseStatusEnum purchaseStatusEnum;
 
+
+        public PaymentEnum getPaymentEnum()
+        {
+            return paymentEnum;
+        }
+        public void setPaymentEnum(PaymentEnum PaymentEnum)
+        {
+            this.paymentEnum = PaymentEnum;
+        }
+        public PurchaseStatusEnum GetPurchaseStatusEnum()
+        {
+            return purchaseStatusEnum;
+        }
+        public void setPurchaseStatusEnum(PurchaseStatusEnum purchaseStatusEnum)
+        {
+            this.purchaseStatusEnum = purchaseStatusEnum;
+        }
         public DateTime getDatePurchase()
         {
             return date_purchase;
@@ -24,13 +44,13 @@ namespace Model
         {
             this.date_purchase = Date_purchase;
         }
-        public double getPayment()
+        public double getPurchase_value()
         {
-            return payment;
+            return purchase_value;
         }
-        public void setPayment(double Payment)
+        public void setPurchase_value(double Purchase_value)
         {
-            this.payment = Payment;
+            this.purchase_value = Purchase_value;
         }
         public string getNumberConfirmation()
         {
@@ -64,7 +84,24 @@ namespace Model
         { 
             this.client = client;
             this.product = product;
-            this.store = store;
+            this.store = store;            
+        }
+        public bool validateObject(Purchase obj)
+        {
+            if(obj.date_purchase == null) {return false;}
+            if(obj.number_confirmation == null) {return false;}
+            if(obj.number_nf == null) {return false;}
+            if(obj.purchase_value == null) { return false;}
+            if(obj.client == null) { return false;}
+            if(obj.product == null) { return false;}
+            if(obj.store == null) { return false;}
+            if(obj.paymentEnum == null) { return false; }
+            if(obj.purchaseStatusEnum == null) { return false; }
+            return true; 
+        }
+        public void updateStatus(PurchaseStatusEnum purchaseStatusEnum)
+        {
+            this.purchaseStatusEnum = purchaseStatusEnum;
         }
     }
 }

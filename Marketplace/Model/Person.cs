@@ -84,5 +84,10 @@ namespace Model
             return this.login;
         }
 
+        public Address getAddress()
+        {
+            return this.address;
+        }
+
     }
 }

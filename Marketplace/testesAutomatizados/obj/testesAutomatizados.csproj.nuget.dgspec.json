@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\testesautomatizados\\testesAutomatizados.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\testesAutomatizados\\testesAutomatizados.csproj": {}
   },
   "projects": {
-    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Enums\\Enums.csproj": {
+    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Enums\\Enums.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj",
         "projectName": "Enums",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Enums\\Enums.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Enums\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Interfaces\\Interfaces.csproj": {
+    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Interfaces\\Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj",
         "projectName": "Interfaces",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Interfaces\\Interfaces.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Interfaces\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -80,15 +80,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
-            "targetAlias": "netstandard2.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -99,16 +99,8 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
-          "targetAlias": "netstandard2.0",
-          "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            }
-          },
+        "net6.0": {
+          "targetAlias": "net6.0",
           "imports": [
             "net461",
             "net462",
@@ -119,18 +111,23 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Model\\Model.csproj": {
+    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Model\\Model.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Model\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -151,11 +148,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Enums\\Enums.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Enums\\Enums.csproj"
+              "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj"
               },
-              "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Interfaces\\Interfaces.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Interfaces\\Interfaces.csproj"
+              "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj"
               }
             }
           }
@@ -188,14 +185,14 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\testesautomatizados\\testesAutomatizados.csproj": {
+    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\testesAutomatizados\\testesAutomatizados.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\testesautomatizados\\testesAutomatizados.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\testesAutomatizados\\testesAutomatizados.csproj",
         "projectName": "testesAutomatizados",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\testesautomatizados\\testesAutomatizados.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\testesAutomatizados\\testesAutomatizados.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\testesautomatizados\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\testesAutomatizados\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -216,8 +213,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Model\\Model.csproj"
+              "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj"
               }
             }
           }

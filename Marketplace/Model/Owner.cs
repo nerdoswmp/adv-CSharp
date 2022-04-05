@@ -11,6 +11,8 @@ namespace Model
     {
         private static Owner instance;
 
+        private Guid uuid = Guid.NewGuid();
+
         public Owner(Address address):base(address)
         { }
 

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Interfaces;
 namespace Model
 {
-    internal class Stocks
+    public class Stocks : IValidateDataObject<Stocks>
     {
         private string quantity;
         private Store store;
@@ -33,6 +33,24 @@ namespace Model
         {
             this.store=store;
             this.product=product;
+        }
+
+        public bool validateObject(Stocks obj)
+        {
+            if(obj.quantity == null)
+            {
+                return false;
+            }
+            if(obj.store == null)
+            {
+                return false;
+            }
+            if(obj.product == null)
+            {
+                return false;
+            }
+            return true;
+            
         }
     }
 }

@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "jdZxbBETsLjp1JauTjTQMublumapN4rw+lnUaJJcVNyTROIxCgmRyktDtFDx9b5nlRwAw7QGXloJI2qa3k+zHg==",
+  "dgSpecHash": "iRWT+ApTbQ78X8fxWKRgW+MRN/UTakvi8uhSEDuPFDG+Sjv+PNUYoTRba3AJzyBRq0nB6Xvt1+kXmZhvZiIuOA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\marketplace\\Model\\Model.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
