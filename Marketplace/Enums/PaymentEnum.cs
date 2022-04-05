@@ -8,9 +8,9 @@ namespace Enums
 {
     public enum PaymentEnum
     {
+        initial,
         credit,
         debit,
-        transfer,
-        initial
+        transfer        
     }
 }
