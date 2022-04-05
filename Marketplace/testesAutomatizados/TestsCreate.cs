@@ -16,7 +16,7 @@ namespace testesAutomatizados
 
             Client testClient = Client.getInstance(adr);
             
-            testClient.setAge(25);
+            //testClient.setAge("")
             testClient.setEmail("joao@teste.com");
             testClient.setLogin("joao@teste.com");
             testClient.setName("João");
@@ -26,7 +26,7 @@ namespace testesAutomatizados
             Assert.That("joao@teste.com", Is.EqualTo(testClient.getEmail()));
             Assert.That("joao@teste.com", Is.EqualTo(testClient.getLogin()));
             Assert.That("4199999999", Is.EqualTo(testClient.getPhone()));
-            Assert.AreEqual(adr.getStreet(), testClient.getAddress().getStreet());
+            Assert.AreEqual(adr.getStreet(), testClient.getAddress().getStreet();
             Assert.AreEqual(adr.getCity(), testClient.getAddress().getCity());
             Assert.AreEqual(adr.getState(), testClient.getAddress().getState());
             Assert.AreEqual(adr.getCountry(), testClient.getAddress().getCountry());
@@ -53,7 +53,7 @@ namespace testesAutomatizados
 
             Owner testOwner = Owner.getInstance(adr);
 
-            testOwner.setAge(25);
+            //testOwner.setAge(25);
             testOwner.setEmail("joao@teste.com");
             testOwner.setLogin("joao@teste.com");
             testOwner.setName("João");
@@ -167,7 +167,7 @@ namespace testesAutomatizados
 
             Owner testOwner = Owner.getInstance(adr);
 
-            testOwner.setAge(25);
+            //testOwner.setAge(25);
             testOwner.setEmail("joao@teste.com");
             testOwner.setLogin("joao@teste.com");
             testOwner.setName("João");
@@ -183,9 +183,6 @@ namespace testesAutomatizados
             Assert.That(store.getName, Is.EqualTo("Loja de teste"));
             Assert.That(store.getCNPJ(), Is.EqualTo("584.5258.4582/0001-60"));
         }
-<<<<<<< HEAD
-      
-=======
 
         public List<Purchase> buildPurchaseList()
         {
@@ -195,6 +192,6 @@ namespace testesAutomatizados
 
             return purchases;
         }
->>>>>>> 5d7c89c6e1bfd8ac748d9c8231d2b9ae7c8b17b4
+
     }
 }

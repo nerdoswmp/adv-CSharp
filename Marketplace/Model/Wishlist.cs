@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 namespace Model
 {
-    public class Wishlist : IValidateDataObject<Wishlist>
+    public class WishList : IValidateDataObject<WishList>
     {
         private Client client;
         private List<Product> products = new List<Product>();
@@ -24,12 +24,12 @@ namespace Model
             products.Add(product);
         }
 
-        public Wishlist(Client client)
+        public WishList(Client client)
         {
             this.client=client;
         }
         
-        public bool validateObject(Wishlist obj)
+        public bool validateObject(WishList obj)
         {
             if(obj.client == null)
             {
