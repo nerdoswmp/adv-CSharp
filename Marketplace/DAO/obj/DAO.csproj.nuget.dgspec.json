@@ -181,6 +181,8 @@
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
+<<<<<<< HEAD
+=======
     },
     "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj": {
       "version": "1.0.0",
@@ -268,6 +270,7 @@
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
+>>>>>>> a721035eb957410b98a6b75b07656c240e0dd562
     }
   }
 }

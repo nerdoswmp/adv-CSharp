@@ -1823,6 +1823,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj",
+      "projectName": "DAO",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj",
+      "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
       "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\DAO.csproj",
       "projectName": "DAO",
       "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\DAO.csproj",
@@ -1835,6 +1845,7 @@
       "configFilePaths": [
         "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> a721035eb957410b98a6b75b07656c240e0dd562
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1847,11 +1858,15 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+<<<<<<< HEAD
+          "projectReferences": {}
+=======
           "projectReferences": {
             "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj": {
               "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj"
             }
           }
+>>>>>>> a721035eb957410b98a6b75b07656c240e0dd562
         }
       },
       "warningProperties": {
