@@ -45,13 +45,36 @@ namespace DAO
                 entity.Property(e => e.poste_code).IsRequired();
             });
 
-            //modelBuilder.Entity<Client>(entity =>
-            //{
-            //    entity.HasKey(e => e.ISBN);
-            //    entity.Property(e => e.Title).IsRequired();
-            //    entity.HasOne(d => d.Publisher)
-            //      .WithMany(p => p.Books);
-            //});
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.HasKey(e => e.id);
+                entity.Property(e => e.name).IsRequired();
+                entity.Property(e => e.bar_code).IsRequired();
+                entity.Property(e => e.unit_price).IsRequired();                  
+            });         
+
+            modelBuilder.Entity<Store>(entity =>
+            {
+                entity.HasKey(e => e.id);
+                entity.Property(e => e.name).IsRequired();
+                entity.Property(e => e.CNPJ).IsRequired();
+            });
+
+            modelBuilder.Entity<Stocks>(entity =>
+            {
+                entity.HasKey(e => e.id);
+                entity.Property(e => e.quantity).IsRequired();
+            });
+
+            modelBuilder.Entity<Purchase>(entity =>
+            {
+                entity.HasKey(e => e.id);
+                entity.Property(e => e.number_confirmation).IsRequired();
+                entity.Property(e => e.number_nf).IsRequired();
+                entity.Property(e => e.payment_type).IsRequired();
+                entity.Property(e => e.purchaseStatus).IsRequired();
+                entity.Property(e => e.dataPurchase).IsRequired();
+            });
         }
     }
 
