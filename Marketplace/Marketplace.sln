@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testesAutomatizados", "testesAutomatizados\testesAutomatizados.csproj", "{9F898192-5B18-44F8-A584-C3D19CE141D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{000572D9-3AFF-4433-92FC-D22748730EDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9F898192-5B18-44F8-A584-C3D19CE141D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F898192-5B18-44F8-A584-C3D19CE141D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F898192-5B18-44F8-A584-C3D19CE141D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{000572D9-3AFF-4433-92FC-D22748730EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{000572D9-3AFF-4433-92FC-D22748730EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{000572D9-3AFF-4433-92FC-D22748730EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{000572D9-3AFF-4433-92FC-D22748730EDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
