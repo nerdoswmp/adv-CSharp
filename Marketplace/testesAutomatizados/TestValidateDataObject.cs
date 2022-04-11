@@ -176,11 +176,11 @@ public class TestValidateDataObject
     public void ValidateStockWithProductWithoutQuantity(){
         Stocks stock = new Stocks();
 
-        Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450"); 
+        Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450");
 
         Owner testOwner = Owner.getInstance(adr);
 
-        Store store = new Store(testOwner);      
+        Store store = new Store(testOwner);
 
         Product product = new Product();
 

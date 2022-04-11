@@ -180,7 +180,7 @@ namespace testesAutomatizados
             store.setCNPJ("584.5258.4582/0001-60");
 
             Assert.AreEqual(store.getOwner(), testOwner);
-            Assert.That(store.getName, Is.EqualTo("Loja de teste"));
+            Assert.That(store.getName(), Is.EqualTo("Loja de teste"));
             Assert.That(store.getCNPJ(), Is.EqualTo("584.5258.4582/0001-60"));
         }
 

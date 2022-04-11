@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hODMY/VCP5TGn29c3ZxbcMSocTh2sQC16o3YPUq0HnndfHdtBp8RRj1vLkNf/CLJ2vZp4loOOFauYIkUDAwM8w==",
+  "dgSpecHash": "8TRx28qAD2p6IsmV3RUu9jXVKec8vE3LrIUCm+xYQSq+K7m8BdCaiZxc6WOSpy+nHkUjqk2DsyXimlS341jY6w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\testesAutomatizados\\testesAutomatizados.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\testesAutomatizados\\testesAutomatizados.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
