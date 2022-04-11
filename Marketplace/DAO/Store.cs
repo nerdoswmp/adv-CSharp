@@ -12,8 +12,7 @@ namespace DAO
         public int id;
         public string name;
         public string CNPJ;         
-        public Owner owner;
-        public List<Purchase> purchases = new List<Purchase>();
+        public Owner owner;        
 
     }
 }

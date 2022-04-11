@@ -17,7 +17,7 @@ namespace DAO
         public int payment_type;
         public int purchaseStatus;
         public Client client;
-        public List<Product> products = new List<Product>();
+        public Product product;
         public Store store;
     }
 }
