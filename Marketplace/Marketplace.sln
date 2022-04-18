@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testesAutomatizados", "testesAutomatizados\testesAutomatizados.csproj", "{9F898192-5B18-44F8-A584-C3D19CE141D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{000572D9-3AFF-4433-92FC-D22748730EDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO", "DAO\DAO.csproj", "{000572D9-3AFF-4433-92FC-D22748730EDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleProj", "ConsoleProj\ConsoleProj.csproj", "{5CBFB3FB-18DC-4D2A-A46B-D2D89E4EA363}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{000572D9-3AFF-4433-92FC-D22748730EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{000572D9-3AFF-4433-92FC-D22748730EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{000572D9-3AFF-4433-92FC-D22748730EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CBFB3FB-18DC-4D2A-A46B-D2D89E4EA363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CBFB3FB-18DC-4D2A-A46B-D2D89E4EA363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CBFB3FB-18DC-4D2A-A46B-D2D89E4EA363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CBFB3FB-18DC-4D2A-A46B-D2D89E4EA363}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

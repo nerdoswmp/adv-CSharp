@@ -17,3 +17,5 @@ C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\obj\Debug\net6.0\DAO.dll
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\obj\Debug\net6.0\refint\DAO.dll
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\obj\Debug\net6.0\DAO.pdb
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\obj\Debug\net6.0\ref\DAO.dll
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\bin\Debug\net6.0\DAO.runtimeconfig.json
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\obj\Debug\net6.0\DAO.genruntimeconfig.cache

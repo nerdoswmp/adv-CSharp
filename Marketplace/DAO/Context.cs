@@ -11,8 +11,6 @@ namespace DAO
     {
         public DbSet<Address> address { get; set; }
 
-        public DbSet<Person> people { get; set; }
-
         public DbSet<Client> client { get; set; }
 
         public DbSet<Owner> owner { get; set; }
@@ -29,7 +27,7 @@ namespace DAO
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=JVLPC0555\SQLEXPRESS;Initial Catalog=bancotest;");
+            optionsBuilder.UseSqlServer(@"Data Source=JVLPC0555\SQLEXPRESS;Initial Catalog=marketplace; Integrated Security = True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -54,7 +52,7 @@ namespace DAO
                 entity.Property(e => e.phone).IsRequired();
                 entity.Property(e => e.login).IsRequired();
                 entity.Property(e => e.password).IsRequired();
-                entity.Property(e => e.address).IsRequired();
+                entity.HasOne(e => e.address);
             });
 
             modelBuilder.Entity<Owner>(entity =>
@@ -66,7 +64,7 @@ namespace DAO
                 entity.Property(e => e.phone).IsRequired();
                 entity.Property(e => e.login).IsRequired();
                 entity.Property(e => e.password).IsRequired();
-                entity.Property(e => e.address).IsRequired();
+                entity.HasOne(e => e.address);
             });
           
             modelBuilder.Entity<Product>(entity =>
@@ -95,6 +93,7 @@ namespace DAO
 
             modelBuilder.Entity<WishList>(entity =>
             {
+                entity.HasKey(e => e.id);
                 entity.HasOne(e => e.client);
                 entity.HasOne(e => e.product);
             });
