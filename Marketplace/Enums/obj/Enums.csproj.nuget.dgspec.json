@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj": {}
   },
   "projects": {
-    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj": {
+    "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj",
         "projectName": "Enums",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
