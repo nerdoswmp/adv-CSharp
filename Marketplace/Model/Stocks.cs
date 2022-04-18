@@ -11,9 +11,18 @@ namespace Model
     public class Stocks : IValidateDataObject<Stocks>, IDataController<StocksDTO, Stocks>
     {
         private int quantity;
+        private double unit_price;
         private Store store;
         private Product product;
 
+        public double getUnit_price()
+        {
+            return unit_price;
+        }
+        public void setUnit_price(double unit_price)
+        {
+            this.unit_price = unit_price;
+        }
         public int getQuantity()
         {
             return quantity;

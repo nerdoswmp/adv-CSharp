@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
 using DTO;
+using DAO;
 
 namespace Model
 {
     public class Product : IValidateDataObject<Product>, IDataController<ProductDTO, Product>
     {
-        private string name;
-        private double unit_price;
+        private string name;       
         private string bar_code;
+        private List<ProductDTO> products;
 
         public string getName()
         {
@@ -21,14 +22,6 @@ namespace Model
         public void setName(string Name)
         {
             this.name = Name;
-        }
-        public double getUnitprice()
-        {
-            return unit_price;
-        }
-        public void setUnitPrice(double Unit_price)
-        {
-            this.unit_price = Unit_price;
         }
         public string getBarCode()
         {
@@ -43,11 +36,7 @@ namespace Model
             if(obj.name == null)
             {
                 return false;
-            }
-            if(obj.unit_price <= 0)
-            {
-                return false;
-            }
+            }           
             if(obj.bar_code == null)
             {
                 return false;
@@ -57,26 +46,45 @@ namespace Model
 
         public ProductDTO convertModelToDTO()
         {
-            var prdto = new ProductDTO();
-            return prdto;
+            var productDTO = new ProductDTO();
+            productDTO.name = this.name;
+            productDTO.barCode = this.bar_code;
+            return productDTO;
+        }
+
+        public static Product convertDTOToModel(ProductDTO obj)
+        {
+            Product product = new Product();
+            product.setName(obj.name);
+            product.setBarCode(obj.barCode);        
+            return product;
         }
 
         public ProductDTO findById(int id)
         {
-            var prdto = new ProductDTO();
-            return prdto;
+            return new ProductDTO();
         }
 
         public List<ProductDTO> getAll()
         {
-            var list = new List<ProductDTO>();
-            return list;
+            return this.products;
         }
 
         public int save()
         {
-            int a = 1;
-            return a;
+            var id = 0;
+            using(var context = new AppDbContext())
+            {
+                var product = new DAO.Product
+                {                    
+                    name = this.name,
+                    bar_code = this.bar_code
+                };
+                context.product.Add(product);
+                context.SaveChanges();
+                id = product.id;
+            }
+            return id;
         }
 
         public void update(ProductDTO obj)
