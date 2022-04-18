@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testesAutomatizados", "test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO", "DAO\DAO.csproj", "{000572D9-3AFF-4433-92FC-D22748730EDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleProj", "ConsoleProj\ConsoleProj.csproj", "{5CBFB3FB-18DC-4D2A-A46B-D2D89E4EA363}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleProj", "ConsoleProj\ConsoleProj.csproj", "{5CBFB3FB-18DC-4D2A-A46B-D2D89E4EA363}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +56,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F80E9E3A-CDF1-4689-AEED-F0EF7A31D00F}
+		SolutionGuid = {1F6B74B5-F200-4D93-99B8-24A773CE5C47}
 	EndGlobalSection
 EndGlobal

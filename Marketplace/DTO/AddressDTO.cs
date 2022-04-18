@@ -12,6 +12,6 @@ namespace DTO
         public string city;
         public string state;
         public string country;
-        public string postalCode;
+        public string postal_code;
     }
 }
