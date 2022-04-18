@@ -41,6 +41,7 @@ namespace DAO
                 entity.Property(e => e.state).IsRequired();
                 entity.Property(e => e.country).IsRequired();
                 entity.Property(e => e.poste_code).IsRequired();
+                entity.Property(e => e.street).IsRequired();
             });
 
             modelBuilder.Entity<Client>(entity =>
@@ -71,8 +72,7 @@ namespace DAO
             {
                 entity.HasKey(e => e.id);
                 entity.Property(e => e.name).IsRequired();
-                entity.Property(e => e.bar_code).IsRequired();
-                entity.Property(e => e.unit_price).IsRequired();                  
+                entity.Property(e => e.bar_code).IsRequired();                               
             });         
 
             modelBuilder.Entity<Store>(entity =>
@@ -87,6 +87,7 @@ namespace DAO
             {
                 entity.HasKey(e => e.id);
                 entity.Property(e => e.quantity).IsRequired();
+                entity.Property(e => e.unit_price).IsRequired();
                 entity.HasOne(e => e.product);
                 entity.HasOne(e => e.store);
             });

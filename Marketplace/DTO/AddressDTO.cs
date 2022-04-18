@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Interfaces;
 
-namespace DAO
+namespace DTO
 {
-    public class Address {         
-        public int id;
+    public class AddressDTO
+    {
+        public string street;
         public string city;
         public string state;
         public string country;
-        public string poste_code;
-        public string street;
+        public string postalCode;
     }
 }
