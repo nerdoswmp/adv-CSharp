@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
+using DTO;
 
 namespace Model
 {
-    public class Owner : Person, IValidateDataObject<Owner>, IDataController<Owner, OwnerDTO>
+    public class Owner : Person, IValidateDataObject<Owner>, IDataController<OwnerDTO, Owner>
     {
         private static Owner instance;
 
@@ -54,9 +55,39 @@ namespace Model
             return true;
         }
 
-        public Owner convertModelToDTO()
+        public OwnerDTO convertModelToDTO()
         {
-            return this;
+            var addto = new OwnerDTO();
+            return addto;
         }
+
+        public OwnerDTO findById(int id)
+        {
+            var owdto = new OwnerDTO();
+            return owdto;
+        }
+
+        public List<OwnerDTO> getAll()
+        {
+            var list = new List<OwnerDTO>();
+            return list;
+        }
+
+        public int save()
+        {
+            int a = 1;
+            return a;
+        }
+
+        public void update(OwnerDTO obj)
+        {
+
+        }
+
+        public void delete(OwnerDTO obj)
+        {
+
+        }
+
     }
 }

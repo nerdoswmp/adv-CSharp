@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
 using Enums;
+using DTO;
+
 namespace Model
 {
-    public class Purchase : IValidateDataObject<Purchase>, IDataController<Purchase, PurchaseDTO>
+    public class Purchase : IValidateDataObject<Purchase>, IDataController<PurchaseDTO, Purchase>
     {
         private DateTime dataPurchase;
         private double purchase_value;
@@ -111,9 +113,39 @@ namespace Model
             this.purchaseStatus = purchaseStatusEnum;
         }
 
-        public Purchase convertModelToDTO()
+        public PurchaseDTO convertModelToDTO()
         {
-            return this;
+            var pudto = new PurchaseDTO();
+            return pudto;
         }
+
+        public PurchaseDTO findById(int id)
+        {
+            var pudto = new PurchaseDTO();
+            return pudto;
+        }
+
+        public List<PurchaseDTO> getAll()
+        {
+            var list = new List<PurchaseDTO>();
+            return list;
+        }
+
+        public int save()
+        {
+            int a = 1;
+            return a;
+        }
+
+        public void update(PurchaseDTO obj)
+        {
+
+        }
+
+        public void delete(PurchaseDTO obj)
+        {
+
+        }
+
     }
 }

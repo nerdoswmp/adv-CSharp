@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
+using DTO;
+
 namespace Model
 {
-    public class Product : IValidateDataObject<Product>, IDataController<Product, ProductDTO>
+    public class Product : IValidateDataObject<Product>, IDataController<ProductDTO, Product>
     {
         private string name;
         private double unit_price;
@@ -53,9 +55,39 @@ namespace Model
             return true;
         }
 
-        public Product convertModelToDTO()
+        public ProductDTO convertModelToDTO()
         {
-            return this;
+            var prdto = new ProductDTO();
+            return prdto;
         }
+
+        public ProductDTO findById(int id)
+        {
+            var prdto = new ProductDTO();
+            return prdto;
+        }
+
+        public List<ProductDTO> getAll()
+        {
+            var list = new List<ProductDTO>();
+            return list;
+        }
+
+        public int save()
+        {
+            int a = 1;
+            return a;
+        }
+
+        public void update(ProductDTO obj)
+        {
+
+        }
+
+        public void delete(ProductDTO obj)
+        {
+
+        }
+
     }
 }

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
+using DTO;
 
 namespace Model
 {
-    public class Address : IValidateDataObject<Address>, IDataController<Address, AddressDTO>
+    public class Address : IValidateDataObject<Address>, IDataController<AddressDTO, Address>
     {
         // vars
         private string street;
@@ -99,9 +100,39 @@ namespace Model
             return false;
         }
 
-        public Address convertModelToDTO() 
+        public AddressDTO convertModelToDTO() 
         {
-            return this;
+            var addto = new AddressDTO();
+            return addto;
         }
+
+        public AddressDTO findById(int id)
+        {
+            var addto = new AddressDTO();
+            return addto;
+        }
+
+        public List<AddressDTO> getAll()
+        {
+            var list = new List<AddressDTO>();
+            return list;
+        }
+
+        public int save()
+        {
+            int a = 1;
+            return a; 
+        }
+
+        public void update(AddressDTO obj)
+        {
+
+        }
+
+        public void delete(AddressDTO obj)
+        {
+
+        }
+
     }
 }

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
+using DTO;
+
 namespace Model
 {
-    public class WishList : IValidateDataObject<WishList>, IDataController<WishList, WishListDTO>
+    public class WishList : IValidateDataObject<WishList>, IDataController<WishListDTO, WishList>
     {
         private Client client;
         private List<Product> products = new List<Product>();
@@ -43,9 +45,39 @@ namespace Model
             
         }
 
-        public WishList convertModelToDTO()
+        public WishListDTO convertModelToDTO()
         {
-            return this;
+            var widto = new WishListDTO();
+            return widto;
         }
-    }    
+
+        public WishListDTO findById(int id)
+        {
+            var widto = new WishListDTO();
+            return widto;
+        }
+
+        public List<WishListDTO> getAll()
+        {
+            var list = new List<WishListDTO>();
+            return list;
+        }
+
+        public int save()
+        {
+            int a = 1;
+            return a;
+        }
+
+        public void update(WishListDTO obj)
+        {
+
+        }
+
+        public void delete(WishListDTO obj)
+        {
+
+        }
+
+    }
 }

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
+using DTO;
+
 namespace Model
 {
-    public class Store : IValidateDataObject<Store>, IDataController<Store, StoreDTO>
+    public class Store : IValidateDataObject<Store>, IDataController<StoreDTO, Store>
     {
         private string name;
         private string CNPJ;         
@@ -70,10 +72,40 @@ namespace Model
             
         }
 
-        public Store convertModelToDTO()
+        public StoreDTO convertModelToDTO()
         {
-            return this;
+            var stodto = new StoreDTO();
+            return stodto;
         }
+
+        public StoreDTO findById(int id)
+        {
+            var stodto = new StoreDTO();
+            return stodto;
+        }
+
+        public List<StoreDTO> getAll()
+        {
+            var list = new List<StoreDTO>();
+            return list;
+        }
+
+        public int save()
+        {
+            int a = 1;
+            return a;
+        }
+
+        public void update(StoreDTO obj)
+        {
+
+        }
+
+        public void delete(StoreDTO obj)
+        {
+
+        }
+
 
     }
 }
