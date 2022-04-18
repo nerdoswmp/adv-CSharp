@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DTO
+{
+    public class StocksDTO
+    {
+        public double quantity;
+        public double unit_Price;
+        public StoreDTO store;
+        public ProductDTO product;
+    }
+}
