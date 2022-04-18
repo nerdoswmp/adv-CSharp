@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HaU50yAbDd2DvRitp08Gvk0AUwZvTwSHaP3cfSfnfAu9/zEhQVvHPWmthHeGAqNg8Lqp1ccz+JUARRMSM9t5WA==",
+  "dgSpecHash": "j7crP+mUHqRr0h1xsJMXTIOA+dg0Klfse29SK7oN3UESOcLetgjkG8R2HC6lXsuhvM+Qn4XfxS40QZTlShhPbA==",
   "success": true,
   "projectFilePath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj",
   "expectedPackageFiles": [
@@ -48,5 +48,12 @@
     "C:\\Users\\disrct\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

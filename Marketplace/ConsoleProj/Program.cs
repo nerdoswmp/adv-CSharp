@@ -14,7 +14,7 @@ context.Database.EnsureCreated();
 
 context.client.Add(new Client
 {
-    address = new Address { city = "Curitiba", state = "Paraná", country = "Brasil", poste_code = "81330-480" },
+    address = new Address { city = "Curitiba", state = "Paraná", country = "Brasil", postal_code = "81330-480" },
     email = "marceloalmeida12@email.com",
     phone = "41993822733",
     name = "marcelo",
@@ -31,7 +31,7 @@ context.client.Add(new Client
         city = "Araucária",
         state = "Paraná",
         country = "Brasil",
-        poste_code = "80010-110"
+        postal_code = "80010-110"
     },
     email = "leosique2@email.com",
     phone = "41991830115",

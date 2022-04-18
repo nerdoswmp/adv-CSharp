@@ -4,6 +4,7 @@
     <ProjectReference Include="..\Enums\Enums.csproj" />
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
 	  <ProjectReference Include="..\DTO\DTO.csproj" />
+	  <ProjectReference Include="..\DAO\DAO.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -40,7 +40,7 @@ namespace DAO
                 entity.Property(e => e.city).IsRequired();
                 entity.Property(e => e.state).IsRequired();
                 entity.Property(e => e.country).IsRequired();
-                entity.Property(e => e.poste_code).IsRequired();
+                entity.Property(e => e.postal_code).IsRequired();
                 entity.Property(e => e.street).IsRequired();
             });
 

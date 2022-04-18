@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
 using DTO;
+using DAO;
 
 namespace Model
 {
@@ -15,16 +16,18 @@ namespace Model
         private string city;
         private string state;
         private string country;
-        private string poste_code;
+        private string postal_code;
+
+        public List<AddressDTO> addressDTO = new List<AddressDTO>();
 
         // Construtor
-        public Address(string street, string city, string state, string country, string poste_code)
+        public Address(string street, string city, string state, string country, string postal_code)
         {
             this.street = street;
             this.city = city;
             this.state = state;
             this.country = country;
-            this.poste_code = poste_code;
+            this.postal_code = postal_code;
         }
 
         public Address() { }
@@ -72,12 +75,12 @@ namespace Model
 
         public void setPostalCode(string poste_code)
         {
-            this.poste_code = poste_code;
+            this.postal_code = poste_code;
         }
 
         public string getPostalCode()
         {
-            return this.poste_code;
+            return this.postal_code;
         }
             
         public bool validateObject(Address obj)
@@ -94,10 +97,15 @@ namespace Model
             if (obj.country == null)
                 return false;
 
-            if (obj.poste_code == null)
+            if (obj.postal_code == null)
                 return false;
 
             return false;
+        }
+
+        public static Address convertDTOToModel(AddressDTO obj)
+        {
+            return new Address(obj.street, obj.city, obj.state, obj.country, obj.postal_code);
         }
 
         public AddressDTO convertModelToDTO() 
@@ -120,7 +128,21 @@ namespace Model
 
         public int save()
         {
-            int a = 1;
+            int id = 0;
+            using (var context = new AppDbContext())
+            {
+                var address = new DAO.Address
+                {
+                    street = this.street,
+                    city = this.city,
+                    state = this.state,
+                    country = this.country,
+                    postal_code = this.postal_code
+                };
+
+                context.address.Add(address);
+            }
+
             return a; 
         }
 

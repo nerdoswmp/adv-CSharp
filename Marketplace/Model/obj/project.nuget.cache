@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5WcKh2MvKnsWx/LB6yhR6UK2yUHSGYrRjruieT1vh1bifdbItWGscRo4mcOdMRV2KUpCTbUa7A0+Y9waOSb4mw==",
+  "dgSpecHash": "sBP7P3P1J11gUzDH40XniEkjpyRJGy8ELHsguSExkSO2eVbmnOsfimCHm/UPlherHp4xHtqzH2/LsJMC8dmNaQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Model\\Model.csproj",
   "expectedPackageFiles": [
@@ -48,5 +48,12 @@
     "C:\\Users\\disrct\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Model\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

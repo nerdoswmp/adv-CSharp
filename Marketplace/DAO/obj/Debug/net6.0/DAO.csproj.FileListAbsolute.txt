@@ -8,8 +8,6 @@ C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\bin\Debug\net6.0\DAO.dll
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\bin\Debug\net6.0\DAO.pdb
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\bin\Debug\net6.0\Enums.dll
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\bin\Debug\net6.0\Interfaces.dll
-C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\bin\Debug\net6.0\Model.dll
-C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\bin\Debug\net6.0\Model.pdb
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\bin\Debug\net6.0\Enums.pdb
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\bin\Debug\net6.0\Interfaces.pdb
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\DAO\obj\Debug\net6.0\DAO.csproj.CopyComplete
