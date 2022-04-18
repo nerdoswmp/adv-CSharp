@@ -7,7 +7,7 @@ using Interfaces;
 
 namespace Model
 {
-    public class Client : Person, IValidateDataObject<Client>
+    public class Client : Person, IValidateDataObject<Client>, IDataController<Client, ClientDTO>
     {
         private static Client instance;
 
@@ -52,6 +52,11 @@ namespace Model
                 return false;
 
             return true;
+        }
+
+        public Client convertModelToDTO()
+        {
+            return this;
         }
     }
 }

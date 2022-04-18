@@ -7,13 +7,13 @@ using Interfaces;
 
 namespace Model
 {
-    public class Owner : Person, IValidateDataObject<Owner>
+    public class Owner : Person, IValidateDataObject<Owner>, IDataController<Owner, OwnerDTO>
     {
         private static Owner instance;
 
         private Guid uuid = Guid.NewGuid();
 
-        public Owner(Address address):base(address)
+        public Owner(Address address) : base(address)
         { }
 
         public static Owner getInstance(Address address)
@@ -52,6 +52,11 @@ namespace Model
                 return false;
 
             return true;
+        }
+
+        public Owner convertModelToDTO()
+        {
+            return this;
         }
     }
 }

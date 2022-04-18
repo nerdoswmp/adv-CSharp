@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 namespace Model
 {
-    public class Product : IValidateDataObject<Product>
+    public class Product : IValidateDataObject<Product>, IDataController<Product, ProductDTO>
     {
         private string name;
         private double unit_price;
@@ -51,6 +51,11 @@ namespace Model
                 return false;
             }
             return true;
+        }
+
+        public Product convertModelToDTO()
+        {
+            return this;
         }
     }
 }

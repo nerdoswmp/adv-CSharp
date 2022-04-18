@@ -7,7 +7,7 @@ using Interfaces;
 using Enums;
 namespace Model
 {
-    public class Purchase : IValidateDataObject<Purchase>
+    public class Purchase : IValidateDataObject<Purchase>, IDataController<Purchase, PurchaseDTO>
     {
         private DateTime dataPurchase;
         private double purchase_value;
@@ -109,6 +109,11 @@ namespace Model
         public void updateStatus(int purchaseStatusEnum)
         {
             this.purchaseStatus = purchaseStatusEnum;
+        }
+
+        public Purchase convertModelToDTO()
+        {
+            return this;
         }
     }
 }

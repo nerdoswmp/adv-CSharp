@@ -7,7 +7,7 @@ using Interfaces;
 
 namespace Model
 {
-    public class Address : IValidateDataObject<Address>
+    public class Address : IValidateDataObject<Address>, IDataController<Address, AddressDTO>
     {
         // vars
         private string street;
@@ -97,6 +97,11 @@ namespace Model
                 return false;
 
             return false;
+        }
+
+        public Address convertModelToDTO() 
+        {
+            return this;
         }
     }
 }

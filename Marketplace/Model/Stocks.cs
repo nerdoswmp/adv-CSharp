@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 namespace Model
 {
-    public class Stocks : IValidateDataObject<Stocks>
+    public class Stocks : IValidateDataObject<Stocks>, IDataController<Stocks, StocksDTO>
     {
         private int quantity;
         private Store store;
@@ -53,6 +53,11 @@ namespace Model
             }
             return true;
             
+        }
+
+        public Stocks convertModelToDTO()
+        {
+            return this;
         }
     }
 }

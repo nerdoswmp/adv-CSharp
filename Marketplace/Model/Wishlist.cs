@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 namespace Model
 {
-    public class WishList : IValidateDataObject<WishList>
+    public class WishList : IValidateDataObject<WishList>, IDataController<WishList, WishListDTO>
     {
         private Client client;
         private List<Product> products = new List<Product>();
@@ -42,6 +42,10 @@ namespace Model
             return true;
             
         }
-        
+
+        public WishList convertModelToDTO()
+        {
+            return this;
+        }
     }    
 }
