@@ -11,7 +11,8 @@ namespace DAO
     public class Purchase
     {
         public int id;
-        public DateTime dataPurchase;        
+        public DateTime dataPurchase;
+        public double purchase_value;
         public string number_confirmation;
         public string number_nf;        
         public int payment_type;

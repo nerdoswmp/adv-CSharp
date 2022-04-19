@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 using Enums;
 using DTO;
+using DAO;
 
 namespace Model
 {
@@ -17,6 +18,7 @@ namespace Model
         private string number_nf;
         private Client client;
         private List<Product> products = new List<Product>();
+        private List<PurchaseDTO> purchaseDTO = new List<PurchaseDTO>();
         private Store store;
         private int payment_type;
         private int purchaseStatus;
@@ -115,26 +117,58 @@ namespace Model
 
         public PurchaseDTO convertModelToDTO()
         {
-            var pudto = new PurchaseDTO();
-            return pudto;
+            var purchaseDTO = new PurchaseDTO();
+            purchaseDTO.data_Purchase = this.dataPurchase;
+            purchaseDTO.number_Confirmation = this.number_confirmation;
+            purchaseDTO.number_Nf = this.number_nf;
+            purchaseDTO.payment_Type = this.payment_type;
+            purchaseDTO.purchase_Status = this.purchaseStatus;
+            purchaseDTO.purchase_Value = this.purchase_value;
+            return purchaseDTO; 
+        }
+
+        public static Purchase convertDTOToModel(PurchaseDTO obj)
+        {
+            Purchase purchase = new Purchase();
+            purchase.setDataPurchase(obj.data_Purchase);
+            purchase.setNumberConfirmation(obj.number_Confirmation);
+            purchase.setNumberNf(obj.number_Nf);
+            purchase.setPurchase_value(obj.purchase_Value);
+            purchase.setPaymentType((PaymentEnum)obj.payment_Type);
+            purchase.setPurchaseStatus((PurchaseStatusEnum)obj.purchase_Status);
+
+            return purchase;
         }
 
         public PurchaseDTO findById(int id)
         {
-            var pudto = new PurchaseDTO();
-            return pudto;
+            return new PurchaseDTO();
         }
 
         public List<PurchaseDTO> getAll()
         {
-            var list = new List<PurchaseDTO>();
-            return list;
+            return this.purchaseDTO;
         }
 
         public int save()
         {
-            int a = 1;
-            return a;
+            var id = 0;
+            using(var context = new AppDbContext())
+            {
+                var purchase = new DAO.Purchase
+                {
+                    dataPurchase = this.dataPurchase,
+                    number_confirmation = this.number_confirmation,
+                    number_nf = this.number_nf,
+                    purchase_value = this.purchase_value,
+                    purchaseStatus = this.purchaseStatus,
+                    payment_type = this.payment_type                    
+                };
+                context.purchases.Add(purchase);
+                context.SaveChanges();
+                id = purchase.id;
+            }
+            return id;
         }
 
         public void update(PurchaseDTO obj)
