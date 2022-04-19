@@ -8,7 +8,7 @@ namespace DTO
 {
     public class StocksDTO
     {
-        public double quantity;
+        public int quantity;
         public double unit_Price;
         public StoreDTO store;
         public ProductDTO product;
