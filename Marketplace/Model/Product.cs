@@ -43,33 +43,28 @@ namespace Model
             }
             return true;
         }
-
         public ProductDTO convertModelToDTO()
         {
             var productDTO = new ProductDTO();
             productDTO.name = this.name;
-            productDTO.barCode = this.bar_code;
+            productDTO.barCode = this.bar_code;            
             return productDTO;
         }
-
         public static Product convertDTOToModel(ProductDTO obj)
         {
             Product product = new Product();
             product.setName(obj.name);
-            product.setBarCode(obj.barCode);        
+            product.setBarCode(obj.barCode);                        
             return product;
         }
-
         public ProductDTO findById(int id)
         {
             return new ProductDTO();
         }
-
         public List<ProductDTO> getAll()
         {
             return this.products;
         }
-
         public int save()
         {
             var id = 0;
@@ -86,16 +81,7 @@ namespace Model
             }
             return id;
         }
-
-        public void update(ProductDTO obj)
-        {
-
-        }
-
-        public void delete(ProductDTO obj)
-        {
-
-        }
-
+        public void update(ProductDTO obj){}
+        public void delete(ProductDTO obj){}
     }
 }
