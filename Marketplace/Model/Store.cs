@@ -79,6 +79,10 @@ namespace Model
             var store = new Store(Owner.convertDTOToModel(obj.owner));
             store.setCNPJ(obj.cnpj);
             store.setName(obj.name);
+            foreach (var purchase in obj.purchases)
+            {
+                store.addNewPurchase(Purchase.convertDTOToModel(purchase));
+            }
 
             return store;
         }
@@ -90,6 +94,10 @@ namespace Model
             storeDTO.name = this.name;
             storeDTO.cnpj = this.CNPJ;
             storeDTO.owner = this.owner.convertModelToDTO();
+            foreach(var purchase in this.purchases)
+            {
+                storeDTO.purchases.Add(purchase.convertModelToDTO());
+            }
 
             return storeDTO;
         }
@@ -127,7 +135,8 @@ namespace Model
                         name = this.owner.getName(),
                         phone = this.owner.getPhone(),
                         email = this.owner.getEmail(),
-                        password = this.owner.getDoc(),
+                        password = this.owner.getPassword(),
+                        document = this.owner.getDoc(),
                         date_of_birth = this.owner.getAge(),
                         login = this.owner.getLogin()
                     }

@@ -66,6 +66,7 @@ namespace Model
             owner.setEmail(obj.email);
             owner.setPhone(obj.phone);
             owner.setDoc(obj.document);
+            owner.setPassword(obj.password);
             owner.setLogin(obj.login);
             owner.setName(obj.name);
 
@@ -79,6 +80,7 @@ namespace Model
             ownerDTO.name = this.name;
             ownerDTO.phone = this.phone;
             ownerDTO.document = this.document;
+            ownerDTO.password = this.password;
             ownerDTO.login = this.login;
             ownerDTO.email = this.email;
             ownerDTO.dateOfBirth = this.date_of_birth;
@@ -115,7 +117,8 @@ namespace Model
                     name = this.name,
                     phone = this.phone,
                     email = this.email,
-                    password = this.document,
+                    password = this.password,
+                    document = this.document,
                     date_of_birth = this.date_of_birth,
                     login = this.login
                 };

@@ -65,6 +65,7 @@ namespace Model
             client.setEmail(obj.email);
             client.setPhone(obj.phone);
             client.setDoc(obj.document);
+            client.setPassword(obj.password);
             client.setLogin(obj.login);
             client.setName(obj.name);
             
@@ -78,6 +79,7 @@ namespace Model
             clientDTO.name = this.name;
             clientDTO.phone = this.phone;
             clientDTO.document = this.document;
+            clientDTO.password = this.password;
             clientDTO.login = this.login;
             clientDTO.email = this.email;
             clientDTO.dateOfBirth = this.date_of_birth;
@@ -114,7 +116,8 @@ namespace Model
                     name = this.name,
                     phone = this.phone,
                     email = this.email,
-                    password = this.document,
+                    password = this.password,
+                    document = this.document,
                     date_of_birth = this.date_of_birth,
                     login = this.login
                 };
