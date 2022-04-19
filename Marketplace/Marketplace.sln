@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{9A23C5D1-CA29-4717-AB4F-A65E0D9A7847}"
+	ProjectSection(ProjectDependencies) = postProject
+		{000572D9-3AFF-4433-92FC-D22748730EDA} = {000572D9-3AFF-4433-92FC-D22748730EDA}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enums", "Enums\Enums.csproj", "{39C0085E-2C7A-4952-888B-C8499AB25655}"
 EndProject
@@ -14,6 +17,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testesAutomatizados", "testesAutomatizados\testesAutomatizados.csproj", "{9F898192-5B18-44F8-A584-C3D19CE141D2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO", "DAO\DAO.csproj", "{000572D9-3AFF-4433-92FC-D22748730EDA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A4A4CF5E-4444-474C-BD79-5DE94EF4A2B8} = {A4A4CF5E-4444-474C-BD79-5DE94EF4A2B8}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleProj", "ConsoleProj\ConsoleProj.csproj", "{5CBFB3FB-18DC-4D2A-A46B-D2D89E4EA363}"
 EndProject

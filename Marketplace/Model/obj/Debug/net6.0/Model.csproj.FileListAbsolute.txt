@@ -39,3 +39,7 @@ C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\Model\bin\Debug\net6.0\Model.ru
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\Model\obj\Debug\net6.0\Model.genruntimeconfig.cache
 C:\Users\disrct\Desktop\Marketplace\Marketplace\Model\bin\Debug\net6.0\Model.runtimeconfig.json
 C:\Users\disrct\Desktop\Marketplace\Marketplace\Model\obj\Debug\net6.0\Model.genruntimeconfig.cache
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\Model\bin\Debug\net6.0\DAO.dll
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\Model\bin\Debug\net6.0\DTO.dll
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\Model\bin\Debug\net6.0\DTO.pdb
+C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\Model\bin\Debug\net6.0\DAO.pdb

@@ -73,9 +73,9 @@ namespace Model
             return this.country;
         }
 
-        public void setPostalCode(string poste_code)
+        public void setPostalCode(string postal_code)
         {
-            this.postal_code = poste_code;
+            this.postal_code = postal_code;
         }
 
         public string getPostalCode()
@@ -110,20 +110,24 @@ namespace Model
 
         public AddressDTO convertModelToDTO() 
         {
-            var addto = new AddressDTO();
-            return addto;
+            var addressDTO = new AddressDTO();
+
+            addressDTO.street = this.street;
+            addressDTO.city = this.city;
+            addressDTO.state = this.state;
+            addressDTO.country = this.country;
+            addressDTO.postal_code = this.postal_code;
+            return addressDTO;
         }
 
         public AddressDTO findById(int id)
         {
-            var addto = new AddressDTO();
-            return addto;
+            return new AddressDTO();
         }
 
         public List<AddressDTO> getAll()
         {
-            var list = new List<AddressDTO>();
-            return list;
+            return this.addressDTO;
         }
 
         public int save()
@@ -141,9 +145,13 @@ namespace Model
                 };
 
                 context.address.Add(address);
+
+                context.SaveChanges();
+
+                id = address.id;
             }
 
-            return a; 
+            return id; 
         }
 
         public void update(AddressDTO obj)

@@ -46,11 +46,9 @@ C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\bin\Debug\net6.0\ru
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\bin\Debug\net6.0\DAO.dll
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\bin\Debug\net6.0\Enums.dll
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\bin\Debug\net6.0\Interfaces.dll
-C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\bin\Debug\net6.0\Model.dll
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\bin\Debug\net6.0\DAO.pdb
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\bin\Debug\net6.0\Enums.pdb
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\bin\Debug\net6.0\Interfaces.pdb
-C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\bin\Debug\net6.0\Model.pdb
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\obj\Debug\net6.0\ConsoleProj.csproj.AssemblyReference.cache
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\obj\Debug\net6.0\ConsoleProj.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\disrct\Desktop\adv-CSharp-1\Marketplace\ConsoleProj\obj\Debug\net6.0\ConsoleProj.AssemblyInfoInputs.cache

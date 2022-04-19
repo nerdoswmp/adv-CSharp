@@ -17,6 +17,7 @@ namespace Model
         protected string login;
         protected Address address;
 
+
         // Construtor
         public Person(Address address)
         {

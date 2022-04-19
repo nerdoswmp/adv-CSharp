@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
 using DTO;
+using DAO;
 
 namespace Model
 {
@@ -15,6 +16,7 @@ namespace Model
         private Owner owner;
         private List<Purchase> purchases = new List<Purchase>();
 
+        public List<StoreDTO> storeDTO = new List<StoreDTO>();
 
         public string getName()
         {
@@ -72,28 +74,73 @@ namespace Model
             
         }
 
+        public static Store convertDTOToModel(StoreDTO obj)
+        {
+            var store = new Store(Owner.convertDTOToModel(obj.owner));
+            store.setCNPJ(obj.cnpj);
+            store.setName(obj.name);
+
+            return store;
+        }
+
         public StoreDTO convertModelToDTO()
         {
-            var stodto = new StoreDTO();
-            return stodto;
+            var storeDTO = new StoreDTO();
+
+            storeDTO.name = this.name;
+            storeDTO.cnpj = this.CNPJ;
+            storeDTO.owner = this.owner.convertModelToDTO();
+
+            return storeDTO;
         }
 
         public StoreDTO findById(int id)
         {
-            var stodto = new StoreDTO();
-            return stodto;
+            return new StoreDTO();
         }
 
         public List<StoreDTO> getAll()
         {
-            var list = new List<StoreDTO>();
-            return list;
+            return this.storeDTO;
         }
 
         public int save()
         {
-            int a = 1;
-            return a;
+            var id = 0;
+
+            using (var context = new AppDbContext())
+            {
+                var store = new DAO.Store
+                {
+                    name = this.name,
+                    CNPJ = this.CNPJ,
+                    owner = new DAO.Owner
+                    {
+                        address = new DAO.Address
+                        {
+                            street = this.owner.getAddress().getStreet(),
+                            city = this.owner.getAddress().getCity(),
+                            state = this.owner.getAddress().getState(),
+                            country = this.owner.getAddress().getCountry(),
+                            postal_code = this.owner.getAddress().getPostalCode()
+                        },
+                        name = this.owner.getName(),
+                        phone = this.owner.getPhone(),
+                        email = this.owner.getEmail(),
+                        password = this.owner.getDoc(),
+                        date_of_birth = this.owner.getAge(),
+                        login = this.owner.getLogin()
+                    }
+                };
+
+                context.store.Add(store);
+
+                context.SaveChanges();
+
+                id = store.id;
+            }
+
+            return id;
         }
 
         public void update(StoreDTO obj)

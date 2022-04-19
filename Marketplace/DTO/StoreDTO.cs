@@ -11,6 +11,6 @@ namespace DTO
         public string name;
         public string cnpj;
         public OwnerDTO owner;
-        public PurchaseDTO purchase;
+        public List<PurchaseDTO> purchases = new List<PurchaseDTO>();
     }
 }
