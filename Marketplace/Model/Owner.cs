@@ -48,9 +48,9 @@ namespace Model
             if (obj.address == null)
                 return false;
 
-            if (obj.date_of_birth >= DateTime.Now ||
-                    DateTime.Compare(obj.date_of_birth, new DateTime(1900, 1, 1)) < 0)
-                return false;
+            //if (obj.date_of_birth >= DateTime.Now ||
+            //        DateTime.Compare(obj.date_of_birth, new DateTime(1900, 1, 1)) < 0)
+            //    return false;
 
             if (obj.login == null)
                 return false;
@@ -66,7 +66,7 @@ namespace Model
             owner.setEmail(obj.email);
             owner.setPhone(obj.phone);
             owner.setDoc(obj.document);
-            owner.setPassword(obj.password);
+            owner.setPassword(obj.passwd);
             owner.setLogin(obj.login);
             owner.setName(obj.name);
 
@@ -80,7 +80,7 @@ namespace Model
             ownerDTO.name = this.name;
             ownerDTO.phone = this.phone;
             ownerDTO.document = this.document;
-            ownerDTO.password = this.password;
+            ownerDTO.passwd = this.passwd;
             ownerDTO.login = this.login;
             ownerDTO.email = this.email;
             ownerDTO.dateOfBirth = this.date_of_birth;
@@ -117,7 +117,7 @@ namespace Model
                     name = this.name,
                     phone = this.phone,
                     email = this.email,
-                    password = this.password,
+                    passwd = this.passwd,
                     document = this.document,
                     date_of_birth = this.date_of_birth,
                     login = this.login

@@ -100,7 +100,7 @@ namespace Model
             if (obj.postal_code == null)
                 return false;
 
-            return false;
+            return true;
         }
 
         public static Address convertDTOToModel(AddressDTO obj)

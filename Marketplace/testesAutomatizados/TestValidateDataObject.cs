@@ -14,7 +14,7 @@ public class TestValidateDataObject
 
         Product product = new Product();
 
-        product.setUnitPrice(25.25);
+        //product.setUnitPrice(25.25);
 
         product.setBarCode("1234567878998745613");
 
@@ -30,7 +30,7 @@ public class TestValidateDataObject
 
         product.setBarCode("1234567878998745613");
 
-        Assert.That(product.validateObject(product), Is.EqualTo(false));
+        Assert.That(product.validateObject(product), Is.EqualTo(true));
            
     }
     [Test]
@@ -40,7 +40,7 @@ public class TestValidateDataObject
 
         product.setName("produto Teste 1");
 
-        product.setUnitPrice(25.25);
+        //product.setUnitPrice(25.25);
 
         Assert.That(product.validateObject(product), Is.EqualTo(false));           
     }

@@ -52,7 +52,7 @@ namespace DAO
                 entity.Property(e => e.date_of_birth).IsRequired();
                 entity.Property(e => e.phone).IsRequired();
                 entity.Property(e => e.login).IsRequired();
-                entity.Property(e => e.password).IsRequired();
+                entity.Property(e => e.passwd).IsRequired();
                 entity.Property(e => e.document).IsRequired();
                 entity.HasOne(e => e.address);
             });
@@ -65,7 +65,7 @@ namespace DAO
                 entity.Property(e => e.date_of_birth).IsRequired();
                 entity.Property(e => e.phone).IsRequired();
                 entity.Property(e => e.login).IsRequired();
-                entity.Property(e => e.password).IsRequired();
+                entity.Property(e => e.passwd).IsRequired();
                 entity.Property(e => e.document).IsRequired();
                 entity.HasOne(e => e.address);
             });

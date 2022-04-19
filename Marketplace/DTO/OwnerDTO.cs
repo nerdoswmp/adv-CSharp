@@ -14,7 +14,7 @@ namespace DTO
         public string email;
         public string phone;
         public string login;
-        public string password;
+        public string passwd;
         public AddressDTO address;
     }
 }

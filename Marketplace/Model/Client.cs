@@ -42,15 +42,18 @@ namespace Model
             if (obj.email == null)
                 return false;
 
+            if (obj.passwd == null)
+                return false;
+
             if (obj.document == null)
                 return false;
 
             if (obj.address == null)
                 return false;
 
-            if (obj.date_of_birth >= DateTime.Now || 
-                    DateTime.Compare(obj.date_of_birth, new DateTime(1900, 1, 1)) < 0)
-                return false;
+            //if (obj.date_of_birth >= DateTime.Now || 
+            //        DateTime.Compare(obj.date_of_birth, new DateTime(1900, 1, 1)) < 0)
+            //    return false;
 
             if (obj.login == null)
                 return false;
@@ -65,7 +68,7 @@ namespace Model
             client.setEmail(obj.email);
             client.setPhone(obj.phone);
             client.setDoc(obj.document);
-            client.setPassword(obj.password);
+            client.setPassword(obj.passwd);
             client.setLogin(obj.login);
             client.setName(obj.name);
             
@@ -79,7 +82,7 @@ namespace Model
             clientDTO.name = this.name;
             clientDTO.phone = this.phone;
             clientDTO.document = this.document;
-            clientDTO.password = this.password;
+            clientDTO.passwd = this.passwd;
             clientDTO.login = this.login;
             clientDTO.email = this.email;
             clientDTO.dateOfBirth = this.date_of_birth;
@@ -116,7 +119,7 @@ namespace Model
                     name = this.name,
                     phone = this.phone,
                     email = this.email,
-                    password = this.password,
+                    passwd = this.passwd,
                     document = this.document,
                     date_of_birth = this.date_of_birth,
                     login = this.login

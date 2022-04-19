@@ -17,11 +17,11 @@ namespace Model
         private Product product;
         private List<StocksDTO> stocks;
 
-        public double getUnit_price()
+        public double getUnitPrice()
         {
             return unit_price;
         }
-        public void setUnit_price(double unit_price)
+        public void setUnitPrice(double unit_price)
         {
             this.unit_price = unit_price;
         }
@@ -71,7 +71,7 @@ namespace Model
         {            
             Stocks stock = new Stocks();
             stock.setQuantity(obj.quantity);
-            stock.setUnit_price(obj.unit_Price);
+            stock.setUnitPrice(obj.unit_Price);
             stock.setStore(Store.convertDTOToModel(obj.store));
             stock.setProduct(Product.convertDTOToModel(obj.product));
             return stock;

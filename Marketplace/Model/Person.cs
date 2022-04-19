@@ -11,7 +11,7 @@ namespace Model
         // Vars
         protected string name;
         protected DateTime date_of_birth;
-        protected string password;
+        protected string passwd;
         protected string document;
         protected string email;
         protected string phone;
@@ -58,12 +58,12 @@ namespace Model
 
         public void setPassword(string password)
         {
-            this.password = password;
+            this.passwd = password;
         }
 
         public string getPassword()
         {
-            return this.password;
+            return this.passwd;
         }
 
         public void setEmail(string email)

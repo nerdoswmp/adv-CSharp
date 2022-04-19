@@ -19,7 +19,7 @@ context.client.Add(new Client
     phone = "41993822733",
     name = "marcelo",
     date_of_birth = new DateTime(1998, 10, 14),
-    password = "coxinha123",
+    passwd = "coxinha123",
     document = "152.948.770-66",
     login = "xX_Marcelo_Xx"
 
@@ -39,7 +39,7 @@ context.client.Add(new Client
     phone = "41991830115",
     name = "leo",
     date_of_birth = new DateTime(2005, 12, 13),
-    password = "astra_zeneka",
+    passwd = "astra_zeneka",
     document = "562.095.300-95",
     login = "LeoZique"
 
