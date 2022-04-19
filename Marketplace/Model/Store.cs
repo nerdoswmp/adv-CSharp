@@ -112,38 +112,23 @@ namespace Model
             return this.storeDTO;
         }
 
-        public int save()
+        public int save(int owner)
         {
             var id = 0;
 
             using (var context = new AppDbContext())
             {
+                var ownerDAO = context.owner.Where(c => c.id == owner).Single();
+
                 var store = new DAO.Store
                 {
                     name = this.name,
                     CNPJ = this.CNPJ,
-                    owner = new DAO.Owner
-                    {
-                        address = new DAO.Address
-                        {
-                            street = this.owner.getAddress().getStreet(),
-                            city = this.owner.getAddress().getCity(),
-                            state = this.owner.getAddress().getState(),
-                            country = this.owner.getAddress().getCountry(),
-                            postal_code = this.owner.getAddress().getPostalCode()
-                        },
-                        name = this.owner.getName(),
-                        phone = this.owner.getPhone(),
-                        email = this.owner.getEmail(),
-                        password = this.owner.getPassword(),
-                        document = this.owner.getDoc(),
-                        date_of_birth = this.owner.getAge(),
-                        login = this.owner.getLogin()
-                    }
+                    owner = ownerDAO
                 };
 
                 context.store.Add(store);
-
+                context.Entry(store.owner).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
                 context.SaveChanges();
 
                 id = store.id;
