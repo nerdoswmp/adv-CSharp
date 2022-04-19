@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
 using DTO;
+using DAO;
 
 namespace Model
 {
@@ -12,6 +13,7 @@ namespace Model
     {
         private Client client;
         private List<Product> products = new List<Product>();
+        private List<WishListDTO> wishListDTO = new List<WishListDTO>();
 
         public Client getClient()
         {
@@ -46,27 +48,54 @@ namespace Model
         }
 
         public WishListDTO convertModelToDTO()
+        {            
+            var wishListDTO = new WishListDTO();
+            foreach(var product in products)
+            {
+                wishListDTO.product.products.Add(product.convertModelToDTO());
+            }
+            wishListDTO.client = this.client.convertModelToDTO();
+            return wishListDTO;
+        }
+
+        public static WishList convertDTOToModel(WishListDTO obj)
         {
-            var widto = new WishListDTO();
-            return widto;
+            var wishList = new WishList(Client.convertDTOToModel(obj.client));
+            foreach(var product in obj.product.products)
+            {
+                wishList.addProductToWishList(Product.convertDTOToModel(product));
+            }
+            return wishList;
         }
 
         public WishListDTO findById(int id)
         {
-            var widto = new WishListDTO();
-            return widto;
+            return new WishListDTO();
         }
 
         public List<WishListDTO> getAll()
         {
-            var list = new List<WishListDTO>();
-            return list;
+            return this.wishListDTO;
         }
 
-        public int save()
+        public int save(int client, int product)
         {
-            int a = 1;
-            return a;
+            var id = 0;
+            using(var context = new AppDbContext())
+            {
+                var wishList = new DAO.WishList
+                {
+                    client = context.client.Where(c => c.id == client).Single(),
+                    product = context.product.Where(c => c.id == product).Single()
+                };
+                context.wishList.Add(wishList);
+                context.Entry(wishList.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                context.Entry(wishList.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                context.SaveChanges();
+
+                id = wishList.id;
+            }
+            return id;
         }
 
         public void update(WishListDTO obj)

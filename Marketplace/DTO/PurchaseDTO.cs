@@ -14,6 +14,8 @@ namespace DTO
         public int purchase_Status;
         public string number_Confirmation;
         public string number_Nf;
+        public ClientDTO clientDTO;
+        public StoreDTO storeDTO;
         public ProductDTO product;
     }
 }

@@ -10,5 +10,6 @@ namespace DTO
     {
         public string name;
         public string barCode;
+        public List<ProductDTO> products;
     }
 }

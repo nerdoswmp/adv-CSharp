@@ -13,15 +13,20 @@ namespace Model
     public class Purchase : IValidateDataObject<Purchase>, IDataController<PurchaseDTO, Purchase>
     {
         private DateTime dataPurchase;
-        private double purchase_value;
         private string number_confirmation;
-        private string number_nf;
-        private Client client;
-        private List<Product> products = new List<Product>();
-        private List<PurchaseDTO> purchaseDTO = new List<PurchaseDTO>();
-        private Store store;
+        private string number_nf;        
         private int payment_type;
         private int purchaseStatus;
+        private double purchase_value;
+
+        private Client client;
+        private Store store;
+
+        private List<Product> products = new List<Product>();
+        private List<PurchaseDTO> purchaseDTO = new List<PurchaseDTO>();
+        
+        
+        
 
 
         public int getPaymentType()
@@ -136,6 +141,12 @@ namespace Model
             purchase.setPurchase_value(obj.purchase_Value);
             purchase.setPaymentType((PaymentEnum)obj.payment_Type);
             purchase.setPurchaseStatus((PurchaseStatusEnum)obj.purchase_Status);
+            purchase.setStore(Store.convertDTOToModel(obj.storeDTO));
+            purchase.setClient(Client.convertDTOToModel(obj.clientDTO));
+            foreach (ProductDTO item in obj.product.products)
+            {
+                purchase.products.Add(Product.convertDTOToModel(item));
+            }
 
             return purchase;
         }
@@ -150,13 +161,16 @@ namespace Model
             return this.purchaseDTO;
         }
 
-        public int save()
+        public int save(int client, int store, int product)
         {
             var id = 0;
             using(var context = new AppDbContext())
             {
                 var purchase = new DAO.Purchase
                 {
+                    client = context.client.Where(c => c.id == client).Single(),
+                    store = context.store.Where(c => c.id == store).Single(),
+                    product = context.product.Where(c => c.id == product).Single(),
                     dataPurchase = this.dataPurchase,
                     number_confirmation = this.number_confirmation,
                     number_nf = this.number_nf,
@@ -165,6 +179,9 @@ namespace Model
                     payment_type = this.payment_type                    
                 };
                 context.purchases.Add(purchase);
+                context.Entry(purchase.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                context.Entry(purchase.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
                 context.SaveChanges();
                 id = purchase.id;
             }
