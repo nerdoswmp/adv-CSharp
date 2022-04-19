@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
 using DTO;
+using DAO;
 
 namespace Model
 {
@@ -67,12 +68,13 @@ namespace Model
             
         }
         public static Stocks convertDTOToModel(StocksDTO obj)
-        {
-            purchase.setDataPurchase(obj.data_Purchase);
+        {            
             Stocks stock = new Stocks();
             stock.setQuantity(obj.quantity);
             stock.setUnit_price(obj.unit_Price);
-            
+            stock.setStore(Store.convertDTOToModel(obj.store));
+            stock.setProduct(Product.convertDTOToModel(obj.product));
+            return stock;
         }
 
         public StocksDTO convertModelToDTO()
@@ -95,10 +97,26 @@ namespace Model
             return this.stocks;
         }
 
-        public int save()
+        public int save(int store, int product)
         {
-            int a = 1;
-            return a;
+            var id = 0;
+            using(var context = new AppDbContext())
+            {
+                var stock = new DAO.Stocks
+                {
+                    quantity = this.quantity,
+                    unit_price = this.unit_price,
+                    store = context.store.Where(c => c.id == store).Single(),
+                    product = context.product.Where(c => c.id == product).Single()
+                };
+                context.stock.Add(stock);
+                context.Entry(stock.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                context.Entry(stock.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                context.SaveChanges(); 
+
+                id = stock.id;
+            }
+            return id;
         }
 
         public void update(StocksDTO obj)
