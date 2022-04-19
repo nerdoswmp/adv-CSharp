@@ -18,6 +18,7 @@ namespace Model
         private string number_nf;
         private Client client;
         private List<Product> products = new List<Product>();
+        private List<PurchaseDTO> purchaseDTO = new List<PurchaseDTO>();
         private Store store;
         private int payment_type;
         private int purchaseStatus;
@@ -133,8 +134,8 @@ namespace Model
             purchase.setNumberConfirmation(obj.number_Confirmation);
             purchase.setNumberNf(obj.number_Nf);
             purchase.setPurchase_value(obj.purchase_Value);
-            purchase.setPaymentType((int)obj.payment_Type);
-            purchase.setPurchaseStatus(obj.purchase_Status);
+            purchase.setPaymentType((PaymentEnum)obj.payment_Type);
+            purchase.setPurchaseStatus((PurchaseStatusEnum)obj.purchase_Status);
 
             return purchase;
         }
@@ -146,7 +147,7 @@ namespace Model
 
         public List<PurchaseDTO> getAll()
         {
-            return this.products;
+            return this.purchaseDTO;
         }
 
         public int save()
