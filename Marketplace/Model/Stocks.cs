@@ -14,6 +14,7 @@ namespace Model
         private double unit_price;
         private Store store;
         private Product product;
+        private List<StocksDTO> stocks;
 
         public double getUnit_price()
         {
@@ -65,23 +66,33 @@ namespace Model
             return true;
             
         }
+        public static Stocks convertDTOToModel(StocksDTO obj)
+        {
+            purchase.setDataPurchase(obj.data_Purchase);
+            Stocks stock = new Stocks();
+            stock.setQuantity(obj.quantity);
+            stock.setUnit_price(obj.unit_Price);
+            
+        }
 
         public StocksDTO convertModelToDTO()
         {
-            var stkdto = new StocksDTO();
-            return stkdto;
+            var stocksDTO = new StocksDTO();
+            stocksDTO.quantity = this.quantity;
+            stocksDTO.unit_Price = this.unit_price;
+            stocksDTO.store = this.store.convertModelToDTO();
+            stocksDTO.product = this.product.convertModelToDTO();
+            return stocksDTO;
         }
 
         public StocksDTO findById(int id)
         {
-            var stkdto = new StocksDTO();
-            return stkdto;
+            return new StocksDTO();
         }
 
         public List<StocksDTO> getAll()
         {
-            var list = new List<StocksDTO>();
-            return list;
+            return this.stocks;
         }
 
         public int save()
