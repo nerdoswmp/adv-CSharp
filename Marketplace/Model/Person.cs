@@ -11,11 +11,13 @@ namespace Model
         // Vars
         protected string name;
         protected DateTime date_of_birth;
+        protected string password;
         protected string document;
         protected string email;
         protected string phone;
         protected string login;
         protected Address address;
+
 
         // Construtor
         public Person(Address address)
@@ -52,6 +54,16 @@ namespace Model
         public string getDoc()
         {
             return this.document;
+        }
+
+        public void setPassword(string password)
+        {
+            this.password = password;
+        }
+
+        public string getPassword()
+        {
+            return this.password;
         }
 
         public void setEmail(string email)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j7crP+mUHqRr0h1xsJMXTIOA+dg0Klfse29SK7oN3UESOcLetgjkG8R2HC6lXsuhvM+Qn4XfxS40QZTlShhPbA==",
+  "dgSpecHash": "LA9+PemsSwkKOQri9OoV6k4uuQo5LvbYK3HEEpafElBxf/XPm+WLKHVhE/vbMkEUqEX9Atg8iVQAy7tjotdt6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\DAO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\disrct\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -48,12 +48,5 @@
     "C:\\Users\\disrct\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

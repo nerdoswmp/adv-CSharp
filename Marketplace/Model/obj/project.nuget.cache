@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sBP7P3P1J11gUzDH40XniEkjpyRJGy8ELHsguSExkSO2eVbmnOsfimCHm/UPlherHp4xHtqzH2/LsJMC8dmNaQ==",
+  "dgSpecHash": "2QOBdN7hnL6ZhaX4meYFG9OTW84btOs2G18fkdd0wqYzK6o7tXM/ikUD08nSbPwy9y83oTMKR5BfzuVADD1gnA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Model\\Model.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Model\\Model.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\disrct\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -48,12 +48,5 @@
     "C:\\Users\\disrct\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Model\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

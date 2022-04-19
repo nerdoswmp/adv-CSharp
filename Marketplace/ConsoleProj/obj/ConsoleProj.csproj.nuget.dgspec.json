@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\ConsoleProj\\ConsoleProj.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\ConsoleProj\\ConsoleProj.csproj": {}
   },
   "projects": {
-    "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\ConsoleProj\\ConsoleProj.csproj": {
+    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\ConsoleProj\\ConsoleProj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\ConsoleProj\\ConsoleProj.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\ConsoleProj\\ConsoleProj.csproj",
         "projectName": "ConsoleProj",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\ConsoleProj\\ConsoleProj.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\ConsoleProj\\ConsoleProj.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\ConsoleProj\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\ConsoleProj\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj"
+              "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\DAO.csproj"
               }
             }
           }
@@ -62,17 +66,21 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj": {
+    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\DAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\DAO.csproj",
         "projectName": "DAO",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\DAO.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -86,11 +94,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj"
+              "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj"
               },
-              "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Interfaces\\Interfaces.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Interfaces\\Interfaces.csproj"
+              "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj"
               }
             }
           }
@@ -145,17 +153,21 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj": {
+    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj",
         "projectName": "Enums",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -199,17 +211,21 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Interfaces\\Interfaces.csproj": {
+    "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Interfaces\\Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj",
         "projectName": "Interfaces",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Interfaces\\Interfaces.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Interfaces\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

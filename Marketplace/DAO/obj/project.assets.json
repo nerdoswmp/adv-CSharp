@@ -1893,19 +1893,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\disrct\\.nuget\\packages\\": {}
+    "C:\\Users\\disrct\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj",
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\DAO.csproj",
       "projectName": "DAO",
-      "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\DAO.csproj",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\DAO.csproj",
       "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\obj\\",
+      "outputPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\DAO\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1919,11 +1924,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj": {
-              "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Enums\\Enums.csproj"
+            "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Enums\\Enums.csproj"
             },
-            "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Interfaces\\Interfaces.csproj": {
-              "projectPath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\Interfaces\\Interfaces.csproj"
+            "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\Interfaces\\Interfaces.csproj"
             }
           }
         }
@@ -1977,13 +1982,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\DAO\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

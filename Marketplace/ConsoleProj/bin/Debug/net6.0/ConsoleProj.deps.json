@@ -458,9 +458,10 @@
       },
       "DAO/1.0.0": {
         "dependencies": {
+          "Enums": "1.0.0",
+          "Interfaces": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.3",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3",
-          "Model": "1.0.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3"
         },
         "runtime": {
           "DAO.dll": {}
@@ -474,17 +475,6 @@
       "Interfaces/1.0.0": {
         "runtime": {
           "Interfaces.dll": {}
-        }
-      },
-      "Model/1.0.0": {
-        "dependencies": {
-          "Enums": "1.0.0",
-          "Interfaces": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "6.0.3",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3"
-        },
-        "runtime": {
-          "Model.dll": {}
         }
       }
     }
@@ -786,11 +776,6 @@
       "sha512": ""
     },
     "Interfaces/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

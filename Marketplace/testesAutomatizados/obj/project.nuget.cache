@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZQH6azTAHtVO38MZcl/bxpxoOCZmI15ybfp5nrHmEdfL1A9ZkYCh5aLU9L/7kHUl6vKi1TXyvFDadaSG9HQLZQ==",
+  "dgSpecHash": "myUdFB8gU379fv9N9bz2aAyuSrmI+DKWDS1V6DRLsuG0GVqJc7Wv9ep/JzLHgEin84Pa0ODl8oK+KRocboEqxA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\testesAutomatizados\\testesAutomatizados.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\adv-CSharp-1\\Marketplace\\testesAutomatizados\\testesAutomatizados.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -105,12 +105,5 @@
     "C:\\Users\\disrct\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\disrct\\Desktop\\Marketplace\\Marketplace\\testesAutomatizados\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
