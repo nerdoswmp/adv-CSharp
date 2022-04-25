@@ -164,7 +164,7 @@ namespace Model
         public int save(int client, int store, int product)
         {
             var id = 0;
-            using(var context = new AppDbContext())
+            using(var context = new DAOContext())
             {
                 var purchase = new DAO.Purchase
                 {

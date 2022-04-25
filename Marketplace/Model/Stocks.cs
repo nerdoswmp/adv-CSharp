@@ -100,7 +100,7 @@ namespace Model
         public int save(int store, int product)
         {
             var id = 0;
-            using(var context = new AppDbContext())
+            using(var context = new DAOContext())
             {
                 var stock = new DAO.Stocks
                 {

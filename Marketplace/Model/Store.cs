@@ -116,7 +116,7 @@ namespace Model
         {
             var id = 0;
 
-            using (var context = new AppDbContext())
+            using (var context = new DAOContext())
             {
                 var ownerDAO = context.owner.Where(c => c.id == owner).Single();
 

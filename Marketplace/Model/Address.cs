@@ -133,7 +133,7 @@ namespace Model
         public int save()
         {
             int id = 0;
-            using (var context = new AppDbContext())
+            using (var context = new DAOContext())
             {
                 var address = new DAO.Address
                 {

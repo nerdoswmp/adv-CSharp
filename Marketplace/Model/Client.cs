@@ -104,7 +104,7 @@ namespace Model
         {
             int id = 0;
 
-            using (var contexto = new AppDbContext())
+            using (var contexto = new DAOContext())
             {
                 var client = new DAO.Client
                 {

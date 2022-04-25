@@ -68,7 +68,7 @@ namespace Model
         public int save()
         {
             var id = 0;
-            using(var context = new AppDbContext())
+            using(var context = new DAOContext())
             {
                 var product = new DAO.Product
                 {                    

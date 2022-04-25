@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAO
 {
-    public class AppDbContext : DbContext
+    public class DAOContext : DbContext
     {
         public DbSet<Address> address { get; set; }
 
