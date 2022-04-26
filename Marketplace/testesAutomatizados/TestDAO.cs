@@ -553,12 +553,8 @@ namespace testesAutomatizados
             int id = 0;
             for (int i = 1; i < 5; i++)
             {
-                for (int j = 1; j < 6; j++)
+                for (int j = 1; j < 5; j++)
                 {
-                    if (i == j)
-                    {
-                        continue;
-                    }
                     Model.Stocks stc = new Model.Stocks();
 
                     double unit = (i * j * 3.14);
@@ -582,17 +578,14 @@ namespace testesAutomatizados
             {
                 for (int client = 1; client < 5; client++)
                 {
-                    var cliente = context.client.Where(c => c.id == client).Single();
-                    for (int product = 1; product < 5; product++)
-                    {
+                    var cliente = context.client.Where(c => c.id == client).Single();                   
                         var wishList = new Model.WishList();
 
-                        id = wishList.save(cliente.document, product);
+                        id = wishList.save(cliente.document, client);
 
                         Assert.That(id, Is.Not.EqualTo(0));
 
-                        id = 0;
-                    }
+                        id = 0;                                            
                 }
             }
 

@@ -102,7 +102,7 @@ namespace Model
             var id = 0;
             using(var context = new DAOContext())
             {
-                var stock = new DAO.Stocks
+                DAO.Stocks stock = new DAO.Stocks
                 {
                     quantity = quantidade,
                     unit_price = unit_price,
