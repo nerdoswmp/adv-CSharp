@@ -8,14 +8,14 @@ namespace DTO
 {
     public class PurchaseDTO
     {
-        public DateTime data_Purchase;
-        public double purchase_Value;
-        public int payment_Type;
-        public int purchase_Status;
-        public string number_Confirmation;
-        public string number_Nf;
-        public ClientDTO clientDTO;
-        public StoreDTO storeDTO;
-        public ProductDTO product;
+        public DateTime data_purchase;
+        public double purchase_value;
+        public int payment_type;
+        public int purchase_status;
+        public string confirmation_number;
+        public string number_nf;
+        public ClientDTO client;
+        public StoreDTO store;
+        public List<ProductDTO> productsDTO;
     }
 }

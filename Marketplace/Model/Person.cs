@@ -19,11 +19,6 @@ namespace Model
         protected Address address;
 
 
-        // Construtor
-        public Person(Address address)
-        {
-            this.address = address;
-        }
 
         // gets | sets
         public void setName(string name)

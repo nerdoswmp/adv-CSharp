@@ -9,7 +9,7 @@ using DAO;
 
 namespace Model
 {
-    public class Product : IValidateDataObject<Product>, IDataController<ProductDTO, Product>
+    public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     {
         private string name;       
         private string bar_code;
@@ -31,13 +31,13 @@ namespace Model
         {
             this.bar_code = Bar_code;
         }
-        public bool validateObject(Product obj)
+        public bool validateObject()
         {
-            if(obj.name == null)
+            if(this.name == null)
             {
                 return false;
             }           
-            if(obj.bar_code == null)
+            if(this.bar_code == null)
             {
                 return false;
             }
@@ -47,14 +47,14 @@ namespace Model
         {
             var productDTO = new ProductDTO();
             productDTO.name = this.name;
-            productDTO.barCode = this.bar_code;            
+            productDTO.bar_code = this.bar_code;            
             return productDTO;
         }
         public static Product convertDTOToModel(ProductDTO obj)
         {
             Product product = new Product();
             product.setName(obj.name);
-            product.setBarCode(obj.barCode);                        
+            product.setBarCode(obj.bar_code);                        
             return product;
         }
         public ProductDTO findById(int id)

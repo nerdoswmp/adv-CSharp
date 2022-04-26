@@ -9,7 +9,7 @@ using DAO;
 
 namespace Model
 {
-    public class Store : IValidateDataObject<Store>, IDataController<StoreDTO, Store>
+    public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
     {
         private string name;
         private string CNPJ;         
@@ -17,6 +17,11 @@ namespace Model
         private List<Purchase> purchases = new List<Purchase>();
 
         public List<StoreDTO> storeDTO = new List<StoreDTO>();
+
+        private Store()
+        {
+
+        }
 
         public string getName()
         {
@@ -52,32 +57,29 @@ namespace Model
             this.owner=owner;
         }
  
-        public bool validateObject(Store obj)
+        public bool validateObject()
         {
-            if(obj.name == null)
+            if(this.name == null)
             {
                 return false;
             }
-            if(obj.CNPJ == null)
+            if(this.CNPJ == null)
             {
                 return false;
             }
-            if(obj.owner == null)
-            {
-                return false;
-            }
-            if(obj.purchases == null)
-            {
-                return false;
-            }           
+          
             return true;
             
         }
 
         public static Store convertDTOToModel(StoreDTO obj)
         {
-            var store = new Store(Owner.convertDTOToModel(obj.owner));
-            store.setCNPJ(obj.cnpj);
+            var store = new Store();
+            if(obj.owner != null)
+            {
+                store.owner = Owner.convertDTOToModel(obj.owner);
+            }            
+            store.setCNPJ(obj.CNPJ);
             store.setName(obj.name);
             foreach (var purchase in obj.purchases)
             {
@@ -92,7 +94,7 @@ namespace Model
             var storeDTO = new StoreDTO();
 
             storeDTO.name = this.name;
-            storeDTO.cnpj = this.CNPJ;
+            storeDTO.CNPJ = this.CNPJ;
             storeDTO.owner = this.owner.convertModelToDTO();
             foreach(var purchase in this.purchases)
             {
