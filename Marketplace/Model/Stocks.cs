@@ -106,8 +106,8 @@ namespace Model
                 {
                     quantity = quantidade,
                     unit_price = unit_price,
-                    store = context.store.FirstOrDefault(c => c.id == lojaID),
-                    product = context.product.FirstOrDefault(c => c.id == produtoID)
+                    store = context.store.Where(c => c.id == lojaID).Single(),
+                    product = context.product.Where(c => c.id == produtoID).Single()
                 };
                 context.stock.Add(stock);
                 if (stock.store != null)

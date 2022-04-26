@@ -39,14 +39,14 @@ namespace Model
 
         public bool validateObject()
         {
-            //if(this.client == null)
-            //{
-            //    return false;
-            //}
-            //if(this.products == null)
-            //{
-            //    return false;
-            //}         
+            if (this.client == null)
+            {
+                return false;
+            }
+            if (this.products == null)
+            {
+                return false;
+            }
             return true;
             
         }
@@ -89,8 +89,8 @@ namespace Model
             {
                 var wishList = new DAO.WishList
                 {
-                    client = context.client.FirstOrDefault(c => c.document == client),
-                    product = context.product.FirstOrDefault(c => c.id == product)
+                    client = context.client.Where(c => c.document == client).Single(),
+                    product = context.product.Where(c => c.id == product).Single()
                 };
                 context.wishList.Add(wishList);
                 if (wishList.client != null)

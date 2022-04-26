@@ -101,12 +101,14 @@ namespace Model
 
         public bool validateObject()
         {
-            //if(this.dataPurchase == null) {return false;}
-            if(this.number_confirmation == null) {return false;}
-            if(this.number_nf == null) {return false;}
-            //if(this.purchase_value == null) { return false;}           
-            //if(this.payment_type == null) { return false; }
-            //if(this.purchaseStatus == null) { return false; }
+            if (this.dataPurchase >= DateTime.Now ||
+                    DateTime.Compare(this.dataPurchase, new DateTime(1900, 1, 1)) < 0)
+                return false;
+            if (this.number_confirmation == null) { return false; }
+            if (this.number_nf == null) { return false; }
+            if (this.purchase_value < 0) { return false; }
+            //if (this.payment_type == null) { return false; }
+            //if (this.purchaseStatus == null) { return false; }
             return true; 
         }
         public void updateStatus(int purchaseStatusEnum)
@@ -171,11 +173,13 @@ namespace Model
             var id = 0;
             using(var context = new DAOContext())
             {
+                if (this.products.Count() <= 0) { return -1; }
+
                 var purchase = new DAO.Purchase
                 {
-                    client = context.client.FirstOrDefault(c => c.id == 1),
-                    store = context.store.FirstOrDefault(c => c.id == 1),
-                    product = context.product.Where(c => c.id == 1).Single(),
+                    client = context.client.Where(c => c.document == this.client.getDoc()).Single(),
+                    store = context.store.Where(c => c.CNPJ == this.store.getCNPJ()).Single(),
+                    product = context.product.Where(c => c.bar_code == this.products.First().getBarCode()).Single(),
                     data_purchase = this.dataPurchase,
                     confirmation_number = this.number_confirmation,
                     number_nf = this.number_nf,
@@ -184,19 +188,12 @@ namespace Model
                     payment_type = this.payment_type                    
                 };
                 context.purchases.Add(purchase);
-                if (purchase.client != null)
-                {
-                    context.Entry(purchase.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-                }
-                if (purchase.store != null)
-                {
-                    context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-                }
-                if (purchase.product != null)
-                {
-                    context.Entry(purchase.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-                }
+                context.Entry(purchase.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                context.Entry(purchase.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
                 context.SaveChanges();
+                this.products.Remove(products.First());
+                this.save();
                 id = purchase.id;
             }
             return id;

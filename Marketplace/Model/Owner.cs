@@ -50,6 +50,9 @@ namespace Model
             if (this.address == null)
                 return false;
 
+            if (this.passwd == null)
+                return false;
+
             if (this.date_of_birth >= DateTime.Now ||
                     DateTime.Compare(this.date_of_birth, new DateTime(1900, 1, 1)) < 0)
                 return false;

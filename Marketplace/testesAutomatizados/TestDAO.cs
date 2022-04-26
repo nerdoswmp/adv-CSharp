@@ -411,6 +411,7 @@ namespace testesAutomatizados
             Assert.That(id, Is.Not.EqualTo(0));
 
         }
+
         [Test]
         public void DinsertStore()
         {
@@ -668,11 +669,9 @@ namespace testesAutomatizados
             if (purchase.validateObject())
             {
                 id = purchase.save();
-
-                Assert.That(id, Is.Not.EqualTo(0));
-
-                id = 0;
             }
+
+            Assert.That(id, Is.Not.EqualTo(0));
 
         }
     }
