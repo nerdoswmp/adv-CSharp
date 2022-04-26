@@ -9,7 +9,7 @@ using DAO;
 
 namespace Model
 {
-    public class WishList : IValidateDataObject<WishList>, IDataController<WishListDTO, WishList>
+    public class WishList : IValidateDataObject, IDataController<WishListDTO, WishList>
     {
         private Client client;
         private List<Product> products = new List<Product>();
@@ -28,21 +28,25 @@ namespace Model
             products.Add(product);
         }
 
-        public WishList(Client client)
+        private WishList(Client client)
         {
             this.client=client;
         }
-        
-        public bool validateObject(WishList obj)
+
+        public WishList()
         {
-            if(obj.client == null)
-            {
-                return false;
-            }
-            if(obj.products == null)
-            {
-                return false;
-            }         
+        }
+
+        public bool validateObject()
+        {
+            //if(this.client == null)
+            //{
+            //    return false;
+            //}
+            //if(this.products == null)
+            //{
+            //    return false;
+            //}         
             return true;
             
         }
@@ -52,7 +56,7 @@ namespace Model
             var wishListDTO = new WishListDTO();
             foreach(var product in products)
             {
-                wishListDTO.product.products.Add(product.convertModelToDTO());
+                wishListDTO.products.Add(product.convertModelToDTO());
             }
             wishListDTO.client = this.client.convertModelToDTO();
             return wishListDTO;
@@ -61,7 +65,7 @@ namespace Model
         public static WishList convertDTOToModel(WishListDTO obj)
         {
             var wishList = new WishList(Client.convertDTOToModel(obj.client));
-            foreach(var product in obj.product.products)
+            foreach(var product in obj.products)
             {
                 wishList.addProductToWishList(Product.convertDTOToModel(product));
             }
@@ -78,14 +82,14 @@ namespace Model
             return this.wishListDTO;
         }
 
-        public int save(int client, int product)
+        public int save(string client, int product)
         {
             var id = 0;
             using(var context = new DAOContext())
             {
                 var wishList = new DAO.WishList
                 {
-                    client = context.client.Where(c => c.id == client).Single(),
+                    client = context.client.Where(c => c.document == client).Single(),
                     product = context.product.Where(c => c.id == product).Single()
                 };
                 context.wishList.Add(wishList);

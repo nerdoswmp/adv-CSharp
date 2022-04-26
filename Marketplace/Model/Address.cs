@@ -9,7 +9,7 @@ using DAO;
 
 namespace Model
 {
-    public class Address : IValidateDataObject<Address>, IDataController<AddressDTO, Address>
+    public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
     {
         // vars
         private string street;
@@ -83,21 +83,21 @@ namespace Model
             return this.postal_code;
         }
             
-        public bool validateObject(Address obj)
+        public bool validateObject()
         {
-            if (obj.street == null)
+            if (this.street == null)
                 return false;
 
-            if (obj.city == null)
+            if (this.city == null)
                 return false;
 
-            if (obj.state == null)
+            if (this.state == null)
                 return false;
 
-            if (obj.country == null)
+            if (this.country == null)
                 return false;
 
-            if (obj.postal_code == null)
+            if (this.postal_code == null)
                 return false;
 
             return true;

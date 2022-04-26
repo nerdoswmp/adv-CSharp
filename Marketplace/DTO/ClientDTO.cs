@@ -9,7 +9,7 @@ namespace DTO
     public class ClientDTO
     {
         public string name;
-        public DateTime dateOfBirth;
+        public DateTime date_of_birth;
         public string document;
         public string email;
         public string phone;

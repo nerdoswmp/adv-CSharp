@@ -104,11 +104,11 @@ namespace DAO
             modelBuilder.Entity<Purchase>(entity =>
             {
                 entity.HasKey(e => e.id);
-                entity.Property(e => e.number_confirmation).IsRequired();
+                entity.Property(e => e.confirmation_number).IsRequired();
                 entity.Property(e => e.number_nf).IsRequired();
                 entity.Property(e => e.payment_type).IsRequired();
-                entity.Property(e => e.purchaseStatus).IsRequired();
-                entity.Property(e => e.dataPurchase).IsRequired();
+                entity.Property(e => e.purchase_status).IsRequired();
+                entity.Property(e => e.data_purchase).IsRequired();
                 entity.HasOne(e => e.store);
                 entity.HasOne(e => e.product);
                 entity.HasOne(e => e.client);

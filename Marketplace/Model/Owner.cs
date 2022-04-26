@@ -9,7 +9,7 @@ using DAO;
 
 namespace Model
 {
-    public class Owner : Person, IValidateDataObject<Owner>, IDataController<OwnerDTO, Owner>
+    public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owner>
     {
         private static Owner instance;
 
@@ -17,8 +17,10 @@ namespace Model
 
         public List<OwnerDTO> ownerDTO = new List<OwnerDTO>();
 
-        public Owner(Address address) : base(address)
-        { }
+        public Owner(Address address) 
+        { 
+            this.address = address;
+        }
 
         public static Owner getInstance(Address address)
         {
@@ -31,38 +33,44 @@ namespace Model
         }
 
 
-        public bool validateObject(Owner obj)
+        public bool validateObject()
         {
-            if (obj.name == null)
+            if (this.name == null)
                 return false;
 
-            if (obj.phone == null)
+            if (this.phone == null)
                 return false;
 
-            if (obj.email == null)
+            if (this.email == null)
                 return false;
 
-            if (obj.document == null)
+            if (this.document == null)
                 return false;
 
-            if (obj.address == null)
+            if (this.address == null)
                 return false;
 
-            //if (obj.date_of_birth >= DateTime.Now ||
-            //        DateTime.Compare(obj.date_of_birth, new DateTime(1900, 1, 1)) < 0)
-            //    return false;
+            if (this.date_of_birth >= DateTime.Now ||
+                    DateTime.Compare(this.date_of_birth, new DateTime(1900, 1, 1)) < 0)
+                return false;
 
-            if (obj.login == null)
+            if (this.login == null)
                 return false;
 
             return true;
         }
 
+        private Owner() { }
 
         public static Owner convertDTOToModel(OwnerDTO obj)
         {
-            var owner = new Owner(Address.convertDTOToModel(obj.address));
-            owner.setAge(obj.dateOfBirth);
+            var owner = new Owner();
+            if(obj.address != null)
+            {
+                owner.address = Address.convertDTOToModel(obj.address);
+            }
+            
+            owner.setAge(obj.date_of_birth);
             owner.setEmail(obj.email);
             owner.setPhone(obj.phone);
             owner.setDoc(obj.document);
@@ -83,7 +91,7 @@ namespace Model
             ownerDTO.passwd = this.passwd;
             ownerDTO.login = this.login;
             ownerDTO.email = this.email;
-            ownerDTO.dateOfBirth = this.date_of_birth;
+            ownerDTO.date_of_birth = this.date_of_birth;
 
             return ownerDTO;
         }

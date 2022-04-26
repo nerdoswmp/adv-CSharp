@@ -9,7 +9,7 @@ using DAO;
 
 namespace Model
 {
-    public class Client : Person, IValidateDataObject<Client>, IDataController<ClientDTO, Client>
+    public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Client>
     {
         private static Client instance;
 
@@ -17,8 +17,10 @@ namespace Model
 
         public List<ClientDTO> clientDTO = new List<ClientDTO>();
 
-        public Client(Address address) : base(address)
-        { }
+        public Client(Address address) 
+        {
+            this.address = address;
+        }
 
         public static Client getInstance(Address address)
         {
@@ -30,32 +32,32 @@ namespace Model
             return instance;
         }
 
-        public bool validateObject(Client obj)
+        public bool validateObject()
         {
 
-            if (obj.name == null)
+            if (this.name == null)
                 return false;
 
-            if (obj.phone == null)
+            if (this.phone == null)
                 return false;
 
-            if (obj.email == null)
+            if (this.email == null)
                 return false;
 
-            if (obj.passwd == null)
+            if (this.passwd == null)
                 return false;
 
-            if (obj.document == null)
+            if (this.document == null)
                 return false;
 
-            if (obj.address == null)
+            if (this.address == null)
                 return false;
 
-            //if (obj.date_of_birth >= DateTime.Now || 
-            //        DateTime.Compare(obj.date_of_birth, new DateTime(1900, 1, 1)) < 0)
-            //    return false;
+            if (this.date_of_birth >= DateTime.Now ||
+                    DateTime.Compare(this.date_of_birth, new DateTime(1900, 1, 1)) < 0)
+                return false;
 
-            if (obj.login == null)
+            if (this.login == null)
                 return false;
 
             return true;
@@ -64,7 +66,7 @@ namespace Model
         public static Client convertDTOToModel(ClientDTO obj)
         {
             var client = new Client(Address.convertDTOToModel(obj.address));
-            client.setAge(obj.dateOfBirth);
+            client.setAge(obj.date_of_birth);
             client.setEmail(obj.email);
             client.setPhone(obj.phone);
             client.setDoc(obj.document);
@@ -85,7 +87,7 @@ namespace Model
             clientDTO.passwd = this.passwd;
             clientDTO.login = this.login;
             clientDTO.email = this.email;
-            clientDTO.dateOfBirth = this.date_of_birth;
+            clientDTO.date_of_birth = this.date_of_birth;
 
             return clientDTO;
         }

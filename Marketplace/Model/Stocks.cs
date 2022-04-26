@@ -9,7 +9,7 @@ using DAO;
 
 namespace Model
 {
-    public class Stocks : IValidateDataObject<Stocks>, IDataController<StocksDTO, Stocks>
+    public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
     {
         private int quantity;
         private double unit_price;
@@ -50,17 +50,17 @@ namespace Model
             this.product = product;
         }
 
-        public bool validateObject(Stocks obj)
+        public bool validateObject()
         {
-            if(obj.quantity <= 0)
+            if(this.quantity <= 0)
             {
                 return false;
             }
-            if(obj.store == null)
+            if(this.store == null)
             {
                 return false;
             }
-            if(obj.product == null)
+            if(this.product == null)
             {
                 return false;
             }
@@ -97,17 +97,17 @@ namespace Model
             return this.stocks;
         }
 
-        public int save(int store, int product)
+        public int save(int lojaID, int produtoID, int quantidade, double unit_price)
         {
             var id = 0;
             using(var context = new DAOContext())
             {
                 var stock = new DAO.Stocks
                 {
-                    quantity = this.quantity,
-                    unit_price = this.unit_price,
-                    store = context.store.Where(c => c.id == store).Single(),
-                    product = context.product.Where(c => c.id == product).Single()
+                    quantity = quantidade,
+                    unit_price = unit_price,
+                    store = context.store.Where(c => c.id == lojaID).Single(),
+                    product = context.product.Where(c => c.id == produtoID).Single()
                 };
                 context.stock.Add(stock);
                 context.Entry(stock.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;

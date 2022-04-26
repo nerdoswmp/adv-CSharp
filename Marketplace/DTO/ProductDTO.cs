@@ -9,7 +9,6 @@ namespace DTO
     public class ProductDTO
     {
         public string name;
-        public string barCode;
-        public List<ProductDTO> products;
+        public string bar_code;
     }
 }
