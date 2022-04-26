@@ -13,7 +13,7 @@ namespace testesAutomatizados
     public class TestDAO
     {
         [Test]
-        public void insertAddress()
+        public void AinsertAddress()
         {
             var id = 0;
 
@@ -40,7 +40,7 @@ namespace testesAutomatizados
         }
 
         [Test]
-        public void insertClient()
+        public void BinsertClient()
         {
             var id = 0;
 
@@ -246,7 +246,7 @@ namespace testesAutomatizados
         }
 
         [Test]
-        public void insertOwner()
+        public void CinsertOwner()
         {
             var id = 0;
 
@@ -411,8 +411,9 @@ namespace testesAutomatizados
             Assert.That(id, Is.Not.EqualTo(0));
 
         }
+
         [Test]
-        public void insertStore()
+        public void DinsertStore()
         {
 
             List<StoreDTO> stores = new List<StoreDTO>();
@@ -675,11 +676,9 @@ namespace testesAutomatizados
             if (purchase.validateObject())
             {
                 id = purchase.save();
-
-                Assert.That(id, Is.Not.EqualTo(0));
-
-                id = 0;
             }
+
+            Assert.That(id, Is.Not.EqualTo(0));
 
         }
 

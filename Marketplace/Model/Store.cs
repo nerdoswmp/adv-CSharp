@@ -123,14 +123,12 @@ namespace Model
 
             using (var context = new DAOContext())
             {
-                var ownerDAO = context.owner.FirstOrDefault(c => c.id == owner);
-
                 var store = new DAO.Store
                 {
                     name = this.name,
                     CNPJ = this.CNPJ,
-                    owner = ownerDAO
-                };
+                    owner = context.owner.Where(c => c.id == owner).Single()
+            };
 
                 context.store.Add(store);
                 if (store.owner != null)
