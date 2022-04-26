@@ -22,6 +22,8 @@ namespace Model
             this.address = address;
         }
 
+        private Client() { }
+
         public static Client getInstance(Address address)
         {
             if (instance == null)
@@ -65,7 +67,12 @@ namespace Model
 
         public static Client convertDTOToModel(ClientDTO obj)
         {
-            var client = new Client(Address.convertDTOToModel(obj.address));
+            var client = new Client();
+            if (obj.address != null)
+            {
+                client.address = Address.convertDTOToModel(obj.address);
+            }
+
             client.setAge(obj.date_of_birth);
             client.setEmail(obj.email);
             client.setPhone(obj.phone);

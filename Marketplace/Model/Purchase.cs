@@ -13,8 +13,8 @@ namespace Model
     public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purchase>
     {
         private DateTime dataPurchase;
-        private string? number_confirmation;
-        private string? number_nf;        
+        private string number_confirmation;
+        private string number_nf;        
         private int payment_type;
         private int purchaseStatus;
         private double purchase_value;
@@ -101,12 +101,12 @@ namespace Model
 
         public bool validateObject()
         {
-            if(this.dataPurchase == null) {return false;}
+            //if(this.dataPurchase == null) {return false;}
             if(this.number_confirmation == null) {return false;}
             if(this.number_nf == null) {return false;}
-            if(this.purchase_value == null) { return false;}           
-            if(this.payment_type == null) { return false; }
-            if(this.purchaseStatus == null) { return false; }
+            //if(this.purchase_value == null) { return false;}           
+            //if(this.payment_type == null) { return false; }
+            //if(this.purchaseStatus == null) { return false; }
             return true; 
         }
         public void updateStatus(int purchaseStatusEnum)
@@ -129,17 +129,28 @@ namespace Model
         public static Purchase convertDTOToModel(PurchaseDTO obj)
         {
             Purchase purchase = new Purchase();
+
+            if (obj.client != null)
+            {
+                purchase.setClient(Client.convertDTOToModel(obj.client));
+            }
+            if (obj.store != null)
+            {
+                purchase.setStore(Store.convertDTOToModel(obj.store));
+            }
             purchase.setDataPurchase(obj.data_purchase);
             purchase.setNumberConfirmation(obj.confirmation_number);
             purchase.setNumberNf(obj.number_nf);
             purchase.setPurchase_value(obj.purchase_value);
             purchase.setPaymentType((PaymentEnum)obj.payment_type);
             purchase.setPurchaseStatus((PurchaseStatusEnum)obj.purchase_status);
-            purchase.setStore(Store.convertDTOToModel(obj.store));
-            purchase.setClient(Client.convertDTOToModel(obj.client));
+            
             foreach (ProductDTO item in obj.productsDTO)
             {
-                purchase.products.Add(Product.convertDTOToModel(item));
+                if (item != null)
+                {
+                    purchase.products.Add(Product.convertDTOToModel(item));
+                }
             }
 
             return purchase;
@@ -173,9 +184,18 @@ namespace Model
                     payment_type = this.payment_type                    
                 };
                 context.purchases.Add(purchase);
-                context.Entry(purchase.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-                context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-                context.Entry(purchase.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                if (purchase.client != null)
+                {
+                    context.Entry(purchase.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                }
+                if (purchase.store != null)
+                {
+                    context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                }
+                if (purchase.product != null)
+                {
+                    context.Entry(purchase.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                }
                 context.SaveChanges();
                 id = purchase.id;
             }

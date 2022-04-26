@@ -106,12 +106,18 @@ namespace Model
                 {
                     quantity = quantidade,
                     unit_price = unit_price,
-                    store = context.store.Where(c => c.id == lojaID).Single(),
-                    product = context.product.Where(c => c.id == produtoID).Single()
+                    store = context.store.FirstOrDefault(c => c.id == lojaID),
+                    product = context.product.FirstOrDefault(c => c.id == produtoID)
                 };
                 context.stock.Add(stock);
-                context.Entry(stock.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-                context.Entry(stock.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                if (stock.store != null)
+                {
+                    context.Entry(stock.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                }
+                if (stock.product != null)
+                {
+                    context.Entry(stock.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                }
                 context.SaveChanges(); 
 
                 id = stock.id;
