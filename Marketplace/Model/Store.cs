@@ -83,7 +83,10 @@ namespace Model
             store.setName(obj.name);
             foreach (var purchase in obj.purchases)
             {
-                store.addNewPurchase(Purchase.convertDTOToModel(purchase));
+                if (purchase != null)
+                {
+                    store.addNewPurchase(Purchase.convertDTOToModel(purchase));
+                }
             }
 
             return store;
@@ -120,7 +123,7 @@ namespace Model
 
             using (var context = new DAOContext())
             {
-                var ownerDAO = context.owner.Where(c => c.id == owner).Single();
+                var ownerDAO = context.owner.FirstOrDefault(c => c.id == owner);
 
                 var store = new DAO.Store
                 {
@@ -130,7 +133,10 @@ namespace Model
                 };
 
                 context.store.Add(store);
-                context.Entry(store.owner).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                if (store.owner != null)
+                {
+                    context.Entry(store.owner).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                }
                 context.SaveChanges();
 
                 id = store.id;

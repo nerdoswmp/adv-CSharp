@@ -16,6 +16,6 @@ namespace DTO
         public string number_nf;
         public ClientDTO client;
         public StoreDTO store;
-        public List<ProductDTO> productsDTO;
+        public List<ProductDTO> productsDTO = new List<ProductDTO>();
     }
 }

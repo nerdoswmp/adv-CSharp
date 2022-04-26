@@ -89,18 +89,25 @@ namespace Model
             {
                 var wishList = new DAO.WishList
                 {
-                    client = context.client.Where(c => c.document == client).Single(),
-                    product = context.product.Where(c => c.id == product).Single()
+                    client = context.client.FirstOrDefault(c => c.document == client),
+                    product = context.product.FirstOrDefault(c => c.id == product)
                 };
                 context.wishList.Add(wishList);
-                context.Entry(wishList.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-                context.Entry(wishList.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                if (wishList.client != null)
+                {
+                    context.Entry(wishList.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                }
+                if (wishList.product != null)
+                {
+                    context.Entry(wishList.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                }
                 context.SaveChanges();
 
                 id = wishList.id;
             }
             return id;
         }
+
 
         public void update(WishListDTO obj)
         {

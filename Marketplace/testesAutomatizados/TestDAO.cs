@@ -414,6 +414,7 @@ namespace testesAutomatizados
         [Test]
         public void insertStore()
         {
+
             List<StoreDTO> stores = new List<StoreDTO>();
 
             var storeDTO = new StoreDTO();
@@ -481,6 +482,7 @@ namespace testesAutomatizados
         [Test]
         public void insertProduct()
         {
+
             List<ProductDTO> produtos = new List<ProductDTO>();
 
             var productDTO1 = new ProductDTO();
@@ -673,7 +675,12 @@ namespace testesAutomatizados
             if (purchase.validateObject())
             {
                 id = purchase.save();
+
+                Assert.That(id, Is.Not.EqualTo(0));
+
+                id = 0;
             }
+
         }
 
 
