@@ -1,8 +1,8 @@
-//using Microsoft.AspNetCore.Mvc;
-//using DTO;
-//using Model;
+using Microsoft.AspNetCore.Mvc;
+using DTO;
+using Model;
 
-//namespace Controller.Controllers;
+namespace Controller.Controllers;
 
 [ApiController]
 [Route("address")]
