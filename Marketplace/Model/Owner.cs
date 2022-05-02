@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DTO;
 using DAO;
@@ -63,7 +64,7 @@ namespace Model
             return true;
         }
 
-        private Owner() { }
+        public Owner() { }
 
         public static Owner convertDTOToModel(OwnerDTO obj)
         {
@@ -101,7 +102,27 @@ namespace Model
 
         public OwnerDTO findById(int id)
         {
-            return new OwnerDTO();
+            OwnerDTO owner = new OwnerDTO();
+            using (var contexto = new DAOContext())
+            {
+                var ownerConsulta = contexto.client.Include(owner => owner.address).Where(c => c.id == id).Single();
+                owner.name = ownerConsulta.name;
+                owner.document = ownerConsulta.document;
+                owner.email = ownerConsulta.email;
+                owner.phone = ownerConsulta.phone;
+                owner.login = ownerConsulta.login;
+                owner.passwd = ownerConsulta.passwd;
+                owner.date_of_birth = ownerConsulta.date_of_birth;
+                owner.address = new AddressDTO
+                {
+                    street = ownerConsulta.address.street,
+                    city = ownerConsulta.address.city,
+                    state = ownerConsulta.address.state,
+                    country = ownerConsulta.address.country,
+                    postal_code = ownerConsulta.address.postal_code
+                };
+            }
+            return owner;
         }
 
         public List<OwnerDTO> getAll()
