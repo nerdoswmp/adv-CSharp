@@ -22,7 +22,7 @@ namespace Model
             this.address = address;
         }
 
-        private Client() { }
+        public Client() { }
 
         public static Client getInstance(Address address)
         {
@@ -101,7 +101,29 @@ namespace Model
 
         public ClientDTO findById(int id)
         {
-            return new ClientDTO();
+            ClientDTO cliente = new ClientDTO();
+            using (var contexto = new DAOContext())
+            {
+                var clientConsulta = contexto.client.Where(c => c.id == id).Join(contexto.address, x => x.id, y => y.id);
+                //var addressConsulta = contexto.client.Join();
+                Console.WriteLine(clientConsulta.address.id);
+                cliente.name = clientConsulta.name;
+                cliente.document = clientConsulta.document;
+                cliente.email = clientConsulta.email;
+                cliente.phone = clientConsulta.phone;
+                cliente.login = clientConsulta.login;
+                cliente.passwd = clientConsulta.passwd;
+                cliente.date_of_birth = clientConsulta.date_of_birth;
+                cliente.address = new AddressDTO
+                {
+                    street = addressConsulta.street,
+                    city = addressConsulta.city,
+                    state = addressConsulta.state,
+                    country = addressConsulta.country,
+                    postal_code = addressConsulta.postal_code
+                };
+            }
+            return cliente;
         }
 
         public List<ClientDTO> getAll()

@@ -27,7 +27,7 @@ namespace DAO
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=JVLPC0587\SQLSERVER;Initial Catalog=marketplace; Integrated Security = True");
+            optionsBuilder.UseSqlServer(@"Data Source=JVLPC0555\SQLEXPRESS;Initial Catalog=marketplace; Integrated Security = True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

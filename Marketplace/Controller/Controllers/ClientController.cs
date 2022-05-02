@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using DTO;
+using Model;
 
 namespace Controller.Controllers;
 
@@ -28,11 +29,12 @@ public class ClientController : ControllerBase
         };
     }
 
-    [HttpPost]
+    [HttpGet]
     [Route("information")]
     public object getInformations()
     {
-        return new object();
+        Client client = new Client();
+        return client.findById(1);
     }
 
 }
