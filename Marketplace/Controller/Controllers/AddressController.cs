@@ -5,22 +5,36 @@ using Model;
 namespace Controller.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("address")]
 public class AddressController : ControllerBase
 {
-    [HttpPost(Name = "registerAddress")]
-    public object registerAddress(AddressDTO address)
+    [HttpPost]
+    [Route("register")]
+    public object registerAddress([FromBody] AddressDTO address)
     {
-        return new object();
+        var naddress = Model.Address.convertDTOToModel(address);
+
+        var id = naddress.save();
+        return new
+        {
+            rua = address.street,
+            estado = address.state,
+            cidade = address.city,
+            pais = address.country,
+            codigoPostal = address.postal_code,
+            id = id
+        };
     }
 
-    [HttpDelete(Name = "removeAddress")]
+    [HttpDelete]
+    [Route("remove")]
     public void removeAddress(AddressDTO address)
     {
 
     }
 
-    [HttpPut(Name = "updateAddress")]
+    [HttpPut]
+    [Route("update")]
     public object updateAddress(AddressDTO address)
     {
         return new object();

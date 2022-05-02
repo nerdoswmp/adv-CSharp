@@ -4,10 +4,11 @@ using DTO;
 namespace Controller.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("purchase")]
 public class PurchaseController : ControllerBase
 {
-    [HttpGet(Name = "getClientPurchase")]
+    [HttpPost]
+    [Route("client")]
     public object getClientPurchase(int clientID)
     {
         // favor não copiar não sei se to certo
@@ -15,15 +16,32 @@ public class PurchaseController : ControllerBase
         return new object();
     }
 
-    [HttpGet(Name = "getStorePurchase")]
+    [HttpPost]
+    [Route("store")]
     public object getStorePurchase(int storeID)
     {
         return new object();
     }
 
-    [HttpPost(Name = "makePurchase")]
-    public void makePurchase(PurchaseDTO purchase)
+    [HttpPost]
+    [Route("buy")]
+    public object makePurchase(PurchaseDTO purchase)
     {
+        var npurchase = Model.Purchase.convertDTOToModel(purchase);
 
+        var id = npurchase.save();
+        return new
+        {
+            data_compra = purchase.data_purchase,
+            valor_compra = purchase.purchase_value,
+            tipo_pagamento = purchase.payment_type,
+            status_compra = purchase.purchase_status,
+            numero_confirmacao = purchase.confirmation_number,
+            numero_nf = purchase.number_nf,
+            cliente = purchase.client,
+            loja = purchase.store,
+            produtos = purchase.productsDTO,
+            id = id
+        };
     }
 }
