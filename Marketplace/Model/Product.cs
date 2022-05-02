@@ -65,6 +65,17 @@ namespace Model
         {
             return this.products;
         }
+
+        public static int find(ProductDTO productDTO)
+        {
+            using (var context = new DAOContext())
+            { 
+                var produto = context.product.Where(s => s.bar_code == productDTO.bar_code).Single();
+
+                return produto.id;
+            }
+        }
+
         public int save()
         {
             var id = 0;
@@ -81,7 +92,13 @@ namespace Model
             }
             return id;
         }
-        public void update(ProductDTO obj){}
+        public void update(ProductDTO obj)
+        {
+            using(var context = new DAOContext())
+            {
+                var produto = context.product.Where(s => s.bar_code == obj.bar_code);
+            }
+        }
         public void delete(ProductDTO obj){}
     }
 }
