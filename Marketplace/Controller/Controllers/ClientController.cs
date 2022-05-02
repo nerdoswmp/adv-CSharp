@@ -34,7 +34,7 @@ public class ClientController : ControllerBase
     public object getInformations()
     {
         Client client = new Client();
-        return client.findById(1);
+        return client.findById(2);
     }
 
 }
