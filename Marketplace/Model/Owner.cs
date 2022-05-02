@@ -105,7 +105,7 @@ namespace Model
             OwnerDTO owner = new OwnerDTO();
             using (var contexto = new DAOContext())
             {
-                var ownerConsulta = contexto.client.Include(owner => owner.address).Where(c => c.id == id).Single();
+                var ownerConsulta = contexto.owner.Include(owner => owner.address).Where(c => c.id == id).Single();
                 owner.name = ownerConsulta.name;
                 owner.document = ownerConsulta.document;
                 owner.email = ownerConsulta.email;
