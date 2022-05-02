@@ -104,9 +104,24 @@ namespace Model
             ClientDTO cliente = new ClientDTO();
             using (var contexto = new DAOContext())
             {
-                var clientConsulta = contexto.client.Where(c => c.id == id).Join(contexto.address, x => x.id, y => y.id);
-                //var addressConsulta = contexto.client.Join();
-                Console.WriteLine(clientConsulta.address.id);
+                var clientConsulta = contexto.client.Where(c => c.id == id).Join(contexto.address, x => x.address.id, y => y.id, (x, y) => new
+                {
+                    clientid = x.id,
+                    name = x.name,
+                    document = x.document,
+                    email = x.email,
+                    phone = x.phone,
+                    login = x.login,
+                    passwd = x.passwd,
+                    date_of_birth = x.date_of_birth,
+                    street = y.street,
+                    city = y.city,
+                    state = y.state,
+                    country = y.country,
+                    postal = y.postal_code
+
+                }).Single();
+                //Console.WriteLine(clientConsulta.address.id);
                 cliente.name = clientConsulta.name;
                 cliente.document = clientConsulta.document;
                 cliente.email = clientConsulta.email;
@@ -116,11 +131,11 @@ namespace Model
                 cliente.date_of_birth = clientConsulta.date_of_birth;
                 cliente.address = new AddressDTO
                 {
-                    street = addressConsulta.street,
-                    city = addressConsulta.city,
-                    state = addressConsulta.state,
-                    country = addressConsulta.country,
-                    postal_code = addressConsulta.postal_code
+                    street = clientConsulta.street,
+                    city = clientConsulta.city,
+                    state = clientConsulta.state,
+                    country = clientConsulta.country,
+                    postal_code = clientConsulta.postal
                 };
             }
             return cliente;
