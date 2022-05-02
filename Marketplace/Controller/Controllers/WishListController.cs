@@ -11,18 +11,24 @@ namespace Controller.Controllers
         public object addProductToWishList([FromBody] WishListDTO wishList)
         {
             var wishListModel = Model.WishList.convertDTOToModel(wishList);
-            var id = wishListModel.save("85214789455", 1);
+            var id = 0;
+            foreach(var product in wishList.products)
+            {
+                var idProduto = Model.Product.find(product);
+
+                id = wishListModel.save(wishList.client.document, idProduto);
+            }          
             return new
             {
                 id = id,
-                client = wishList.client,
+                client = wishList.client.document,
                 produto = wishList.products
             };
-        }                    
-        //[HttpDelete("deletar")]
-        //public ProductDTO deleteProduct([FromBody] Object request)
-        //{
-        //    return null;
-        //}
+        }
+        [HttpDelete("deletar")]
+        public ProductDTO deleteProduct([FromBody] Object request)
+        {
+            return null;
+        }
     }
 }

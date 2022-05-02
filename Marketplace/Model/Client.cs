@@ -104,8 +104,8 @@ namespace Model
             ClientDTO cliente = new ClientDTO();
             using (var contexto = new DAOContext())
             {
-                var clientConsulta = contexto.client.Where(c => c.id == id).Join(contexto.address, x => x.id, y => y.id);
-                //var addressConsulta = contexto.client.Join();
+                var clientConsulta = contexto.client.Where(c => c.id == id).Single();
+                var addressConsulta = contexto.address.Where(a => a.id == 2).Single();                
                 Console.WriteLine(clientConsulta.address.id);
                 cliente.name = clientConsulta.name;
                 cliente.document = clientConsulta.document;
@@ -129,6 +129,14 @@ namespace Model
         public List<ClientDTO> getAll()
         {
             return this.clientDTO;
+        }
+
+        public static object find(ClientDTO clientDTO)
+        {
+            return new
+            {
+
+            };
         }
 
         public int save()
