@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DTO;
 using DAO;
@@ -104,9 +105,8 @@ namespace Model
             ClientDTO cliente = new ClientDTO();
             using (var contexto = new DAOContext())
             {
-                var clientConsulta = contexto.client.Where(c => c.id == id).Single();
-                var addressConsulta = contexto.address.Where(a => a.id == 2).Single();                
-                Console.WriteLine(clientConsulta.address.id);
+                var clientConsulta = contexto.client.Include(client => client.address).Where(c => c.id == id).Single();
+                //Console.WriteLine(clientConsulta.address.id);
                 cliente.name = clientConsulta.name;
                 cliente.document = clientConsulta.document;
                 cliente.email = clientConsulta.email;
@@ -116,11 +116,11 @@ namespace Model
                 cliente.date_of_birth = clientConsulta.date_of_birth;
                 cliente.address = new AddressDTO
                 {
-                    street = addressConsulta.street,
-                    city = addressConsulta.city,
-                    state = addressConsulta.state,
-                    country = addressConsulta.country,
-                    postal_code = addressConsulta.postal_code
+                    street = clientConsulta.address.street,
+                    city = clientConsulta.address.city,
+                    state = clientConsulta.address.state,
+                    country = clientConsulta.address.country,
+                    postal_code = clientConsulta.address.postal_code
                 };
             }
             return cliente;
