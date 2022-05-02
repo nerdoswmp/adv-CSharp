@@ -108,7 +108,6 @@ namespace Model
             return id;
         }
 
-
         public void update(WishListDTO obj)
         {
 
