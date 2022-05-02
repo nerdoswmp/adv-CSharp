@@ -11,7 +11,7 @@ public class PurchaseController : ControllerBase
     [Route("client")]
     public object getClientPurchase(int clientID)
     {
-        // favor não copiar não sei se to certo
+        // favor nï¿½o copiar nï¿½o sei se to certo
 
         return new object();
     }

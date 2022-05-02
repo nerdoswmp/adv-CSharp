@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
-using DTO;
-using Model;
+//using Microsoft.AspNetCore.Mvc;
+//using DTO;
+//using Model;
 
-namespace Controller.Controllers;
+//namespace Controller.Controllers;
 
 [ApiController]
 [Route("address")]
@@ -30,7 +30,6 @@ public class AddressController : ControllerBase
     [Route("remove")]
     public void removeAddress(AddressDTO address)
     {
-
     }
 
     [HttpPut]
