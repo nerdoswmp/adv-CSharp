@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Model;
 using DTO;
 
 namespace Controller.Controllers;
@@ -16,11 +17,11 @@ public class PurchaseController : ControllerBase
         return new object();
     }
 
-    [HttpPost]
+    [HttpGet]
     [Route("store")]
     public object getStorePurchase(int storeID)
     {
-        return new object();
+        return Purchase.findByStoreId(1);
     }
 
     [HttpPost]
