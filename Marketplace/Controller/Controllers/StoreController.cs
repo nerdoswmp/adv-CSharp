@@ -1,29 +1,42 @@
-﻿//using Microsoft.AspNetCore.Mvc;
-//using DTO;
-//namespace Controller.Controllers
-//{
-//    [ApiController]
-//    [Route("[controller]")]
-//    public class StoreController : ControllerBase
-//    {
-//        [HttpGet("todos")]
-//        public void getAllStore()
-//        {
-//            Console.WriteLine("todos");            
-//        }
-//        [HttpPost("criar")]
-//        public StoreDTO registerStore([FromBody] StoreDTO store)
-//        {
-//            return store;
-//        }
+﻿using Microsoft.AspNetCore.Mvc;
+using DTO;
+using Model;
+namespace Controller.Controllers
+{
+    [ApiController]
+    [Route("store")]
+    public class StoreController : ControllerBase
+    {
+        [HttpGet]
+        [Route("get/all")]
+        public object getAllStore()
+        {
+            var lojas = Model.Store.getStores();
+            return lojas;
+        }
 
-//        [HttpGet("informação")]
-//        public void getStoreInformation([FromBody] StoreDTO store)
-//        {
-//            Console.WriteLine(store.name);
-//            Console.WriteLine(store.CNPJ);
-//            Console.WriteLine(store.purchases);
-//            Console.WriteLine(store.owner.name);
-//        }
-//    }
-//}
+        [HttpPost]
+        [Route("register")]
+        public object registerStore([FromBody] StoreDTO store)
+        {
+            var nstore = Model.Store.convertDTOToModel(store);
+
+            var id = nstore.save(1);
+            return new
+            {
+                id = id,
+                nome = store.name,
+                CNPJ = store.CNPJ,
+                owner = store.owner
+            };
+        }
+
+        [HttpGet]
+        [Route("getStore/{cnpj}")]
+        public object getStoreInformation(string cnpj)
+        {
+            var store = Model.Store.getStoreInfo(cnpj);
+            return store;
+        }
+    }
+}
