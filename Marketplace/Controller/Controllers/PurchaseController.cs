@@ -8,20 +8,18 @@ namespace Controller.Controllers;
 [Route("purchase")]
 public class PurchaseController : ControllerBase
 {
-    [HttpPost]
-    [Route("client")]
-    public object getClientPurchase(int clientID)
+    [HttpGet]
+    [Route("client/{clientID}")]
+    public object getClientPurchase(string clientID)
     {
-        // favor n�o copiar n�o sei se to certo
-
-        return new object();
+        return Purchase.findByClientId(clientID);
     }
 
     [HttpGet]
-    [Route("store")]
-    public object getStorePurchase(int storeID)
+    [Route("store/{storeID}")]
+    public object getStorePurchase(string storeID)
     {
-        return Purchase.findByStoreId(1);
+        return Purchase.findByStoreId(storeID);
     }
 
     [HttpPost]
@@ -34,7 +32,7 @@ public class PurchaseController : ControllerBase
         return new
         {
             data_compra = purchase.data_purchase,
-            valor_compra = purchase.purchase_value,
+            //valor_compra = purchase.purchase_value,
             tipo_pagamento = purchase.payment_type,
             status_compra = purchase.purchase_status,
             numero_confirmacao = purchase.confirmation_number,

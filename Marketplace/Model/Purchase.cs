@@ -164,19 +164,19 @@ namespace Model
             return new PurchaseDTO();
         }
 
-        public static List<object> findByStoreId(int id)
+        public static List<object> findByStoreId(string CNPJ)
         {
             List<object> purchases = new List<object>();
             using (var contexto = new DAOContext())
             {
                 var purchaseConsulta = contexto.purchases.Include(purchase => purchase.client).ThenInclude(client => client.address)
-                    .Include(purchase => purchase.store).ThenInclude(store => store.owner).Include(purchase => purchase.product)
-                    .Where(c => c.store.id == id);
+                    .Include(purchase => purchase.store).ThenInclude(store => store.owner).ThenInclude(owner => owner.address)
+                    .Include(purchase => purchase.product)
+                    .Where(c => c.store.CNPJ == CNPJ);
 
 
                 var distinctPurchase = purchaseConsulta.Select(x => new
                 {
-                    x.id,
                     x.number_nf,
                     x.store,
                     x.client,
@@ -186,8 +186,68 @@ namespace Model
                     x.data_purchase
                 }).Distinct().ToList();
 
-                //var list = contexto.purchases.Where(c => c.id == purchaseConsulta.id)
-                //    .Select(c => c.product).ToList();
+                foreach(var val in distinctPurchase)
+                {
+                    Console.WriteLine(val);
+                }
+
+                List<object> list = new List<object>();
+
+                int i = 0;
+                foreach (var nf in distinctPurchase)
+                {
+                    foreach (var item in purchaseConsulta.Where(c => c.number_nf == nf.number_nf))
+                    {
+                        list.Add(item.product);
+                    };
+
+                    purchases.Add(new
+                    {
+                        nf.confirmation_number,
+                        nf.data_purchase,
+                        nf.number_nf,
+                        nf.payment_type,
+                        nf.purchase_status,
+                        //purchaseConsulta.purchase_value,
+                        nf.client,
+                        nf.store,
+                        products = new List<object>(list),
+                    });
+
+                    list.Clear();
+                    i++;
+                }
+            
+            }
+            return purchases;
+        }
+
+        public static List<object> findByClientId(string document)
+        {
+            List<object> purchases = new List<object>();
+            using (var contexto = new DAOContext())
+            {
+                var purchaseConsulta = contexto.purchases.Include(purchase => purchase.client).ThenInclude(client => client.address)
+                    .Include(purchase => purchase.store).ThenInclude(store => store.owner).ThenInclude(owner => owner.address)
+                    .Include(purchase => purchase.product)
+                    .Where(c => c.client.document == document);
+
+
+                var distinctPurchase = purchaseConsulta.Select(x => new
+                {
+                    x.number_nf,
+                    x.store,
+                    x.client,
+                    x.confirmation_number,
+                    x.purchase_status,
+                    x.payment_type,
+                    x.data_purchase
+                }).Distinct().ToList();
+
+                foreach (var val in distinctPurchase)
+                {
+                    Console.WriteLine(val);
+                }
 
                 List<object> list = new List<object>();
 
@@ -216,25 +276,8 @@ namespace Model
                     i++;
                 }
 
-                //obj = new {
-                //    singlePurchase.confirmation_number,
-                //    singlePurchase.data_purchase,
-                //    singlePurchase.number_nf,
-                //    singlePurchase.payment_type,
-                //    singlePurchase.purchase_status,
-                //    //purchaseConsulta.purchase_value,
-                //    singlePurchase.client,
-                //    singlePurchase.store,
-                //    products,
-                //};
-            
             }
             return purchases;
-        }
-
-        public PurchaseDTO findByClientId(int id)
-        {
-            return new PurchaseDTO();
         }
 
         public List<PurchaseDTO> getAll()
@@ -257,7 +300,7 @@ namespace Model
                     data_purchase = this.dataPurchase,
                     confirmation_number = this.number_confirmation,
                     number_nf = this.number_nf,
-                    purchase_value = this.purchase_value,
+                    //purchase_value = this.purchase_value,
                     purchase_status = this.purchaseStatus,
                     payment_type = this.payment_type                    
                 };
