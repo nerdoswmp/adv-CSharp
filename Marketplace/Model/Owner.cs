@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DTO;
 using DAO;
@@ -102,6 +103,30 @@ namespace Model
         public OwnerDTO findById(int id)
         {
             return new OwnerDTO();
+        }
+
+        public static object findByDoc(string document)
+        {
+            object obj;
+
+            using (var contexto = new DAOContext())
+            {
+                var ownerConsulta = contexto.owner.Include(owner => owner.address).Where(c => c.document == document).Single();
+                //Console.WriteLine(clientConsulta.address.id);
+                obj = new
+                {
+                    name = ownerConsulta.name,
+                    document = ownerConsulta.document,
+                    email = ownerConsulta.email,
+                    phone = ownerConsulta.phone,
+                    login = ownerConsulta.login,
+                    passwd = ownerConsulta.passwd,
+                    date_of_birth = ownerConsulta.date_of_birth,
+                    address = ownerConsulta.address,
+                };
+
+            }
+            return obj;
         }
 
         public List<OwnerDTO> getAll()

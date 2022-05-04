@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Model;
 using DTO;
 
 namespace Controller.Controllers;
@@ -28,11 +29,11 @@ public class OwnerController : ControllerBase
         };
     }
 
-    [HttpPost]
-    [Route("information")]
-    public object getInformations()
+    [HttpGet]
+    [Route("information/{document}")]
+    public object getInformations(string document)
     {
-        return new object();
+        return Owner.findByDoc(document);
     }
 
 }

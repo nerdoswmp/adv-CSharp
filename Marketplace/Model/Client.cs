@@ -23,7 +23,7 @@ namespace Model
             this.address = address;
         }
 
-        public Client() { }
+        private Client() { }
 
         public static Client getInstance(Address address)
         {
@@ -102,41 +102,36 @@ namespace Model
 
         public ClientDTO findById(int id)
         {
-            ClientDTO cliente = new ClientDTO();
+            return new ClientDTO();
+        }
+
+        public static object findByDoc(string document)
+        {
+            object obj;
+
             using (var contexto = new DAOContext())
             {
-                var clientConsulta = contexto.client.Include(client => client.address).Where(c => c.id == id).Single();
+                var clientConsulta = contexto.client.Include(client => client.address).Where(c => c.document == document).Single();
                 //Console.WriteLine(clientConsulta.address.id);
-                cliente.name = clientConsulta.name;
-                cliente.document = clientConsulta.document;
-                cliente.email = clientConsulta.email;
-                cliente.phone = clientConsulta.phone;
-                cliente.login = clientConsulta.login;
-                cliente.passwd = clientConsulta.passwd;
-                cliente.date_of_birth = clientConsulta.date_of_birth;
-                cliente.address = new AddressDTO
+                obj = new
                 {
-                    street = clientConsulta.address.street,
-                    city = clientConsulta.address.city,
-                    state = clientConsulta.address.state,
-                    country = clientConsulta.address.country,
-                    postal_code = clientConsulta.address.postal_code
+                    name = clientConsulta.name,
+                    document = clientConsulta.document,
+                    email = clientConsulta.email,
+                    phone = clientConsulta.phone,
+                    login = clientConsulta.login,
+                    passwd = clientConsulta.passwd,
+                    date_of_birth = clientConsulta.date_of_birth,
+                    address = clientConsulta.address,
                 };
+                
             }
-            return cliente;
+            return obj;
         }
 
         public List<ClientDTO> getAll()
         {
             return this.clientDTO;
-        }
-
-        public static object find(ClientDTO clientDTO)
-        {
-            return new
-            {
-
-            };
         }
 
         public int save()

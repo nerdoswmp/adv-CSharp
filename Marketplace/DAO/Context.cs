@@ -27,7 +27,15 @@ namespace DAO
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=JVLPC0587\SQLSERVER;Initial Catalog=marketplace; Integrated Security = True");
+            
+            if (Environment.MachineName == "JVLPC0555")
+            {
+                optionsBuilder.UseSqlServer(@"Data Source=JVLPC0555\SQLEXPRESS;Initial Catalog=marketplace; Integrated Security = True");
+            }
+            else
+            {
+                optionsBuilder.UseSqlServer(@"Data Source=JVLPC0587\SQLSERVER;Initial Catalog=marketplace; Integrated Security = True");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -108,6 +116,7 @@ namespace DAO
                 entity.Property(e => e.number_nf).IsRequired();
                 entity.Property(e => e.payment_type).IsRequired();
                 entity.Property(e => e.purchase_status).IsRequired();
+                //entity.Property(e => e.purchase_value).IsRequired();
                 entity.Property(e => e.data_purchase).IsRequired();
                 entity.HasOne(e => e.store);
                 entity.HasOne(e => e.product);

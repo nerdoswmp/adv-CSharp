@@ -30,11 +30,10 @@ public class ClientController : ControllerBase
     }
 
     [HttpGet]
-    [Route("information")]
-    public object getInformations()
+    [Route("information/{document}")]
+    public object getInformations(string document)
     {
-        Client client = new Client();
-        return client.findById(1);
+        return Client.findByDoc(document);
     }
 
 }
