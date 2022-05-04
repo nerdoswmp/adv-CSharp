@@ -64,7 +64,7 @@ namespace Model
             return true;
         }
 
-        public Owner() { }
+        private Owner() { }
 
         public static Owner convertDTOToModel(OwnerDTO obj)
         {
@@ -102,27 +102,31 @@ namespace Model
 
         public OwnerDTO findById(int id)
         {
-            OwnerDTO owner = new OwnerDTO();
+            return new OwnerDTO();
+        }
+
+        public static object findByDoc(string document)
+        {
+            object obj;
+
             using (var contexto = new DAOContext())
             {
-                var ownerConsulta = contexto.owner.Include(owner => owner.address).Where(c => c.id == id).Single();
-                owner.name = ownerConsulta.name;
-                owner.document = ownerConsulta.document;
-                owner.email = ownerConsulta.email;
-                owner.phone = ownerConsulta.phone;
-                owner.login = ownerConsulta.login;
-                owner.passwd = ownerConsulta.passwd;
-                owner.date_of_birth = ownerConsulta.date_of_birth;
-                owner.address = new AddressDTO
+                var ownerConsulta = contexto.owner.Include(owner => owner.address).Where(c => c.document == document).Single();
+                //Console.WriteLine(clientConsulta.address.id);
+                obj = new
                 {
-                    street = ownerConsulta.address.street,
-                    city = ownerConsulta.address.city,
-                    state = ownerConsulta.address.state,
-                    country = ownerConsulta.address.country,
-                    postal_code = ownerConsulta.address.postal_code
+                    name = ownerConsulta.name,
+                    document = ownerConsulta.document,
+                    email = ownerConsulta.email,
+                    phone = ownerConsulta.phone,
+                    login = ownerConsulta.login,
+                    passwd = ownerConsulta.passwd,
+                    date_of_birth = ownerConsulta.date_of_birth,
+                    address = ownerConsulta.address,
                 };
+
             }
-            return owner;
+            return obj;
         }
 
         public List<OwnerDTO> getAll()
