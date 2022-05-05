@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 using DTO;
 using DAO;
+using Microsoft.EntityFrameworkCore;
 
 namespace Model
 {
@@ -73,6 +74,21 @@ namespace Model
                 var produto = context.product.Where(s => s.bar_code == productDTO.bar_code).Single();
 
                 return produto.id;
+            }
+        }
+
+        public static List<object> getProducts()
+        {
+            using (var context = new DAOContext())
+            {                
+                var products = context.product;
+                List<object> produtos = new List<object>();
+                foreach (var produto in products)
+                {
+                    produtos.Add(produto);
+                }
+
+                return produtos;
             }
         }
 

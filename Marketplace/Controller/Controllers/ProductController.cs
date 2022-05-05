@@ -7,10 +7,12 @@ namespace Controller.Controllers
     [Route("product")]
     public class ProductController : ControllerBase
     {
-        [HttpGet("todos")]
-        public void allProducts()
+        [HttpGet]
+        [Route("all")]
+        public object allProducts()
         {
-            Console.WriteLine("todos");
+            var produtos = Model.Product.getProducts();
+            return produtos;
         }
 
         [HttpPost]
