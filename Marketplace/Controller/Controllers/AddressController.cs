@@ -10,7 +10,7 @@ public class AddressController : ControllerBase
 {
     [HttpPost]
     [Route("register")]
-    public object registerAddress([FromBody] AddressDTO address)
+    public object registerAddress(AddressDTO address)
     {
         var naddress = Model.Address.convertDTOToModel(address);
 
@@ -30,11 +30,14 @@ public class AddressController : ControllerBase
     [Route("remove")]
     public void removeAddress(AddressDTO address)
     {
+        var naddress = Model.Address.convertDTOToModel(address);
+
+        naddress.deleteAddress();
     }
 
     [HttpPut]
     [Route("update")]
-    public object updateAddress(AddressDTO address)
+    public object updateAddress([FromBody] AddressDTO address)
     {
         return new object();
     }

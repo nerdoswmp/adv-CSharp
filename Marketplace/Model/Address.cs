@@ -159,10 +159,32 @@ namespace Model
 
         }
 
-        public void delete(AddressDTO obj)
+        public void delete(AddressDTO address)
         {
 
         }
+        public void deleteAddress()
+        {
+            using (var context = new DAOContext())
+            {
+                var adlis = context.address.Where(c => c.postal_code == this.postal_code).ToList();
 
+                foreach (var ad in adlis)
+                {
+                    if (context.client.FirstOrDefault(c => c.address.id == ad.id) == null
+                        && context.owner.FirstOrDefault(c => c.address.id == ad.id) == null)
+                    {
+                        context.address.Remove(context.address.Where(c => c.id == ad.id).Single());
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cannot delete address");
+                    }
+                }
+
+                context.SaveChanges();
+            }
+
+        }
     }
 }

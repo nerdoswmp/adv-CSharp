@@ -13,8 +13,11 @@ namespace Model
     {
         private string name;       
         private string bar_code;
+        private string description;
+        private string image;
         private List<ProductDTO> products;
 
+        
         public string getName()
         {
             return name;
@@ -30,6 +33,23 @@ namespace Model
         public void setBarCode(string Bar_code)
         {
             this.bar_code = Bar_code;
+        }
+        public string getDescription()
+        {
+            return description;
+        }
+        public void setDescription(string description)
+        {
+            this.description = description;
+        }
+
+        public string getImage()
+        {
+            return image;
+        }
+        public void setImage(string image)
+        {
+            this.image = image;
         }
         public bool validateObject()
         {
