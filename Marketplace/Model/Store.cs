@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 using DTO;
 using DAO;
+using Microsoft.EntityFrameworkCore;
 
 namespace Model
 {
@@ -105,6 +106,36 @@ namespace Model
             }
 
             return storeDTO;
+        }
+
+        public static object getStoreInfo(string cnpj)
+        {
+            using (var context = new DAOContext())
+            {
+                var storeDAO = context.store.Include(s => s.owner).Include(s => s.owner.address).FirstOrDefault(p => p.CNPJ == cnpj);
+
+                return new
+                {
+                    name = storeDAO.name,
+                    cnpj = storeDAO.CNPJ,
+                    owner = storeDAO.owner
+                };
+            }
+        }
+
+        public static List<object> getStores()
+        {
+            using (var context = new DAOContext())
+            {
+                var stores = context.store.Include(s => s.owner);
+                List<object> lojas = new List<object>();
+                foreach (var store in stores)
+                {
+                    lojas.Add(store);
+                }
+
+                return lojas;
+            }
         }
 
         public StoreDTO findById(int id)
