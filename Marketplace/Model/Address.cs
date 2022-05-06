@@ -30,7 +30,7 @@ namespace Model
             this.postal_code = postal_code;
         }
 
-        public Address() { }
+        private Address() { }
 
         // gets | sets
         public void setStreet(string street)
@@ -163,28 +163,45 @@ namespace Model
         {
 
         }
+
+
         public void deleteAddress()
         {
             using (var context = new DAOContext())
             {
+
                 var adlis = context.address.Where(c => c.postal_code == this.postal_code).ToList();
+                if (adlis.Count() <= 0)
+                {
+                    return;
+                }
 
                 foreach (var ad in adlis)
                 {
-                    if (context.client.FirstOrDefault(c => c.address.id == ad.id) == null
-                        && context.owner.FirstOrDefault(c => c.address.id == ad.id) == null)
+                    var clverif = context.client.FirstOrDefault(c => c.address.id == ad.id);
+                    var owverif = context.owner.FirstOrDefault(c => c.address.id == ad.id);
+
+                    if (clverif == null && owverif == null)
                     {
                         context.address.Remove(context.address.Where(c => c.id == ad.id).Single());
                     }
+                    else if (clverif == null)
+                    {
+                        context.owner.Remove(owverif);
+                    }
+                    else if (owverif == null)
+                    {
+                        context.client.Remove(clverif);
+                    }
                     else
                     {
-                        Console.WriteLine("Cannot delete address");
+                        Console.WriteLine("Something happened idk");
                     }
+                    context.SaveChanges();
                 }
-
-                context.SaveChanges();
+                this.deleteAddress();
             }
-
+            return;
         }
     }
 }
