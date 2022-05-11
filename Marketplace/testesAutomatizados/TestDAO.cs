@@ -550,27 +550,27 @@ namespace testesAutomatizados
 
         }
 
-        [Test]
-        public void FinsertStocks()
-        {
-            int id = 0;
-            for (int i = 1; i < 5; i++)
-            {
-                for (int j = 1; j < 5; j++)
-                {
-                    Model.Stocks stc = new Model.Stocks();
+        //[Test]
+        //public void FinsertStocks()
+        //{
+        //    int id = 0;
+        //    for (int i = 1; i < 5; i++)
+        //    {
+        //        for (int j = 1; j < 5; j++)
+        //        {
+        //            Model.Stocks stc = new Model.Stocks();
 
-                    double unit = (i * j * 3.14);
+        //            double unit = (i * j * 3.14);
 
-                    id = stc.save(i, j, i + j, unit);
+        //            id = stc.save(i, j, i + j, unit);
 
-                    Assert.That(id, Is.Not.EqualTo(0));
+        //            Assert.That(id, Is.Not.EqualTo(0));
 
-                    id = 0;
-                }
-            }
+        //            id = 0;
+        //        }
+        //    }
 
-        }
+        //}
 
         [Test]
         public void GinsertWishList()

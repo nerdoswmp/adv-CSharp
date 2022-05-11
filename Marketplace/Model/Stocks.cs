@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DTO;
 using DAO;
@@ -97,7 +98,7 @@ namespace Model
             return this.stocks;
         }
 
-        public int save(int lojaID, int produtoID, int quantidade, double unit_price)
+        public int save(string lojaID, string produtoID, int quantidade, double unit_price)
         {
             var id = 0;
             using(var context = new DAOContext())
@@ -106,8 +107,8 @@ namespace Model
                 {
                     quantity = quantidade,
                     unit_price = unit_price,
-                    store = context.store.Where(c => c.id == lojaID).Single(),
-                    product = context.product.Where(c => c.id == produtoID).Single()
+                    store = context.store.Where(c => c.CNPJ == lojaID).Single(),
+                    product = context.product.Where(c => c.bar_code == produtoID).Single()
                 };
                 context.stock.Add(stock);
                 if (stock.store != null)
@@ -128,6 +129,19 @@ namespace Model
         public void update(StocksDTO obj)
         {
 
+        }
+
+        public void updateStock()
+        {
+            using (var context = new DAOContext())
+            {
+                
+                var entity = context.stock.Include(s => s.store).Include(s => s.product)
+                    .Where(s => s.store.CNPJ == this.store.getCNPJ() && s.product.bar_code == this.product.getBarCode()).Single();
+                entity.unit_price = this.unit_price;
+                entity.quantity = this.quantity;
+                context.SaveChanges();
+            }
         }
 
         public void delete(StocksDTO obj)
