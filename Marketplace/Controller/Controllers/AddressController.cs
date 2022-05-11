@@ -36,9 +36,13 @@ public class AddressController : ControllerBase
     }
 
     [HttpPut]
-    [Route("update")]
-    public object updateAddress([FromBody] AddressDTO address)
+    [Route("update/{doc}")]
+    public string updateAddress(AddressDTO address, string doc)
     {
-        return new object();
+        var naddress = Model.Address.convertDTOToModel(address);
+
+        naddress.updateAddress(doc);
+
+        return "nois";
     }
 }

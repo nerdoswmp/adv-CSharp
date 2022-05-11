@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DTO;
 using DAO;
@@ -30,7 +31,7 @@ namespace Model
             this.postal_code = postal_code;
         }
 
-        public Address() { }
+        private Address() { }
 
         // gets | sets
         public void setStreet(string street)
@@ -159,32 +160,75 @@ namespace Model
 
         }
 
+        public void updateAddress(string document)
+        {
+            using (var context = new DAOContext())
+            {
+                try
+                {
+                    var entity = context.client.Include(c => c.address).Where(c => c.document == document).Single();
+                    entity.address.street = this.street;
+                    entity.address.city = this.city;
+                    entity.address.state = this.state;
+                    entity.address.country = this.country;
+                    entity.address.postal_code = this.postal_code;
+                }
+                catch (Exception ex)
+                {
+                    var entity2 = context.owner.Include(c => c.address).Where(c => c.document == document).Single();
+                    entity2.address.street = this.street;
+                    entity2.address.city = this.city;
+                    entity2.address.state = this.state;
+                    entity2.address.country = this.country;
+                    entity2.address.postal_code = this.postal_code;
+                }
+                context.SaveChanges();
+            }
+
+        }
+
         public void delete(AddressDTO address)
         {
 
         }
+
         public void deleteAddress()
         {
             using (var context = new DAOContext())
             {
+
                 var adlis = context.address.Where(c => c.postal_code == this.postal_code).ToList();
+                if (adlis.Count() <= 0)
+                {
+                    return;
+                }
 
                 foreach (var ad in adlis)
                 {
-                    if (context.client.FirstOrDefault(c => c.address.id == ad.id) == null
-                        && context.owner.FirstOrDefault(c => c.address.id == ad.id) == null)
+                    var clverif = context.client.FirstOrDefault(c => c.address.id == ad.id);
+                    var owverif = context.owner.FirstOrDefault(c => c.address.id == ad.id);
+
+                    if (clverif == null && owverif == null)
                     {
                         context.address.Remove(context.address.Where(c => c.id == ad.id).Single());
                     }
+                    else if (clverif == null)
+                    {
+                        context.owner.Remove(owverif);
+                    }
+                    else if (owverif == null)
+                    {
+                        context.client.Remove(clverif);
+                    }
                     else
                     {
-                        Console.WriteLine("Cannot delete address");
+                        Console.WriteLine("Something happened idk");
                     }
+                    context.SaveChanges();
                 }
-
-                context.SaveChanges();
+                this.deleteAddress();
             }
-
+            return;
         }
     }
 }
