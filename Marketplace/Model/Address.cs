@@ -175,6 +175,7 @@ namespace Model
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                     var entity2 = context.owner.Include(c => c.address).Where(c => c.document == document).Single();
                     entity2.address.street = this.street;
                     entity2.address.city = this.city;
