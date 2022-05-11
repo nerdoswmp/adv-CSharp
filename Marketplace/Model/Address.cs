@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DTO;
 using DAO;
@@ -159,11 +160,37 @@ namespace Model
 
         }
 
+        public void updateAddress(string document)
+        {
+            using (var context = new DAOContext())
+            {
+                try
+                {
+                    var entity = context.client.Include(c => c.address).Where(c => c.document == document).Single();
+                    entity.address.street = this.street;
+                    entity.address.city = this.city;
+                    entity.address.state = this.state;
+                    entity.address.country = this.country;
+                    entity.address.postal_code = this.postal_code;
+                }
+                catch (Exception ex)
+                {
+                    var entity2 = context.owner.Include(c => c.address).Where(c => c.document == document).Single();
+                    entity2.address.street = this.street;
+                    entity2.address.city = this.city;
+                    entity2.address.state = this.state;
+                    entity2.address.country = this.country;
+                    entity2.address.postal_code = this.postal_code;
+                }
+                context.SaveChanges();
+            }
+
+        }
+
         public void delete(AddressDTO address)
         {
 
         }
-
 
         public void deleteAddress()
         {
