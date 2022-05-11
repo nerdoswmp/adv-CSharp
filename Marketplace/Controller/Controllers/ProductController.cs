@@ -34,10 +34,12 @@ namespace Controller.Controllers
         {
             return null;
         }
-        [HttpPut("atualizar")]
-        public ProductDTO updateProduct([FromBody] ProductDTO product)
+        [HttpPut("atualizar/{bar_code}")]
+        public string updateProduct(ProductDTO product, string bar_code)
         {
-            return null;
+            var nProduct = Model.Product.convertDTOToModel(product);
+            nProduct.updateProduct(bar_code);
+            return "atualizado";
         }
     }
 }

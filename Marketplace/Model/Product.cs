@@ -128,13 +128,21 @@ namespace Model
             }
             return id;
         }
-        public void update(ProductDTO obj)
+        public void update(ProductDTO obj){}
+        public void updateProduct(string bar_code)
         {
-            using(var context = new DAOContext())
+            using (var context = new DAOContext())
             {
-                var produto = context.product.Where(s => s.bar_code == obj.bar_code);
-            }
+                var produto = context.product.Where(s => s.bar_code == bar_code).Single();
+                produto.name = this.name;
+                produto.bar_code = this.bar_code;
+                //produto.description
+                //produto.image
+
+                context.SaveChanges();
+            }          
         }
-        public void delete(ProductDTO obj){}
+    
+    public void delete(ProductDTO obj){}
     }
 }
