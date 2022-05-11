@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DTO;
+using Model;
 namespace Controller.Controllers
 {
     [ApiController]
@@ -25,10 +26,12 @@ namespace Controller.Controllers
                 produto = wishList.products
             };
         }
-        [HttpDelete("deletar")]
-        public ProductDTO deleteProduct([FromBody] Object request)
+        [HttpDelete]
+        [Route("remove")]
+        public string removeProductToWishList([FromBody] WishListDTO request)
         {
-            return null;
+            Model.WishList.convertDTOToModel(request).deleteWishList();
+            return "produto removido com sucesso do WishList";
         }
     }
 }

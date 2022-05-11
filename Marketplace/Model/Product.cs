@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Interfaces;
 using DTO;
 using DAO;
+using Microsoft.EntityFrameworkCore;
 
 namespace Model
 {
@@ -96,6 +97,21 @@ namespace Model
             }
         }
 
+        public static List<object> getProducts()
+        {
+            using (var context = new DAOContext())
+            {                
+                var products = context.product;
+                List<object> produtos = new List<object>();
+                foreach (var produto in products)
+                {
+                    produtos.Add(produto);
+                }
+
+                return produtos;
+            }
+        }
+
         public int save()
         {
             var id = 0;
@@ -112,13 +128,21 @@ namespace Model
             }
             return id;
         }
-        public void update(ProductDTO obj)
+        public void update(ProductDTO obj){}
+        public void updateProduct(string bar_code)
         {
-            using(var context = new DAOContext())
+            using (var context = new DAOContext())
             {
-                var produto = context.product.Where(s => s.bar_code == obj.bar_code);
-            }
+                var produto = context.product.Where(s => s.bar_code == bar_code).Single();
+                produto.name = this.name;
+                produto.bar_code = this.bar_code;
+                //produto.description
+                //produto.image
+
+                context.SaveChanges();
+            }          
         }
-        public void delete(ProductDTO obj){}
+    
+    public void delete(ProductDTO obj){}
     }
 }

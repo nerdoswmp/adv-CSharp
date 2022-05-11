@@ -7,10 +7,12 @@ namespace Controller.Controllers
     [Route("product")]
     public class ProductController : ControllerBase
     {
-        [HttpGet("todos")]
-        public void allProducts()
+        [HttpGet]
+        [Route("all")]
+        public object allProducts()
         {
-            Console.WriteLine("todos");
+            var produtos = Model.Product.getProducts();
+            return produtos;
         }
 
         [HttpPost]
@@ -32,10 +34,12 @@ namespace Controller.Controllers
         {
             return null;
         }
-        [HttpPut("atualizar")]
-        public ProductDTO updateProduct([FromBody] ProductDTO product)
+        [HttpPut("atualizar/{bar_code}")]
+        public string updateProduct(ProductDTO product, string bar_code)
         {
-            return null;
+            var nProduct = Model.Product.convertDTOToModel(product);
+            nProduct.updateProduct(bar_code);
+            return "atualizado";
         }
     }
 }
