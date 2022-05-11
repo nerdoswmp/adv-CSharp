@@ -144,5 +144,35 @@ namespace Model
         }
     
     public void delete(ProductDTO obj){}
+    public void deleteProduct()
+    {
+            using (var context = new DAOContext())
+            {
+                var prlis = context.product.Where(c => c.bar_code == this.bar_code).Single();
+
+                var wiverif = context.wishList.Include(w => w.product).Where(w => w.product.bar_code == this.bar_code).ToList();
+
+                foreach(var w in wiverif)
+                {
+                    context.wishList.Remove(w);
+                }
+
+                var stverif = context.stock.Include(s => s.product).Where(s => s.product.bar_code == this.bar_code).ToList();
+
+                foreach(var s in stverif)
+                {
+                    context.stock.Remove(s);
+                }
+
+                var puverif = context.purchases.Include(p => p.product).Where(p => p.product.bar_code == this.bar_code).ToList();
+
+                foreach(var p in puverif)
+                {
+                    p.product = null;
+                }
+                context.product.Remove(prlis);
+                context.SaveChanges();
+            }
+    }
     }
 }
