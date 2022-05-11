@@ -118,5 +118,20 @@ namespace Model
 
         }
 
+        public void deleteWishList()
+        {
+            using (var context = new DAOContext())
+            {
+               foreach(var prod in this.products)
+                {
+                    var wishlist = context.wishList.FirstOrDefault(w => w.client.document == this.client.getDoc() && w.product.bar_code == prod.getBarCode());
+                    if (wishlist == null)
+                        continue;
+                    context.wishList.Remove(wishlist);
+                    context.SaveChanges();
+                }
+            }
+        }
+
     }
 }
