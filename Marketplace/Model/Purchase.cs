@@ -188,7 +188,6 @@ namespace Model
 
                 List<object> list = new List<object>();
 
-                int i = 0;
                 foreach (var nf in distinctPurchase)
                 {
                     foreach (var item in purchaseConsulta.Where(c => c.number_nf == nf.number_nf))
@@ -210,7 +209,6 @@ namespace Model
                     });
 
                     list.Clear();
-                    i++;
                 }
             
             }
@@ -246,7 +244,6 @@ namespace Model
 
                 List<object> list = new List<object>();
 
-                int i = 0;
                 foreach (var nf in distinctPurchase)
                 {
                     foreach (var item in purchaseConsulta.Where(c => c.number_nf == nf.number_nf))
@@ -268,7 +265,6 @@ namespace Model
                     });
 
                     list.Clear();
-                    i++;
                 }
 
             }
