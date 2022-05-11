@@ -186,11 +186,6 @@ namespace Model
                     x.data_purchase
                 }).Distinct().ToList();
 
-                foreach(var val in distinctPurchase)
-                {
-                    Console.WriteLine(val);
-                }
-
                 List<object> list = new List<object>();
 
                 int i = 0;
