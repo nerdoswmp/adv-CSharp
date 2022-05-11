@@ -29,17 +29,20 @@ namespace Controller.Controllers
             };
         }
 
-        [HttpDelete("deletar")]
-        public ProductDTO deleteProduct([FromBody] ProductDTO product)
+        [HttpDelete]
+        [Route("delete")]
+        public string deleteProduct(ProductDTO product)
         {
-            return null;
+            var nproduct = Model.Product.convertDTOToModel(product);
+            nproduct.deleteProduct();
+            return "produto deletado";
         }
         [HttpPut("atualizar/{bar_code}")]
         public string updateProduct(ProductDTO product, string bar_code)
         {
             var nProduct = Model.Product.convertDTOToModel(product);
             nProduct.updateProduct(bar_code);
-            return "atualizado";
+            return "produto atualizado";
         }
     }
 }
