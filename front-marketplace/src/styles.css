@@ -218,6 +218,10 @@ html{scroll-behavior:smooth}
     color: white;
     border-radius: 5%;
   }
+  .img-coracao{
+    max-width: 20%;
+    height: auto;
+  }
 
   @media only screen and (max-width: 500px) {
     .productComponent{

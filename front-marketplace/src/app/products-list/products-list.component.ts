@@ -1,3 +1,4 @@
+import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit } from '@angular/core';
 import { products } from '../products';
 import axios from 'axios';
@@ -32,5 +33,15 @@ export class ProductsListComponent implements OnInit {
     });
     
   }
-
+  mudarCoracao(idTag : String){
+          console.log(idTag)        
+          var img = document.querySelector('#'+idTag);           
+          if(img?.getAttribute("src") == "../assets/coraçãoCheio.png"){
+            img?.setAttribute('src', '../assets/coraçãoVazio.png');  
+          }
+          else{
+            img?.setAttribute('src', '../assets/coraçãoCheio.png');
+          }
+  }
 }
+
