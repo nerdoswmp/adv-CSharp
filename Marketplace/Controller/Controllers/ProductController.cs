@@ -9,10 +9,12 @@ namespace Controller.Controllers
     {
         [HttpGet]
         [Route("all")]
-        public object allProducts()
+        public IActionResult allProducts()
         {
             var produtos = Model.Product.getProducts();
-            return produtos;
+            var result = new ObjectResult(produtos);
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            return result;
         }
 
         [HttpPost]
@@ -25,7 +27,9 @@ namespace Controller.Controllers
             {
                 id = id,
                 nome = product.name,
-                codigoDeBarras = product.bar_code
+                codigoDeBarras = product.bar_code,
+                descricao = product.description,
+                imagem = product.image
             };
         }
 

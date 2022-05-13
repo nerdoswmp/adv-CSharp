@@ -10,5 +10,7 @@ namespace DTO
     {
         public string name;
         public string bar_code;
+        public string description;
+        public string image;
     }
 }

@@ -82,7 +82,9 @@ namespace DAO
             {
                 entity.HasKey(e => e.id);
                 entity.Property(e => e.name).IsRequired();
-                entity.Property(e => e.bar_code).IsRequired();                               
+                entity.Property(e => e.bar_code).IsRequired();     
+                entity.Property(e => e.description).IsRequired();
+                entity.Property(e => e.image).IsRequired();
             });         
 
             modelBuilder.Entity<Store>(entity =>
@@ -116,7 +118,7 @@ namespace DAO
                 entity.Property(e => e.number_nf).IsRequired();
                 entity.Property(e => e.payment_type).IsRequired();
                 entity.Property(e => e.purchase_status).IsRequired();
-                //entity.Property(e => e.purchase_value).IsRequired();
+                entity.Property(e => e.purchase_value).IsRequired();
                 entity.Property(e => e.data_purchase).IsRequired();
                 entity.HasOne(e => e.store);
                 entity.HasOne(e => e.product);

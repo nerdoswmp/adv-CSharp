@@ -32,7 +32,7 @@ public class PurchaseController : ControllerBase
         return new
         {
             data_compra = purchase.data_purchase,
-            //valor_compra = purchase.purchase_value,
+            valor_compra = purchase.purchase_value,
             tipo_pagamento = purchase.payment_type,
             status_compra = purchase.purchase_status,
             numero_confirmacao = purchase.confirmation_number,
