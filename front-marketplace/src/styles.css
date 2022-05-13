@@ -182,6 +182,10 @@ html{scroll-behavior:smooth}
     margin-left: 5%;
     margin-right: 5%;
   }
+  .img-coracao{
+    max-width: 20%;
+    height: auto;
+  }
 
   @media only screen and (max-width: 500px) {
     .productComponent{
