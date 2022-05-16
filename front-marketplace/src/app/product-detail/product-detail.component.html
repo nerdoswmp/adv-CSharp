@@ -1,5 +1,10 @@
-<div *ngIf="product">
+<app-top-bar [titulo]="titlePage"></app-top-bar>
+
+<div *ngIf="product" class="product-detail-text">
+    <img src={{product.image}} class="img-responsive big-img-responsive">
+    <br>
     <h3>{{product.name}}</h3>
-    <h4>{{product.price | currency}}</h4>
     <p>{{product.description}}</p>
+    <h4>{{product.price | currency}}</h4>
+    <a> Purchase </a>
 </div>

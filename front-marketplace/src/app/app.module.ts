@@ -8,6 +8,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
+import { AddressRegisterComponent } from './address-register/address-register.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ClientRegisterComponent } from './client-register/client-register.compo
     ProductsListComponent,
     ProductDetailComponent,
     ClientRegisterComponent
+    AddressRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,7 @@ import { ClientRegisterComponent } from './client-register/client-register.compo
       {path: '', component : ProductsListComponent},
       {path: 'product/:productID', component:ProductDetailComponent},
       {path: 'client/register', component:ClientRegisterComponent}
+      {path: 'address/register', component:AddressRegisterComponent}
     ])
   ],
   providers: [],

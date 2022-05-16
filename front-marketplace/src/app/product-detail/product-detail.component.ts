@@ -9,7 +9,8 @@ import { Product, products} from '../products';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  titlePage="Product Detail"
+  titlePage="Product Detail";
+  title = 'front-marketplace';
   product: Product | undefined
 
   constructor(private route: ActivatedRoute) { }

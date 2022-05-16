@@ -181,6 +181,7 @@ namespace Model
                     x.store,
                     x.client,
                     x.confirmation_number,
+                    x.purchase_value,
                     x.purchase_status,
                     x.payment_type,
                     x.data_purchase
@@ -202,7 +203,7 @@ namespace Model
                         nf.number_nf,
                         nf.payment_type,
                         nf.purchase_status,
-                        //purchaseConsulta.purchase_value,
+                        nf.purchase_value,
                         nf.client,
                         nf.store,
                         products = new List<object>(list),

@@ -68,14 +68,18 @@ namespace Model
         {
             var productDTO = new ProductDTO();
             productDTO.name = this.name;
-            productDTO.bar_code = this.bar_code;            
+            productDTO.bar_code = this.bar_code;
+            productDTO.description = this.description;
+            productDTO.image = this.image;
             return productDTO;
         }
         public static Product convertDTOToModel(ProductDTO obj)
         {
             Product product = new Product();
             product.setName(obj.name);
-            product.setBarCode(obj.bar_code);                        
+            product.setBarCode(obj.bar_code); 
+            product.setDescription(obj.description);
+            product.setImage(obj.image);
             return product;
         }
         public ProductDTO findById(int id)
@@ -120,7 +124,10 @@ namespace Model
                 var product = new DAO.Product
                 {                    
                     name = this.name,
-                    bar_code = this.bar_code
+                    bar_code = this.bar_code,
+                    description = this.description,
+                    image = this.image
+                    
                 };
                 context.product.Add(product);
                 context.SaveChanges();
@@ -133,11 +140,11 @@ namespace Model
         {
             using (var context = new DAOContext())
             {
-                var produto = context.product.Where(s => s.bar_code == bar_code).Single();
+                var produto = context.product.Where(s => s.bar_code == bar_code).First();
                 produto.name = this.name;
                 produto.bar_code = this.bar_code;
-                //produto.description
-                //produto.image
+                produto.description = this.description;
+                produto.image = this.image;
 
                 context.SaveChanges();
             }          

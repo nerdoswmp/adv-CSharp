@@ -1,6 +1,6 @@
 html, body, head{
 	margin: 0;
-	padding: 0;
+	padding: 0 0 0 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
@@ -26,7 +26,7 @@ html{scroll-behavior:smooth}
   }
   
   router-outlet + *  {
-    padding: 0 16px;
+    padding: 0;
   }
   
   /* Text */
@@ -181,7 +181,44 @@ html{scroll-behavior:smooth}
     transition: transform .2s;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 10%;
   }
+
+  .big-img-responsive{
+    float:left;
+    max-width: 26%;
+  }
+
+  .product-detail-text{
+    margin: 30px;
+  }
+
+  .product-detail-text h4{
+    font-size: 2em;
+    max-height: 5%;
+  }
+
+  .product-detail-text h3{
+    margin-top: 30px;
+    font-size: 1.5em;
+  }
+
+  .product-detail-text a{
+    text-align: center;
+    font-size: 2em;
+    height: 5em;
+    width: 20em;
+    padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 20%;
+    max-height: 5%;
+    line-height: 65px;
+    background-color: #1976d2;
+    color: white;
+    border-radius: 5%;
+  }
+
   .img-coracao{
     max-width: 20%;
     height: auto;
@@ -191,4 +228,81 @@ html{scroll-behavior:smooth}
     .productComponent{
       width: 80%;
     }
+
+  }
+
+  @media only screen and (max-width: 800px) {
+    .big-img-responsive{
+      float: none;
+      max-width: 80%;
+    }
+
+    .product-detail-text{
+      margin: 30px;
+      text-align: center;
+    }
+
+    .register-box{
+      text-align: center;
+      max-width: 80%;
+      width: 30em;
+      margin-inline: 0%;
+      margin: 0px;
+      padding: 0px;
+      background-color: #b1b1b1;
+      padding-bottom: 65px;
+      border-radius: 5%;
+    }
+  
+    .register-box input{
+      width: 5%;
+      height: 2%;
+    }
+
+    .register-buttons{
+      font-size: 1em;
+      height: 5em;
+      width: 20em;
+      padding: 10px;
+      line-height: 0px;
+      margin: 15px;
+    }
+  }
+
+  .register-box{
+    text-align: center;
+    background-color: #b1b1b1;
+    margin: 30px;
+    padding: 30px;
+    margin-inline: auto;
+    padding-bottom: 65px;
+    border-radius: 5%;
+    width: min(600px, 90vw);
+  }
+
+  .register-box input{
+    max-width: 70%;
+    width: 20em;
+    height: 4em;
+    max-height: 20%;
+  }
+
+  .register-box a{
+    text-align: center;
+    font-size: 1em;
+    height: 10px;
+    width: 20em;
+    max-width: fit-content;
+    line-height: 13px;
+    background-color: #1976d2;
+    color: white;
+    border-radius: 5%;
+    margin: 15px;
+    display: inline-block;
+    padding: 30px;
+    padding-top: 20px;
+  }
+
+  .register-buttons{
+    
   }
