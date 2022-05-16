@@ -41,7 +41,7 @@ namespace Controller.Controllers
             nproduct.deleteProduct();
             return "produto deletado";
         }
-        [HttpPut("atualizar/{bar_code}")]
+        [HttpPut("update/{bar_code}")]
         public string updateProduct(ProductDTO product, string bar_code)
         {
             var nProduct = Model.Product.convertDTOToModel(product);

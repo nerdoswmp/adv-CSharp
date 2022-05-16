@@ -9,6 +9,8 @@ import axios from 'axios';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
+  titlePage="Products";
+  title = 'front-marketplace';
 
   products = products;
   

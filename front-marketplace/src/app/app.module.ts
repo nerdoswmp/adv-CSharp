@@ -7,20 +7,23 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AddressRegisterComponent } from './address-register/address-register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     ProductsListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AddressRegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
       {path: '', component : ProductsListComponent},
-      {path: 'product/:productID', component:ProductDetailComponent}
+      {path: 'product/:productID', component:ProductDetailComponent},
+      {path: 'address/register', component:AddressRegisterComponent}
     ])
   ],
   providers: [],
