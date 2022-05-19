@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ClientRegisterComponent } from './client-register/client-register.component';
 import { AddressRegisterComponent } from './address-register/address-register.component';
 import { StoreRegisterComponent } from './store-register/store-register.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
@@ -19,7 +20,9 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     ProductDetailComponent,
     AddressRegisterComponent,
     StoreRegisterComponent,
-    WishlistComponent
+    WishlistComponent,
+    ClientRegisterComponent,
+    AddressRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,10 @@ import { WishlistComponent } from './wishlist/wishlist.component';
       {path: 'product/:productID/:storeID', component:ProductDetailComponent},
       {path: 'address/register', component:AddressRegisterComponent},
       {path: 'store/register', component:StoreRegisterComponent},
-      {path: 'wishlist', component:WishlistComponent}
+      {path: 'wishlist', component:WishlistComponent},
+      {path: 'product/:productID', component:ProductDetailComponent},
+      {path: 'client/register', component:ClientRegisterComponent},
+      {path: 'address/register', component:AddressRegisterComponent}
     ])
   ],
   providers: [],
