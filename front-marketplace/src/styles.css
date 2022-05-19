@@ -150,13 +150,21 @@ html{scroll-behavior:smooth}
     background: white;
     margin:10px;
     transition: transform .2s;
-    border-radius: 5%;
+    border-radius: 10px;
     min-width: 15em;
     max-width: 300px;
     width: 20%;
+    display: flex;
+    flex-direction: column;
   }
 
-  .productComponent h3, h2{
+  .productComponent h2{
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 15em;
+  }
+
+  .productComponent h3{
     margin-left: 20px;
     margin-right: 20px;
     max-width: 15em;
@@ -177,7 +185,7 @@ html{scroll-behavior:smooth}
   .img-responsive {
     display: block;
     height: auto;
-    max-width: 80%;
+    max-width: 90%;
     transition: transform .2s;
     margin-left: 5%;
     margin-right: 5%;
@@ -216,12 +224,81 @@ html{scroll-behavior:smooth}
     line-height: 65px;
     background-color: #1976d2;
     color: white;
-    border-radius: 5%;
+    border-radius: 10px;
   }
 
   .img-coracao{
     max-width: 20%;
     height: auto;
+  }
+
+  .register-box{
+    text-align: center;
+    background-color: #b1b1b1;
+    margin: 30px;
+    padding: 30px;
+    margin-inline: auto;
+    padding-bottom: 65px;
+    border-radius: 10px;
+    width: min(600px, 90vw);
+  }
+
+  .register-box input{
+    max-width: 70%;
+    width: 20em;
+    height: 4em;
+    max-height: 20%;
+  }
+
+  .register-box a{
+    text-align: center;
+    font-size: 1em;
+    height: 10px;
+    width: 20em;
+    max-width: fit-content;
+    line-height: 13px;
+    background-color: #1976d2;
+    color: white;
+    border-radius: 10px;
+    margin: 15px;
+    display: inline-block;
+    padding: 30px;
+    padding-top: 20px;
+  }
+
+  .register-buttons{
+    
+  }
+
+  .wishlistComponent{
+    border: 1px solid gray;
+    background: white;
+    margin:10px;
+    transition: transform .2s;
+    border-radius: 10px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .img-wishlist {
+    display: block;
+    max-width: 80%;
+    transition: transform .2s;
+    margin: 5%;
+  }
+
+  .description{
+    width: auto;
+    min-width: fit-content;
+  }
+
+  .wishimage{
+    width:20%;
+  }
+
+  .wishdetails{
+    width:80%;
   }
 
   @media only screen and (max-width: 500px) {
@@ -267,42 +344,31 @@ html{scroll-behavior:smooth}
       line-height: 0px;
       margin: 15px;
     }
+
+    .wishlistComponent{
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wishimage{
+      width:100%;
+    }
+  
+    .wishdetails{
+      width:100%;
+      text-align: center;
+    }
+
+    .img-wishlist{
+      float: none;
+      max-width: 80%;
+    }
+
+    .description{
+      max-width: 80%;
+    }
+
   }
 
-  .register-box{
-    text-align: center;
-    background-color: #b1b1b1;
-    margin: 30px;
-    padding: 30px;
-    margin-inline: auto;
-    padding-bottom: 65px;
-    border-radius: 5%;
-    width: min(600px, 90vw);
-  }
-
-  .register-box input{
-    max-width: 70%;
-    width: 20em;
-    height: 4em;
-    max-height: 20%;
-  }
-
-  .register-box a{
-    text-align: center;
-    font-size: 1em;
-    height: 10px;
-    width: 20em;
-    max-width: fit-content;
-    line-height: 13px;
-    background-color: #1976d2;
-    color: white;
-    border-radius: 5%;
-    margin: 15px;
-    display: inline-block;
-    padding: 30px;
-    padding-top: 20px;
-  }
-
-  .register-buttons{
-    
-  }
+  

@@ -159,7 +159,7 @@ namespace Model
                     name = this.name,
                     CNPJ = this.CNPJ,
                     owner = context.owner.Where(c => c.id == owner).Single()
-            };
+                };
 
                 context.store.Add(store);
                 if (store.owner != null)

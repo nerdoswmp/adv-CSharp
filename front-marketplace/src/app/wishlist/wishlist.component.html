@@ -1,0 +1,29 @@
+<app-top-bar [titulo]="titlePage"></app-top-bar>
+
+<div>
+    <div class="wishlistComponent" *ngFor="let product of products">
+        <div class="wishimage">
+            <img src={{product.image}} class="img-wishlist">
+        </div>
+        <div class="wishdetails">
+            <h3>
+                <a [title]="product.name + 'details'"
+                    [routerLink]="['/product', product.id]">
+                    {{product.name}}
+                </a>
+            </h3>
+            <h2>
+                <p>
+                    {{product.price | currency}}
+                </p>
+            </h2>
+            <h2>
+                <p class="description">
+                    {{product.description}}
+                </p>
+            </h2>
+        </div>
+        <br><br>
+    </div>
+
+</div>

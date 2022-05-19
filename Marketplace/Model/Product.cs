@@ -86,10 +86,8 @@ namespace Model
         {
             return new ProductDTO();
         }
-        public List<ProductDTO> getAll()
-        {
-            return this.products;
-        }
+
+        public List<ProductDTO> getAll() { return new List<ProductDTO>(); }
 
         public static int find(ProductDTO productDTO)
         {
@@ -101,18 +99,49 @@ namespace Model
             }
         }
 
+        public static object findProduct(int id, int store)
+        {
+            using (var context = new DAOContext())
+            {
+                var produto = context.stock.Include(s => s.store).Join(context.product, s => s.product.bar_code, p => p.bar_code, (s, p) => new
+                {
+                    id = p.id,
+                    store = s.store.id,
+                    name = p.name,
+                    bar_code = p.bar_code,
+                    description = p.description,
+                    image = p.image,
+                    price = s.unit_price,
+                    quantity = s.quantity
+                }).Where(x => x.id == id && x.store == store).Single();
+
+                return produto;
+            }
+        }
+
         public static List<object> getProducts()
         {
             using (var context = new DAOContext())
-            {                
-                var products = context.product;
-                List<object> produtos = new List<object>();
-                foreach (var produto in products)
+            {
+                var produto = context.stock.Include(s => s.store).Join(context.product, s => s.product.bar_code, p => p.bar_code, (s, p) => new
                 {
-                    produtos.Add(produto);
+                    id = p.id,
+                    store = s.store.id,
+                    name = p.name,
+                    bar_code = p.bar_code,
+                    description = p.description,
+                    image = p.image,
+                    price = s.unit_price,
+                    quantity = s.quantity
+                });
+
+                List<object> list = new List<object>();
+                foreach (var item in produto)
+                {
+                    list.Add(item);
                 }
 
-                return produtos;
+                return list;
             }
         }
 
@@ -150,9 +179,9 @@ namespace Model
             }          
         }
     
-    public void delete(ProductDTO obj){}
-    public void deleteProduct()
-    {
+        public void delete(ProductDTO obj){}
+        public void deleteProduct()
+        {
             using (var context = new DAOContext())
             {
                 var prlis = context.product.Where(c => c.bar_code == this.bar_code).Single();
@@ -180,6 +209,6 @@ namespace Model
                 context.product.Remove(prlis);
                 context.SaveChanges();
             }
-    }
+        }
     }
 }
