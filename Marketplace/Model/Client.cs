@@ -105,28 +105,6 @@ namespace Model
             return new ClientDTO();
         }
 
-        public bool loginClient(string login,string password)
-        {
-            using(var contexto = new DAOContext())
-            {
-                bool ps = false;
-                try
-                {
-                    var clientConsulta = contexto.client.Where(c => c.login == login).Where(p => p.passwd == password).Single();
-
-                    if (clientConsulta != null)
-                    {
-                        ps = true; 
-                    }             
-                }
-                catch
-                {
-                    ps=false;
-                };
-                return ps;
-            }            
-        }
-
         public static object findByDoc(string document)
         {
             object obj;
@@ -201,9 +179,53 @@ namespace Model
 
         }
 
-        public static string getLogin(ClientDTO login)
+        public int getId()
         {
-            return "a";
+            int id = 0;
+            using (var contexto = new DAOContext())
+            {
+                try
+                {
+                    var clientConsulta = contexto.client.Where(c => c.login == this.login && c.passwd == this.passwd).Single();
+                    id = clientConsulta.id;
+                }
+                catch
+                {
+                    id = -1;
+                }
+
+            }
+            return id;
+        
+        }
+
+        public static Client loginClient(ClientDTO login)
+        {
+            Client? obj;
+
+            using (var contexto = new DAOContext())
+            {
+                try
+                {
+                    var clientConsulta = contexto.client.Where(c => c.login == login.login && c.passwd == login.passwd).Single();
+                    obj = new Client
+                    {
+                        name = clientConsulta.name,
+                        document = clientConsulta.document,
+                        email = clientConsulta.email,
+                        phone = clientConsulta.phone,
+                        login = clientConsulta.login,
+                        passwd = clientConsulta.passwd,
+                        date_of_birth = clientConsulta.date_of_birth,
+                    };
+                }
+                catch
+                {
+                    obj = null;
+                }
+
+            }
+            return obj;
         }
     }
 }

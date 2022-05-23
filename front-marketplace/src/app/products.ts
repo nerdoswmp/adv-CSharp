@@ -4,7 +4,7 @@ export interface Product {
     price: number;
     description: string;
     image: string;
-    store: number;
+    store: string;
   }
   
   export const products = [
@@ -14,7 +14,7 @@ export interface Product {
       price: 799,
       description: 'A large phone with one of the best screens',
       image:'../assets/cssmug.jpg',
-      store: '1'
+      store: 'Mugstore'
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ export interface Product {
       price: 699,
       description: 'A great phone with one of the best cameras',
       image:'../assets/cssmug.jpg',
-      store: '1'
+      store: 'A little Trolling Store'
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export interface Product {
       price: 299,
       description: 'Just a phone',
       image:'../assets/cssmug.jpg',
-      store: '1'
+      store: 'werg'
     }
   ];
   
