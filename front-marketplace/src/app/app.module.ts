@@ -10,6 +10,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ClientRegisterComponent } from './client-register/client-register.component';
 import { AddressRegisterComponent } from './address-register/address-register.component';
 import { MarketplaceLoginComponent } from './marketplace-login/marketplace-login.component';
+import { StoreRegisterComponent } from './store-register/store-register.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,22 @@ import { MarketplaceLoginComponent } from './marketplace-login/marketplace-login
     ProductDetailComponent,
     ClientRegisterComponent,
     AddressRegisterComponent,
-    MarketplaceLoginComponent
+    MarketplaceLoginComponent,
+    AddressRegisterComponent,
+    StoreRegisterComponent,
+    WishlistComponent,
+    ClientRegisterComponent,
+    AddressRegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
       {path: '', component : ProductsListComponent},
+      {path: 'product/:productID/:storeID', component:ProductDetailComponent},
+      {path: 'address/register', component:AddressRegisterComponent},
+      {path: 'store/register', component:StoreRegisterComponent},
+      {path: 'wishlist', component:WishlistComponent},
       {path: 'product/:productID', component:ProductDetailComponent},
       {path: 'client/register', component:ClientRegisterComponent},
       {path: 'address/register', component:AddressRegisterComponent},

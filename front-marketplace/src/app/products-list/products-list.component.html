@@ -2,28 +2,40 @@
 
 <div class="productsList">
     <div class="productComponent" *ngFor="let product of products">
-        <h3>
-            <img src={{product.image}} class="img-responsive">
-            <a [title]="product.name + 'details'"
-                [routerLink]="['/product', product.id]">
-                {{product.name}}
-            </a>
-        </h3>
-        <h2>
-            <p>
-                {{product.price | currency}}
-            </p>
-        </h2>
-        <h2>
-            <p>
-                {{product.description}}
-            </p>
-        </h2>
-        <h2>
-          
-            <img src="../assets/coraçãoVazio.png" class="img-responsive img-coracao" id="imgCoracao{{product.id}}" style="cursor: pointer;" (click)="mudarCoracao('imgCoracao' + product.id)" >
-                       
-        </h2>
+        <div style="height:50%">
+            <h3>
+                <img src={{product.image}} class="img-responsive">
+            </h3>
+        </div>
+        <div>
+            <h3>
+                <a [title]="product.name + 'details'"
+                    [routerLink]="['/product/', product.id, product.store]">
+                    {{product.name}}
+                </a>
+            </h3>
+        </div>
+        <div>
+            <h2>
+                <p>
+                    {{product.price | currency}}
+                </p>
+            </h2>
+        </div>
+        <div>
+            <h2>
+                <p>
+                    {{product.description}}
+                    <br>
+                    {{product.store}}
+                </p>
+            </h2>
+        </div>
+        <div>
+            <h2>
+                <img src="../assets/coraçãoVazio.png" class="img-responsive img-coracao" id="imgCoracao{{product.id}}" style="cursor: pointer;" (click)="mudarCoracao('imgCoracao' + product.id)" >              
+            </h2>
+        </div>
     
     </div>
 </div>

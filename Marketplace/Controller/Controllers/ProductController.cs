@@ -17,6 +17,16 @@ namespace Controller.Controllers
             return result;
         }
 
+        [HttpGet]
+        [Route("{product}/{store}")]
+        public IActionResult singleProduct(int product, int store)
+        {
+            var produto = Model.Product.findProduct(product, store);
+            var result = new ObjectResult(produto);
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            return result;
+        }
+
         [HttpPost]
         [Route("register")]
         public object createProduct([FromBody] ProductDTO product)
