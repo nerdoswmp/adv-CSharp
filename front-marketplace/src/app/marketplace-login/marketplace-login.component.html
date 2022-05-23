@@ -1,0 +1,13 @@
+<app-top-bar [titulo]="titlePage"></app-top-bar>
+
+<div class="register-box">
+    <br><br>
+    <input name="user" type="text" placeholder="User">
+    <br>
+    <input name="passwd" type="text" placeholder="Password" id="passwd"/>
+    <br><br><br>
+    <div class="register-buttons">
+        <a id="login_button" (click)="loginUser(user,passwd)" >Login</a>        
+    </div>
+    <br>
+</div>

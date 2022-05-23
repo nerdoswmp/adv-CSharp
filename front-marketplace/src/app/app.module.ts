@@ -9,6 +9,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
 import { AddressRegisterComponent } from './address-register/address-register.component';
+import { MarketplaceLoginComponent } from './marketplace-login/marketplace-login.component';
 import { StoreRegisterComponent } from './store-register/store-register.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
@@ -18,6 +19,9 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     TopBarComponent,
     ProductsListComponent,
     ProductDetailComponent,
+    ClientRegisterComponent,
+    AddressRegisterComponent,
+    MarketplaceLoginComponent,
     AddressRegisterComponent,
     StoreRegisterComponent,
     WishlistComponent,
@@ -35,7 +39,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
       {path: 'wishlist', component:WishlistComponent},
       {path: 'product/:productID', component:ProductDetailComponent},
       {path: 'client/register', component:ClientRegisterComponent},
-      {path: 'address/register', component:AddressRegisterComponent}
+      {path: 'address/register', component:AddressRegisterComponent},
+      {path: 'login', component:MarketplaceLoginComponent}
     ])
   ],
   providers: [],

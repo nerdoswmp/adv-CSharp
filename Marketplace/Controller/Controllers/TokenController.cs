@@ -49,12 +49,12 @@ public class TokenController : ControllerBase
                 return Ok(new JwtSecurityTokenHandler().WriteToken(token));
             }
             else
-            {
+{
                 return BadRequest("Invalid credentials");
             }
         }
         else
-        {
+    {
             return BadRequest("Empty credentials");
         }
     }

@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-register.component.css']
 })
 export class ClientRegisterComponent implements OnInit {
+  title = 'front-marketplace';
+  titlePage = 'Client';
 
   constructor() { }
 
