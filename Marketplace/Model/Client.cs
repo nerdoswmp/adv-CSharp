@@ -105,6 +105,28 @@ namespace Model
             return new ClientDTO();
         }
 
+        public bool loginClient(string login,string password)
+        {
+            using(var contexto = new DAOContext())
+            {
+                bool ps = false;
+                try
+                {
+                    var clientConsulta = contexto.client.Where(c => c.login == login).Where(p => p.passwd == password).Single();
+
+                    if (clientConsulta != null)
+                    {
+                        ps = true; 
+                    }             
+                }
+                catch
+                {
+                    ps=false;
+                };
+                return ps;
+            }            
+        }
+
         public static object findByDoc(string document)
         {
             object obj;

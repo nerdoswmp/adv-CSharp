@@ -30,6 +30,22 @@ public class ClientController : ControllerBase
     }
 
     [HttpGet]
+    [Route("login")]
+    public string loginClient([FromBody] ClientDTO client)
+    {
+        var nclient = Model.Client.convertDTOToModel(client);
+        var id = nclient.loginClient(client.login,client.passwd);
+        if(id == true)
+        {
+            return "LOGOUU!!";
+        }
+        else
+        {
+            return "NAO LOGOU";
+        }
+    }
+
+    [HttpGet]
     [Route("information/{document}")]
     public object getInformations(string document)
     {
