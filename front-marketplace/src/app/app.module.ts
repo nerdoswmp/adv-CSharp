@@ -9,6 +9,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
 import { AddressRegisterComponent } from './address-register/address-register.component';
+import { MarketplaceLoginComponent } from './marketplace-login/marketplace-login.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,9 @@ import { AddressRegisterComponent } from './address-register/address-register.co
     TopBarComponent,
     ProductsListComponent,
     ProductDetailComponent,
-    ClientRegisterComponent
-    AddressRegisterComponent
+    ClientRegisterComponent,
+    AddressRegisterComponent,
+    MarketplaceLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -25,8 +27,9 @@ import { AddressRegisterComponent } from './address-register/address-register.co
     RouterModule.forRoot([
       {path: '', component : ProductsListComponent},
       {path: 'product/:productID', component:ProductDetailComponent},
-      {path: 'client/register', component:ClientRegisterComponent}
-      {path: 'address/register', component:AddressRegisterComponent}
+      {path: 'client/register', component:ClientRegisterComponent},
+      {path: 'address/register', component:AddressRegisterComponent},
+      {path: 'login', component:MarketplaceLoginComponent}
     ])
   ],
   providers: [],
