@@ -106,14 +106,15 @@ namespace Model
                 var produto = context.stock.Include(s => s.store).Join(context.product, s => s.product.bar_code, p => p.bar_code, (s, p) => new
                 {
                     id = p.id,
-                    store = s.store.id,
+                    storeid = s.store.id,
+                    store = s.store.name,
                     name = p.name,
                     bar_code = p.bar_code,
                     description = p.description,
                     image = p.image,
                     price = s.unit_price,
                     quantity = s.quantity
-                }).Where(x => x.id == id && x.store == store).Single();
+                }).Where(x => x.id == id && x.storeid == store).Single();
 
                 return produto;
             }
@@ -126,7 +127,8 @@ namespace Model
                 var produto = context.stock.Include(s => s.store).Join(context.product, s => s.product.bar_code, p => p.bar_code, (s, p) => new
                 {
                     id = p.id,
-                    store = s.store.id,
+                    storeid = s.store.id,
+                    store = s.store.name,
                     name = p.name,
                     bar_code = p.bar_code,
                     description = p.description,

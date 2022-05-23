@@ -179,5 +179,9 @@ namespace Model
 
         }
 
+        public static string getLogin(ClientDTO login)
+        {
+            return "a";
+        }
     }
 }
