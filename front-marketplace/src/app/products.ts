@@ -4,6 +4,7 @@ export interface Product {
     price: number;
     description: string;
     image: string;
+    storeid: number;
     store: string;
   }
   
@@ -14,7 +15,8 @@ export interface Product {
       price: 799,
       description: 'A large phone with one of the best screens',
       image:'../assets/cssmug.jpg',
-      store: 'Mugstore'
+      store: 'Mugstore',
+      storeid: 0
     },
     {
       id: 2,
@@ -22,7 +24,8 @@ export interface Product {
       price: 699,
       description: 'A great phone with one of the best cameras',
       image:'../assets/cssmug.jpg',
-      store: 'A little Trolling Store'
+      storename: 'A little Trolling Store',
+      store: -1
     },
     {
       id: 3,
@@ -30,7 +33,8 @@ export interface Product {
       price: 299,
       description: 'Just a phone',
       image:'../assets/cssmug.jpg',
-      store: 'werg'
+      storename: 'werg',
+      store: -2
     }
   ];
   

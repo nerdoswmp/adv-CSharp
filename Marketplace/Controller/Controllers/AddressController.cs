@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using DTO;
 using Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Controller.Controllers;
 
@@ -8,6 +9,8 @@ namespace Controller.Controllers;
 [Route("address")]
 public class AddressController : ControllerBase
 {
+
+    [Authorize]
     [HttpPost]
     [Route("register")]
     public object registerAddress(AddressDTO address)
@@ -26,6 +29,7 @@ public class AddressController : ControllerBase
         };
     }
 
+    [Authorize]
     [HttpDelete]
     [Route("remove")]
     public void removeAddress(AddressDTO address)
@@ -35,6 +39,7 @@ public class AddressController : ControllerBase
         naddress.deleteAddress();
     }
 
+    [Authorize]
     [HttpPut]
     [Route("update/{doc}")]
     public string updateAddress(AddressDTO address, string doc)

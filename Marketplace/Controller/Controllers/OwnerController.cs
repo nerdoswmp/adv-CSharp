@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Controller.Controllers;
 
@@ -29,6 +30,7 @@ public class OwnerController : ControllerBase
         };
     }
 
+    [Authorize]
     [HttpGet]
     [Route("information/{document}")]
     public object getInformations(string document)

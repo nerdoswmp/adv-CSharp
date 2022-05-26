@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Controller.Controllers
 {
@@ -27,6 +28,7 @@ namespace Controller.Controllers
             return result;
         }
 
+        [Authorize]
         [HttpPost]
         [Route("register")]
         public object createProduct([FromBody] ProductDTO product)
@@ -43,6 +45,7 @@ namespace Controller.Controllers
             };
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("delete")]
         public string deleteProduct(ProductDTO product)

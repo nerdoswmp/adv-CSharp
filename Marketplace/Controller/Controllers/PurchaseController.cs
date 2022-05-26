@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Controller.Controllers;
 
@@ -8,6 +9,8 @@ namespace Controller.Controllers;
 [Route("purchase")]
 public class PurchaseController : ControllerBase
 {
+
+    [Authorize]
     [HttpGet]
     [Route("client/{clientID}")]
     public object getClientPurchase(string clientID)
@@ -15,6 +18,7 @@ public class PurchaseController : ControllerBase
         return Purchase.findByClientId(clientID);
     }
 
+    [Authorize]
     [HttpGet]
     [Route("store/{storeID}")]
     public object getStorePurchase(string storeID)
@@ -22,6 +26,7 @@ public class PurchaseController : ControllerBase
         return Purchase.findByStoreId(storeID);
     }
 
+    [Authorize]
     [HttpPost]
     [Route("buy")]
     public object makePurchase(PurchaseDTO purchase)

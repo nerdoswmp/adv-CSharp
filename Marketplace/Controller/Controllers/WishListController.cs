@@ -1,12 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DTO;
 using Model;
+using Microsoft.AspNetCore.Authorization;
+
 namespace Controller.Controllers
 {
     [ApiController]
     [Route("wishList")]
     public class WishListController : ControllerBase
     {
+
+        [Authorize]
         [HttpPost]
         [Route("register")]
         public object addProductToWishList([FromBody] WishListDTO wishList)
@@ -26,6 +30,8 @@ namespace Controller.Controllers
                 produto = wishList.products
             };
         }
+
+        [Authorize]
         [HttpDelete]
         [Route("remove")]
         public string removeProductToWishList([FromBody] WishListDTO request)

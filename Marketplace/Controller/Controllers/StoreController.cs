@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DTO;
 using Model;
+using Microsoft.AspNetCore.Authorization;
+
 namespace Controller.Controllers
 {
     [ApiController]
@@ -15,6 +17,7 @@ namespace Controller.Controllers
             return lojas;
         }
 
+        [Authorize]
         [HttpPost]
         [Route("register")]
         public object registerStore([FromBody] StoreDTO store)
