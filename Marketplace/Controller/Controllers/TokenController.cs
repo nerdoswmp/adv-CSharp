@@ -27,6 +27,7 @@ public class TokenController : ControllerBase
         if (login != null && login.login != null && login.passwd != null)
         {
             var user = Model.Client.loginClient(login);
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             if (user != null)
             {
                 Console.WriteLine(user.getId().ToString());
@@ -49,6 +50,7 @@ public class TokenController : ControllerBase
                     expires: DateTime.UtcNow.AddMinutes(10),
                     signingCredentials: signIn);
                 return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                
             }
             else
 {

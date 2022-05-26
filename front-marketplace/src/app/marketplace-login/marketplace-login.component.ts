@@ -13,30 +13,37 @@ export class MarketplaceLoginComponent implements OnInit {
 
   constructor() { }
 
-   loginUser(user : String,passwd : String){
-    console.log(user)        
-    console.log(passwd)
-    //   var config = {
-  //     method: 'get',
-  //     url: 'http://localhost:5009/client/login',
-  //     headers: { 
-  //       'Content-Type': 'application/json'
-  //     },
-  //   };
-
-  //   var instance = this;
-        
-  //   axios(config)
-  //   .then(function (response) {
-  //     console.log(JSON.stringify(response.data));
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
+   loginUser(){
+    let user = document.getElementById("user") as HTMLInputElement;
+    let passwd = document.getElementById("passwd") as HTMLInputElement;
+    console.log(user?.value);      
+    console.log(passwd?.value);
+  
+    var data = JSON.stringify({
+      "login": user?.value,
+      "passwd": passwd?.value
+    });  
+    var config = {
+      method: 'post',
+      url: 'http://localhost:5009/client/login',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    
+    axios(config)
+    .then(function (response: any) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error: any) {
+      console.log(error);
+    });
+    //return
 }
 
-  ngOnInit(): void {
-  
+  ngOnInit(): void {    
+    
    }
 
 }
