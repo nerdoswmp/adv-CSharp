@@ -11,6 +11,7 @@ import { ClientRegisterComponent } from './client-register/client-register.compo
 import { AddressRegisterComponent } from './address-register/address-register.component';
 import { StoreRegisterComponent } from './store-register/store-register.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { MarketplaceLoginComponent } from './marketplace-login/marketplace-login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     StoreRegisterComponent,
     WishlistComponent,
     ClientRegisterComponent,
-    AddressRegisterComponent
+    AddressRegisterComponent,
+    MarketplaceLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
       {path: 'product/:productID', component:ProductDetailComponent},
       {path: 'client/register', component:ClientRegisterComponent},
       {path: 'address/register', component:AddressRegisterComponent},
+      {path: 'login', component:MarketplaceLoginComponent}
     ])
   ],
   providers: [],
