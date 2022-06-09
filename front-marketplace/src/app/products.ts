@@ -24,8 +24,8 @@ export interface Product {
       price: 699,
       description: 'A great phone with one of the best cameras',
       image:'../assets/cssmug.jpg',
-      storename: 'A little Trolling Store',
-      store: -1
+      store: 'A little Trolling Store',
+      storeid: -1
     },
     {
       id: 3,
@@ -33,8 +33,8 @@ export interface Product {
       price: 299,
       description: 'Just a phone',
       image:'../assets/cssmug.jpg',
-      storename: 'werg',
-      store: -2
+      store: 'werg',
+      storeid: -2
     }
   ];
   

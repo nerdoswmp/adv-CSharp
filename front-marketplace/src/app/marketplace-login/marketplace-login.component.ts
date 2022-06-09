@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import axios from 'axios';
 
 
@@ -11,8 +12,7 @@ export class MarketplaceLoginComponent implements OnInit {
   title = 'front-marketplace';
   titlePage = 'Marketplace';
 
-  constructor() { }
-
+  constructor(private router: Router) { }
    loginUser(){
     let user = document.getElementById("user") as HTMLInputElement;
     let passwd = document.getElementById("passwd") as HTMLInputElement;
@@ -32,18 +32,21 @@ export class MarketplaceLoginComponent implements OnInit {
       data : data
     };
     
+    let self = this;
     axios(config)
     .then(function (response: any) {
-      console.log(JSON.stringify(response.data));
+      localStorage.setItem('authToken',response.data)//guarda no local storage
+      localStorage.setItem('user',user?.value)//guarda no local storage
+      console.log(localStorage.getItem('authToken'));//pega do local storage       
+      self.router.navigate([''])      
     })
     .catch(function (error: any) {
-      console.log(error);
+      console.log(error);      
+      localStorage.removeItem('authToken');
     });
     //return
 }
 
   ngOnInit(): void {    
-    
    }
-
 }
