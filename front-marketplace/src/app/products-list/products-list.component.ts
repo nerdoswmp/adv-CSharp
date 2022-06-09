@@ -35,9 +35,11 @@ export class ProductsListComponent implements OnInit {
     });
     
   }
-  mudarCoracao(idTag : String){
-          console.log(idTag)        
-          var img = document.querySelector('#'+idTag);           
+  mudarCoracao(idTag : String, idStore : Number, idProd : Number){
+          console.log("Selector: "+idTag)        
+          console.log("IdStore: "+idStore) 
+          console.log("IdProduct: "+idProd)         
+          var img = document.querySelector('#'+idTag);                     
           if(img?.getAttribute("src") == "../assets/coraçãoCheio.png"){
             img?.setAttribute('src', '../assets/coraçãoVazio.png');  
           }

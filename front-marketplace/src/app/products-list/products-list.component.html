@@ -38,7 +38,7 @@
         </div>
         <div>
             <h2>
-                <img src="../assets/coraçãoVazio.png" class="img-responsive img-coracao" id="imgCoracao{{product.id}}" style="cursor: pointer;" (click)="mudarCoracao('imgCoracao' + product.id)" >              
+                <img src="../assets/coraçãoVazio.png" class="img-responsive img-coracao" id="imgCoracao{{product.id}}_{{product.storeid}}" style="cursor: pointer;" (click)="mudarCoracao('imgCoracao' + product.id + '_' + product.storeid, product.storeid ,product.id)" >              
             </h2>
         </div>
     

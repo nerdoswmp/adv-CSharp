@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { products } from '../products';
+import axios from 'axios';
 
 @Component({
   selector: 'app-wishlist',
@@ -15,16 +16,45 @@ export class WishlistComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
 
-  mudarCoracao(idTag : String){
-    console.log(idTag)        
-    var img = document.querySelector('#'+idTag);           
-    if(img?.getAttribute("src") == "../assets/coraçãoCheio.png"){
-      img?.setAttribute('src', '../assets/coraçãoVazio.png');  
-    }
-    else{
-      img?.setAttribute('src', '../assets/coraçãoCheio.png');
-    }
-}
+    var data = JSON.stringify({
+      "client":{
+        "email": localStorage.getItem('user')
+      }
+    });  
+
+    var token = localStorage.getItem('authToken')
+    
+    var config = {
+      method: 'get',
+      url: 'http://localhost:5009/wishList/all',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' +token
+      },
+      data : data
+    };
+
+    var instance = this;
+    
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      instance.products = response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
+//   mudarCoracao(idTag : String){
+//     console.log(idTag)        
+//     var img = document.querySelector('#'+idTag);           
+//     if(img?.getAttribute("src") == "../assets/coraçãoCheio.png"){
+//       img?.setAttribute('src', '../assets/coraçãoVazio.png');  
+//     }
+//     else{
+//       img?.setAttribute('src', '../assets/coraçãoCheio.png');
+//     }
+// }
+  }
 }
