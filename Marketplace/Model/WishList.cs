@@ -91,7 +91,7 @@ namespace Model
 
                 var wishList = new DAO.WishList
                 {
-                    client = context.client.Where(c => c.document == client).Single(),
+                    client = context.client.Where(c => c.login == client).Single(),
                     stock = context.stock.Include(s => s.store).Include(p => p.product)
                     .Where(s => s.product.bar_code == stockDTO.product.bar_code && s.store.CNPJ == stockDTO.store.CNPJ).Single(),
                 };
