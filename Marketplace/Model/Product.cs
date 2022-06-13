@@ -89,13 +89,13 @@ namespace Model
 
         public List<ProductDTO> getAll() { return new List<ProductDTO>(); }
 
-        public static int find(ProductDTO productDTO)
+        public static string find(ProductDTO productDTO)
         {
             using (var context = new DAOContext())
             { 
                 var produto = context.product.Where(s => s.bar_code == productDTO.bar_code).Single();
 
-                return produto.id;
+                return produto.bar_code;
             }
         }
 
@@ -188,7 +188,7 @@ namespace Model
             {
                 var prlis = context.product.Where(c => c.bar_code == this.bar_code).Single();
 
-                var wiverif = context.wishList.Include(w => w.product).Where(w => w.product.bar_code == this.bar_code).ToList();
+                var wiverif = context.wishList.Include(w => w.stock.product).Where(w => w.stock.product.bar_code == this.bar_code).ToList();
 
                 foreach(var w in wiverif)
                 {

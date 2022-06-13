@@ -15,24 +15,17 @@ export class WishlistComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-
-    var data = JSON.stringify({
-      "client":{
-        "email": localStorage.getItem('user')
-      }
-    });  
+  ngOnInit(): void {  
 
     var token = localStorage.getItem('authToken')
     
     var config = {
       method: 'get',
-      url: 'http://localhost:5009/wishList/all',
+      url: 'http://localhost:5009/wishList/all/'+ localStorage.getItem('user'),
       headers: { 
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' +token
       },
-      data : data
     };
 
     var instance = this;

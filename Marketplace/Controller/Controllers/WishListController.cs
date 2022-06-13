@@ -17,18 +17,29 @@ namespace Controller.Controllers
         {
             var wishListModel = Model.WishList.convertDTOToModel(wishList);
             var id = 0;
-            foreach(var product in wishList.products)
+            foreach(var stock in wishList.products)
             {
-                var idProduto = Model.Product.find(product);
 
-                id = wishListModel.save(wishList.client.document, idProduto);
+                id = wishListModel.save(wishList.client.document, stock);
             }          
             return new
             {
                 id = id,
                 client = wishList.client.document,
-                produto = wishList.products
+                produto = wishList.products,
             };
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("all/{id}")]
+        public IActionResult allWishlist(string id)
+        {
+            var wishlist = Model.WishList.getWishList(id);
+            var result = new ObjectResult(wishlist);
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+            return result;
         }
 
         [Authorize]
