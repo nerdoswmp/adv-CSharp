@@ -20,12 +20,12 @@ namespace Controller.Controllers
             foreach(var stock in wishList.products)
             {
 
-                id = wishListModel.save(wishList.client.document, stock);
+                id = wishListModel.save(wishList.client.login, stock);
             }          
             return new
             {
                 id = id,
-                client = wishList.client.document,
+                client = wishList.client.login,
                 produto = wishList.products,
             };
         }
@@ -52,3 +52,5 @@ namespace Controller.Controllers
         }
     }
 }
+
+// 94238892346236852
