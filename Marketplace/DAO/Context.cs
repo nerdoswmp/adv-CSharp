@@ -108,7 +108,7 @@ namespace DAO
             {
                 entity.HasKey(e => e.id);
                 entity.HasOne(e => e.client);
-                entity.HasOne(e => e.product);
+                entity.HasOne(e => e.stock);
             });
 
             modelBuilder.Entity<Purchase>(entity =>
