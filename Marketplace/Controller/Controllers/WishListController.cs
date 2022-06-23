@@ -13,21 +13,16 @@ namespace Controller.Controllers
         [Authorize]
         [HttpPost]
         [Route("register")]
-        public object addProductToWishList([FromBody] WishListDTO wishList)
-        {
-            var wishListModel = Model.WishList.convertDTOToModel(wishList);
-            var id = 0;
-            foreach(var stock in wishList.products)
-            {
+        public IActionResult addProductToWishList([FromBody] WishlistSaveDTO wishList)
+        {            
+            WishList wishListModel = new WishList();
+            var id = 0;            
+                id = wishListModel.save(wishList);
 
-                id = wishListModel.save(wishList.client.login, stock);
-            }          
-            return new
+            return new ObjectResult(new
             {
-                id = id,
-                client = wishList.client.login,
-                produto = wishList.products,
-            };
+                id = id
+            });
         }
 
         [Authorize]
