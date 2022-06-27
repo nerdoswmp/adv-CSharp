@@ -2,22 +2,32 @@
 
 <div class="register-box">
     <br><br>
-    <input type="text" placeholder="Name">
+    <input type="text" placeholder="Name" id="name">
     <br>
-    <input type="text" placeholder="Phone">
+    <input type="text" placeholder="Phone" id="phone">
     <br>
-    <input type="text" placeholder="E-mail">
+    <input type="text" placeholder="E-mail" id="email">
     <br>
-    <input type="text" placeholder="Login">
+    <input type="text" placeholder="Login" id="login">
     <br>
-    <input type="text" placeholder="Date of Birth">
+    <input type="text" placeholder="Date of Birth" id="birthday">
     <br>
-    <input type="text" placeholder="Password">
+    <input type="text" placeholder="Password" id="password">
     <br>
-    <input type="text" placeholder="Document">
+    <input type="text" placeholder="Document" id="document">
+    <br>
+    <input type="text" placeholder="Street" id="street">
+    <br>
+    <input type="text" placeholder="City" id="city">
+    <br>
+    <input type="text" placeholder="State" id="state">
+    <br>
+    <input type="text" placeholder="Country" id="country">
+    <br>
+    <input type="text" placeholder="Postal Code" id="postalcode">
     <br><br><br>
     <div class="register-buttons">
-        <a>Save Changes</a>
+        <a (click)="registerUser()">Save Changes</a>
         <a [routerLink]="['/login']">Cancel</a>
     </div>
     <br>

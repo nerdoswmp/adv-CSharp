@@ -13,7 +13,7 @@ export class MarketplaceLoginComponent implements OnInit {
   titlePage = 'Marketplace';
 
   constructor(private router: Router) { }
-   loginUser(){
+   loginUser(): void{
     let user = document.getElementById("user") as HTMLInputElement;
     let passwd = document.getElementById("passwd") as HTMLInputElement;
     console.log(user?.value);      
@@ -43,6 +43,7 @@ export class MarketplaceLoginComponent implements OnInit {
     .catch(function (error: any) {
       console.log(error);      
       localStorage.removeItem('authToken');
+      localStorage.removeItem('user');
     });
     //return
 }
