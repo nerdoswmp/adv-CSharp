@@ -138,32 +138,56 @@ namespace Model
         {
             int id = 0;
 
-            using (var contexto = new DAOContext())
+            using (var context = new DAOContext())
             {
-                var client = new DAO.Client
+                var emailexists = context.client.Where(c => c.email == this.email).FirstOrDefault();
+                var documentexists = context.client.Where(c => c.document == this.document).FirstOrDefault();
+                var phoneexists = context.client.Where(c => c.phone == this.phone).FirstOrDefault();
+                var loginexists = context.client.Where(c => c.login == this.login).FirstOrDefault();
+
+                if (emailexists == null && documentexists == null && phoneexists == null)
                 {
-                    address = new DAO.Address
+                    var client = new DAO.Client
                     {
-                        street = this.address.getStreet(),
-                        city = this.address.getCity(),
-                        state = this.address.getState(),
-                        country = this.address.getCountry(),
-                        postal_code = this.address.getPostalCode()
-                    },
-                    name = this.name,
-                    phone = this.phone,
-                    email = this.email,
-                    passwd = this.passwd,
-                    document = this.document,
-                    date_of_birth = this.date_of_birth,
-                    login = this.login
-                };
+                        address = new DAO.Address
+                        {
+                            street = this.address.getStreet(),
+                            city = this.address.getCity(),
+                            state = this.address.getState(),
+                            country = this.address.getCountry(),
+                            postal_code = this.address.getPostalCode()
+                        },
+                        name = this.name,
+                        phone = this.phone,
+                        email = this.email,
+                        passwd = this.passwd,
+                        document = this.document,
+                        date_of_birth = this.date_of_birth,
+                        login = this.login
+                    };
 
-                contexto.client.Add(client);
+                    context.client.Add(client);
 
-                contexto.SaveChanges();
+                    context.SaveChanges();
 
-                id = client.id;
+                    id = client.id;
+                }
+                else if (emailexists != null)
+                {
+                    id = -1;
+                }
+                else if (phoneexists != null)
+                {
+                    id = -2;
+                }
+                else if (documentexists != null)
+                {
+                    id = -3;
+                }
+                else if (loginexists != null)
+                {
+                    id = -4;
+                }
             }
 
             return id;

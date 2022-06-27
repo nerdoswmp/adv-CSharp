@@ -145,7 +145,8 @@ namespace Model
                 var wishlist = context.wishList.Include(w => w.client).Include(w => w.stock.product)
                     .Include(w => w.stock.store).Select(x => new
                 {
-                    id = x.id,
+                    id = x.stock.product.id,
+                    wishid = x.id,
                     storeid = x.stock.store.id,
                     store = x.stock.store.name,
                     name = x.stock.product.name,
