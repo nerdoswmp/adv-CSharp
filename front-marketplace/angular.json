@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "front-marketplace"
+  "defaultProject": "front-marketplace",
+  "cli": {
+    "analytics": false
+  }
 }

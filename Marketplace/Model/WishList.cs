@@ -83,17 +83,16 @@ namespace Model
             return this.wishListDTO;
         }
 
-        public int save(string client, StocksDTO stockDTO)
+        public int save(WishlistSaveDTO wishlist)
         {
             var id = 0;
             using(var context = new DAOContext())
             {
-
                 var wishList = new DAO.WishList
                 {
-                    client = context.client.Where(c => c.login == client).Single(),
+                    client = context.client.Where(c => c.login == wishlist.user).Single(),                
                     stock = context.stock.Include(s => s.store).Include(p => p.product)
-                    .Where(s => s.product.bar_code == stockDTO.product.bar_code && s.store.CNPJ == stockDTO.store.CNPJ).Single(),
+                    .Where(s => s.product.id == wishlist.idProduct && s.store.id == wishlist.idStore).Single(),
                 };
                 context.wishList.Add(wishList);
                 if (wishList.client != null)
