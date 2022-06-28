@@ -39,13 +39,32 @@ export class ProductsListComponent implements OnInit {
           console.log("Selector: "+idTag)        
           console.log("IdStore: "+idStore) 
           console.log("IdProduct: "+idProd)         
-          var img = document.querySelector('#'+idTag);                     
-          if(img?.getAttribute("src") == "../assets/coraçãoCheio.png"){
-            img?.setAttribute('src', '../assets/coraçãoVazio.png');  
-          }
-          else{
-            img?.setAttribute('src', '../assets/coraçãoCheio.png');
-          }
+          console.log("User: "+localStorage.getItem('user'))
+          var img = document.querySelector('#'+idTag);                               
+          var data = JSON.stringify({              
+            "user": localStorage.getItem('user'),                        
+            "idStore": idStore,
+            "idProduct" : idProd                                     
+        });
+        //deu boa
+        var config = {
+          method: 'post',
+          url: 'http://localhost:5009/wishlist/register',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization' : 'Bearer '+ localStorage.getItem('authToken')
+          },
+          data : data
+        };
+        axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));     
+          img?.setAttribute('src', '../assets/coraçãoCheio.png');        
+        })
+        .catch(function (error) {
+          console.log(error);
+          img?.setAttribute('src', '../assets/coraçãoVazio.png');
+        });
   }
 }
 
