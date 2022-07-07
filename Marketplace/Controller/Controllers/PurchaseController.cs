@@ -28,9 +28,36 @@ public class PurchaseController : ControllerBase
 
     [Authorize]
     [HttpPost]
-    [Route("buy")]
-    public object makePurchase(PurchaseDTO purchase)
+    [Route("buy/{storeID}/{productID}/{clientName}")]
+    public object makePurchase(int storeID, int productID, string clientName)
     {
+        // ! > stock
+        // ! > get current time
+        // ! > generate nf & conf_number
+        // ! > find store and product
+        var stock = Product.findProduct(productID, storeID);
+        Random rand = new Random();
+        var client = Client.findByUsername(clientName);
+        var store = Store.findByIdNumber(storeID);
+        var product = Product.findProdById(productID);
+
+        PurchaseDTO purchase = new PurchaseDTO()
+        {
+            client = client,
+            store = store,
+            productsDTO = new List<ProductDTO>()
+            {
+                product
+            },
+            data_purchase = DateTime.Now,
+            purchase_value = (double)stock.GetType().GetProperty("price").GetValue(stock, null),
+            purchase_status = 1,
+            payment_type = 2,
+            number_nf = rand.Next(10000, 99999).ToString() + rand.Next(10000, 99999).ToString(),
+            confirmation_number = rand.Next(10000, 99999).ToString() + rand.Next(10000, 99999).ToString() + rand.Next(10000, 99999).ToString()
+            // 423894723456
+        };
+
         var npurchase = Model.Purchase.convertDTOToModel(purchase);
 
         var id = npurchase.save();
