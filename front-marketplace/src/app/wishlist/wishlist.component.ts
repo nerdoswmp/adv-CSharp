@@ -20,10 +20,6 @@ export class WishlistComponent implements OnInit {
 
     var instance = this;
     var token = localStorage.getItem('authToken')
-    
-    if (token == null){
-      instance.router.navigate(['/login']) 
-    }
 
     var config = {
       method: 'get',
@@ -43,6 +39,9 @@ export class WishlistComponent implements OnInit {
     })
     .catch(function (error) {
       console.log(error);
+      if (error.response.status == 401){
+        instance.router.navigate(['/login']) 
+      }
     });
     
 //   mudarCoracao(idTag : String){
