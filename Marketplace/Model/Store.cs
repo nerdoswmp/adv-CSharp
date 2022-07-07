@@ -143,6 +143,24 @@ namespace Model
             return new StoreDTO();
         }
 
+        public static StoreDTO findByIdNumber(int id)
+        {
+            StoreDTO obj;
+
+            using (var contexto = new DAOContext())
+            {
+                var storeConsulta = contexto.store.Include(s => s.owner).Where(s => s.id == id).Single();
+                //Console.WriteLine(clientConsulta.address.id);
+                obj = new StoreDTO()
+                {
+                    name = storeConsulta.name,
+                    CNPJ = storeConsulta.CNPJ,
+                };
+
+            }
+            return obj;
+        }
+
         public List<StoreDTO> getAll()
         {
             return this.storeDTO;

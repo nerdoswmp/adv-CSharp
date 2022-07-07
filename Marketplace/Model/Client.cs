@@ -129,6 +129,28 @@ namespace Model
             return obj;
         }
 
+        public static ClientDTO findByUsername(string username)
+        {
+            ClientDTO obj;
+
+            using (var contexto = new DAOContext())
+            {
+                var clientConsulta = contexto.client.Include(client => client.address).Where(c => c.login == username).Single();
+                obj = new ClientDTO()
+                {
+                    name = clientConsulta.name,
+                    document = clientConsulta.document,
+                    email = clientConsulta.email,
+                    phone = clientConsulta.phone,
+                    login = clientConsulta.login,
+                    passwd = clientConsulta.passwd,
+                    date_of_birth = clientConsulta.date_of_birth
+                };
+
+            }
+            return obj;
+        }
+
         public List<ClientDTO> getAll()
         {
             return this.clientDTO;
