@@ -7,10 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
+  user = "Não logado"
   @Input() titulo = ""
   constructor() { }
-
+  
   ngOnInit(): void {
+    if(localStorage.getItem('authToken') != null){
+      this.user = localStorage.getItem('user')!;
+    }
   }
 
 }
