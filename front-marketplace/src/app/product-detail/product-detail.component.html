@@ -6,5 +6,5 @@
     <h3>{{product.name}} from {{product.store}}</h3>
     <p>{{product.description}}</p>
     <h4>{{product.price | currency}}</h4>
-    <a> Purchase </a>
+    <a id="purchase_button" (click)="makePurchase()"> Purchase </a>
 </div>
