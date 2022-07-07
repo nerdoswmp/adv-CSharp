@@ -292,7 +292,7 @@ namespace Model
                     data_purchase = this.dataPurchase,
                     confirmation_number = this.number_confirmation,
                     number_nf = this.number_nf,
-                    //purchase_value = this.purchase_value,
+                    purchase_value = this.purchase_value,
                     purchase_status = this.purchaseStatus,
                     payment_type = this.payment_type                    
                 };
