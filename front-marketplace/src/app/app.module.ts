@@ -13,6 +13,7 @@ import { StoreRegisterComponent } from './store-register/store-register.componen
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { MarketplaceLoginComponent } from './marketplace-login/marketplace-login.component';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
+import { LoginownerComponent } from './loginowner/loginowner.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PurchaseListComponent } from './purchase-list/purchase-list.component';
     ClientRegisterComponent,
     AddressRegisterComponent,
     MarketplaceLoginComponent,
-    PurchaseListComponent
+    PurchaseListComponent,
+    LoginownerComponent
   ],
   imports: [
     BrowserModule,
