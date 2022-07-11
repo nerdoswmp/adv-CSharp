@@ -9,9 +9,9 @@
         <a class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" class="apptopbarimg" alt=""></a>
         <div class="dropdown-content">
           <h3>{{user}}</h3>
-          <a href="/login">Login</a>
           <a href="/wishlist">Wishlist</a>
           <a href="/purchases">Compras</a>
+          <a (click)="logout()">{{logado === true ? "Logout" : "Login"}}</a>
         </div>
       </div>
     <a href="/login"></a>
