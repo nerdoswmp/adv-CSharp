@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { products } from '../products';
+import { Product } from '../products';
 import { Route, Router } from '@angular/router';
 import axios from 'axios';
 
@@ -12,7 +12,7 @@ export class WishlistComponent implements OnInit {
   title = 'front-marketplace';
   titlePage = 'WishList';
 
-  products = products;
+  products : [Product] | undefined;
 
   constructor(private router: Router) { }
 

@@ -282,6 +282,17 @@ html{scroll-behavior:smooth}
     flex-direction: row;
   }
 
+  .purchaseListComponent{
+    border: 1px solid gray;
+    background: white;
+    margin:10px;
+    transition: transform .2s;
+    border-radius: 10px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+  }
+
   .img-wishlist {
     display: block;
     max-width: 80%;
@@ -347,6 +358,12 @@ html{scroll-behavior:smooth}
     }
 
     .wishlistComponent{
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .purchaseListComponent{
       width: 90%;
       display: flex;
       flex-direction: column;
