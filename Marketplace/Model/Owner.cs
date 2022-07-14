@@ -134,6 +134,28 @@ namespace Model
             return this.ownerDTO;
         }
 
+        public static List<OwnerDTO> getAllOwners()
+        {
+            using var context = new DAOContext();
+
+            var list = context.owner.ToList();
+            List<OwnerDTO> objs = new List<OwnerDTO>();
+            foreach (var owner in list)
+            {
+                objs.Add(new OwnerDTO
+                {
+                    name = owner.name,
+                    phone = owner.phone,
+                    email = owner.email,
+                    login = owner.login,
+                    date_of_birth = owner.date_of_birth,
+                    passwd = owner.passwd
+                });
+            }
+
+            return objs;
+        }
+
         public int save()
         {
             int id = 0;
@@ -179,6 +201,54 @@ namespace Model
 
         }
 
+        public int getId()
+        {
+            int id = 0;
+            using (var contexto = new DAOContext())
+            {
+                try
+                {
+                    var ownerConsulta = contexto.owner.Where(c => c.login == this.login && c.passwd == this.passwd).Single();
+                    id = ownerConsulta.id;
+                }
+                catch
+                {
+                    id = -1;
+                }
+
+            }
+            return id;
+
+        }
+
+        public static Owner loginOwner(LoginDTO login)
+        {
+            Owner? obj;
+
+            using (var contexto = new DAOContext())
+            {
+                try
+                {
+                    var ownerConsulta = contexto.owner.Where(c => c.login == login.login && c.passwd == login.passwd).Single();
+                    obj = new Owner
+                    {
+                        name = ownerConsulta.name,
+                        document = ownerConsulta.document,
+                        email = ownerConsulta.email,
+                        phone = ownerConsulta.phone,
+                        login = ownerConsulta.login,
+                        passwd = ownerConsulta.passwd,
+                        date_of_birth = ownerConsulta.date_of_birth,
+                    };
+                }
+                catch
+                {
+                    obj = null;
+                }
+
+            }
+            return obj;
+        }
 
     }
 }
