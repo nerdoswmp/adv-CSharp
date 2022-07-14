@@ -107,7 +107,7 @@ namespace Model
                 {
                     id = p.id,
                     storeid = s.store.id,
-                    store = s.store.name,
+                    storename = s.store.name,
                     name = p.name,
                     bar_code = p.bar_code,
                     description = p.description,
@@ -138,26 +138,15 @@ namespace Model
         {
             using (var context = new DAOContext())
             {
-                var produto = context.stock.Include(s => s.store).Join(context.product, s => s.product.bar_code, p => p.bar_code, (s, p) => new
-                {
-                    id = p.id,
-                    storeid = s.store.id,
-                    store = s.store.name,
-                    name = p.name,
-                    bar_code = p.bar_code,
-                    description = p.description,
-                    image = p.image,
-                    price = s.unit_price,
-                    quantity = s.quantity
-                });
+                var products = context.stock.Include(s => s.product).Include(s => s.store);
 
-                List<object> list = new List<object>();
-                foreach (var item in produto)
+                List<object> produtos = new List<object>();
+                foreach (var produto in products)
                 {
-                    list.Add(item);
+                    produtos.Add(produto);
                 }
 
-                return list;
+                return produtos;
             }
         }
 

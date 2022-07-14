@@ -1,11 +1,22 @@
 export interface Product {
     id: number;
     name: string;
-    price: number;
+    unit_price: number;
     description: string;
     image: string;
     storeid: number;
-    store: string;
+    storename:string;
+    price:number;
+    store: {
+      name:string;
+      id:number;
+    },
+    product:{
+      id:number;
+      name:string;
+      description:string;
+      image:string;
+    };
   }
   
   export const products = [

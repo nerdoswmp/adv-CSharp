@@ -4,41 +4,42 @@
     <div class="productComponent" *ngFor="let product of products">
         <div style="height:50%">
             <h3>
-                <img src={{product.image}} class="img-responsive">
+                <img src={{product.product.image}} class="img-responsive">
             </h3>
         </div>
         <div>
             <h3>
-                <a [title]="product.name + 'details'"
-                    [routerLink]="['/product/', product.id, product.storeid]">
-                    {{product.name}}
+                <a [title]="product.product.name + 'details'"
+                    [routerLink]="['/product/', product.product.id, product.store.id]">
+                    {{product.product.name}}
                 </a>
             </h3>
         </div>
         <div>
             <h2>
                 <p style="font-weight:bold; font-size:large">
-                    {{product.price | currency}}
+                    {{product.unit_price | currency}}
                 </p>
             </h2>
         </div>
         <div>
             <h2>
                 <p>
-                    {{product.description}}
+                    {{product.product.description}}
                 </p>
             </h2>
         </div>
         <div>
             <h2>
                 <p style="font-weight:bold">
-                    {{product.store}}
+                    {{product.store.name}}
+                    {{product.id}}
                 </p>
             </h2>
         </div>
         <div>
             <h2>
-                <img src="../assets/coraçãoVazio.png" class="img-responsive img-coracao" id="imgCoracao{{product.id}}_{{product.storeid}}" style="cursor: pointer;" (click)="mudarCoracao('imgCoracao' + product.id + '_' + product.storeid, product.storeid ,product.id)" >              
+                <img [src]="setarIMG(product.id)" type="button" class="img-responsive img-coracao" id="imgCoracao{{product.id}}" style="cursor: pointer;" (click)="mudarCoracao('imgCoracao'+product.id, product.id)" >              
             </h2>
         </div>
     
