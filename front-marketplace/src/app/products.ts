@@ -5,10 +5,14 @@ export interface Product {
     description: string;
     image: string;
     storeid: number;
+    storename:string;
+    price:number;
     store: {
       name:string;
+      id:number;
     },
     product:{
+      id:number;
       name:string;
       description:string;
       image:string;

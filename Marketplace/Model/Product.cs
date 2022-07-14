@@ -107,7 +107,7 @@ namespace Model
                 {
                     id = p.id,
                     storeid = s.store.id,
-                    store = s.store.name,
+                    storename = s.store.name,
                     name = p.name,
                     bar_code = p.bar_code,
                     description = p.description,

@@ -10,7 +10,7 @@
         <div>
             <h3>
                 <a [title]="product.product.name + 'details'"
-                    [routerLink]="['/product/', product.id, product.storeid]">
+                    [routerLink]="['/product/', product.product.id, product.store.id]">
                     {{product.product.name}}
                 </a>
             </h3>

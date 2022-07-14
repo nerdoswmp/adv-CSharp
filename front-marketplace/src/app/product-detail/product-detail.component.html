@@ -1,9 +1,9 @@
 <app-top-bar [titulo]="titlePage"></app-top-bar>
 
 <div *ngIf="product" class="product-detail-text">
-    <img src={{product.product.image}} class="img-responsive big-img-responsive">
+    <img src={{product.image}} class="img-responsive big-img-responsive">
     <br>
-    <h3>{{product.name}} from {{product.store}}</h3>
+    <h3>{{product.name}} from {{product.storename}}</h3>
     <p>{{product.description}}</p>
     <h4>{{product.price | currency}}</h4>
     <a id="purchase_button" (click)="makePurchase()"> Purchase </a>
