@@ -1,10 +1,10 @@
 <app-top-bar [titulo]="titlePage"></app-top-bar>
 
 <div *ngIf="product" class="product-detail-text">
-    <img src={{product.image}} class="img-responsive big-img-responsive">
+    <img src={{product.product.image}} class="img-responsive big-img-responsive">
     <br>
-    <h3>{{product.name}} from {{product.store}}</h3>
-    <p>{{product.description}}</p>
-    <h4>{{product.price | currency}}</h4>
+    <h3>{{product.product.name}} from {{product.store}}</h3>
+    <p>{{product.product.description}}</p>
+    <h4>{{product.unit_price | currency}}</h4>
     <a> Purchase </a>
 </div>
