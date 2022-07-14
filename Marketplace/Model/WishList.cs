@@ -83,29 +83,24 @@ namespace Model
             return this.wishListDTO;
         }
 
-        public int save(WishlistSaveDTO wishlist)
+        public int save(int client, int stock)
         {
             var id = 0;
             using(var context = new DAOContext())
             {
-                var wishList = new DAO.WishList
-                {
-                    client = context.client.Where(c => c.login == wishlist.user).Single(),                
-                    stock = context.stock.Include(s => s.store).Include(p => p.product)
-                    .Where(s => s.product.id == wishlist.idProduct && s.store.id == wishlist.idStore).Single(),
-                };
-                context.wishList.Add(wishList);
-                if (wishList.client != null)
-                {
-                    context.Entry(wishList.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-                }
-                if (wishList.stock != null)
-                {
-                    context.Entry(wishList.stock).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-                }
-                context.SaveChanges();
+                var clientDAO = context.client.Where(c => c.id == client).Single();
+                var stocksDAO = context.stock.Where(c => c.id == stock).Single();
 
-                id = wishList.id;
+                var wl = new DAO.WishList
+                {
+                    client = clientDAO,
+                    stock = stocksDAO
+                };
+                context.wishList.Add(wl);
+                context.Entry(wl.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                context.Entry(wl.stock).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                context.SaveChanges();
+                id = wl.id;
             }
             return id;
         }
@@ -118,6 +113,19 @@ namespace Model
         public void delete(WishListDTO obj)
         {
 
+        }
+
+        public static string deleteProduct(int id, int ClientId)
+        {
+            using(var context = new DAOContext())
+            {
+                var wishlist = context.wishList.Where(w=>w.stock.id == id && w.client.id == ClientId);
+                Console.WriteLine(ClientId);
+                Console.WriteLine(id);
+                context.wishList.RemoveRange(wishlist);
+                context.SaveChanges();
+                return "sucess";
+            }
         }
 
         public void deleteWishList()
@@ -136,7 +144,25 @@ namespace Model
             }
         }
 
-        public static List<object> getWishList(string user)
+        public static IEnumerable<object> find(int id)
+        {
+            using(var context = new DAOContext())
+            {
+                var wishlist = context.wishList.Include(s => s.client).Where(a => a.client.id == id).Join(context.stock.Include(s => s.store), w => w.stock.product, s => s.product, (w, s) => new
+                {
+                    id = w.stock.id,
+                    product = w.stock.product.name,
+                    price = w.stock.unit_price,
+                    description = w.stock.product.description,
+                    image = w.stock.product.image,
+                    name = s.store.name,
+                }).ToList().GroupBy(x => x.id).Select(g => g.OrderBy(p => p.price).First());
+
+                return wishlist;
+            }
+        }
+
+        public static List<object> getWishLists(string user)
         {
             using (var context = new DAOContext())
             {
