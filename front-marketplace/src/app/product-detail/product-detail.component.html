@@ -3,8 +3,8 @@
 <div *ngIf="product" class="product-detail-text">
     <img src={{product.product.image}} class="img-responsive big-img-responsive">
     <br>
-    <h3>{{product.product.name}} from {{product.store}}</h3>
-    <p>{{product.product.description}}</p>
-    <h4>{{product.unit_price | currency}}</h4>
-    <a> Purchase </a>
+    <h3>{{product.name}} from {{product.store}}</h3>
+    <p>{{product.description}}</p>
+    <h4>{{product.price | currency}}</h4>
+    <a id="purchase_button" (click)="makePurchase()"> Purchase </a>
 </div>

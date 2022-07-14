@@ -25,7 +25,7 @@ export class MarketplaceLoginComponent implements OnInit {
     });  
     var config = {
       method: 'post',
-      url: 'http://localhost:5009/client/login',
+      url: 'http://localhost:5009/login/login',
       headers: { 
         'Content-Type': 'application/json'
       },

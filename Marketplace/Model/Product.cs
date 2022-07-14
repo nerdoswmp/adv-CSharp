@@ -120,6 +120,20 @@ namespace Model
             }
         }
 
+        public static ProductDTO findProdById(int id)
+        {
+            using var context = new DAOContext();
+                var produto = context.product.Where(p => p.id == id).Single();
+
+            return new ProductDTO()
+            {
+                image = produto.image,
+                name = produto.name,
+                description = produto.description,
+                bar_code = produto.bar_code
+            };
+        }
+
         public static List<object> getProducts()
         {
             using (var context = new DAOContext())

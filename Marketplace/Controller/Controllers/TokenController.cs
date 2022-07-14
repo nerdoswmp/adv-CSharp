@@ -10,7 +10,7 @@ using DTO;
 using Model;
 
 [ApiController]
-[Route("client")]
+[Route("login")]
 public class TokenController : ControllerBase
 {
     public IConfiguration _configuration;
@@ -22,11 +22,26 @@ public class TokenController : ControllerBase
 
     [HttpPost]
     [Route("login")]
-    public IActionResult tokenGenerate([FromBody] ClientDTO login)
+    public IActionResult tokenGenerate([FromBody] LoginDTO login)
     {
+        bool isClient = Client.getAllClients().Any(l => l.login == login.login && l.passwd == login.passwd);
+        bool isOwner = Owner.getAllOwners().Any(l => l.login == login.login && l.passwd == login.passwd);
+
+        dynamic user = null;
+
+        switch((isClient, isOwner))
+        {
+            case (true, false):
+                user = Model.Client.loginClient(login);
+                break;
+            case (false, true):
+                user = Model.Owner.loginOwner(login);
+                break;
+
+        }
+
         if (login != null && login.login != null && login.passwd != null)
         {
-            var user = Model.Client.loginClient(login);
             Response.Headers.Add("Access-Control-Allow-Origin", "*");
             if (user != null)
             {

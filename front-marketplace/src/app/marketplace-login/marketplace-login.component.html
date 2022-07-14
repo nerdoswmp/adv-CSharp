@@ -1,4 +1,4 @@
-<app-top-bar [titulo]="titlePage"></app-top-bar>
+<app-top-bar [titulo]="titlePage" [ngStyle]="{}"></app-top-bar>
 
 <div class="register-box">
     <br><br>
@@ -10,5 +10,7 @@
         <a id="login_button" (click)="loginUser()" >Login</a>        
     </div>
     <br>
-    <p style="cursor: pointer;" [routerLink]="['/client/register']">Não tem Cadastro ? CLIQUE AQUI</p>
+    <a style="cursor: pointer;" [routerLink]="['/client/register']">Cadastrar-se como cliente</a>
+    <br>
+    <a style="cursor: pointer; background-color: #7851a9" [routerLink]="['/owner/register']">Cadastrar-se como logista</a>
 </div>
