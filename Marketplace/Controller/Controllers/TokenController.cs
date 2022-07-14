@@ -73,8 +73,28 @@ public class TokenController : ControllerBase
             }
         }
         else
-    {
+        {
             return BadRequest("Empty credentials");
+        }
+    }
+
+    [HttpPost]
+    [Route("type")]
+    public bool getPersonType([FromBody] LoginDTO login)
+    {
+        bool isClient = Client.getAllClients().Any(l => l.login == login.login && l.passwd == login.passwd);
+        bool isOwner = Owner.getAllOwners().Any(l => l.login == login.login && l.passwd == login.passwd);
+
+        dynamic user = null;
+
+        switch ((isClient, isOwner))
+        {
+            case (true, false):
+                return false;
+            case (false, true):
+                return true;
+            default:
+                return false;
         }
     }
 }

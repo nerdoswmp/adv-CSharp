@@ -13,6 +13,7 @@ export class ProductsListComponent implements OnInit {
   title = 'front-marketplace';
 
   products = products;
+  isOwner = localStorage.getItem('isOwner');
   
   constructor() { }
 
