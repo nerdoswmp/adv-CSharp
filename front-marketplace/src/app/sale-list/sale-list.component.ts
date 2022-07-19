@@ -10,7 +10,7 @@ import axios from 'axios';
 })
 export class SaleListComponent implements OnInit {
   title = 'front-marketplace';
-  titlePage = 'Stores';
+  titlePage = 'Store sales';
 
   purchases : [Purchases] | undefined;
   constructor(private route: ActivatedRoute, private router: Router) { }

@@ -18,6 +18,7 @@ import { OwnerRegisterComponent } from './owner-register/owner-register.componen
 import { StoreListComponent } from './store-list/store-list.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 import { ProductRegisterComponent } from './product-register/product-register.component';
+import { OwnerProductsComponent } from './owner-products/owner-products.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ProductRegisterComponent } from './product-register/product-register.co
     OwnerRegisterComponent,
     SaleListComponent,
     ProductRegisterComponent,
-    StoreListComponent
+    StoreListComponent,
+    OwnerProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { ProductRegisterComponent } from './product-register/product-register.co
       {path: 'owner/register', component:OwnerRegisterComponent},
       {path: 'product/:productID', component:ProductDetailComponent},
       {path: 'store/list', component:StoreListComponent},
-      {path: 'store/sales/:storeID', component:SaleListComponent}
+      {path: 'store/sales/:storeID', component:SaleListComponent},
+      {path: 'owner/products', component:OwnerProductsComponent}
     ])
   ],
   providers: [],

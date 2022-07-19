@@ -15,7 +15,7 @@
         </div>
         <div class="dropdown-content" *ngIf="isOwner == 'true'">
           <h3>{{user}}</h3>
-          <a href="/wishlist">Produtos</a>
+          <a href="/owner/products">Produtos</a>
           <a href="/store/list">Lojas</a>
           <a (click)="logout()">{{logado === true ? "Logout" : "Login"}}</a>
         </div>

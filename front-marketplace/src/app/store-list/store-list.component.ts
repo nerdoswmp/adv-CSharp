@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Stores } from '../stores';
 import axios from 'axios';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-store-list',
@@ -13,7 +14,7 @@ export class StoreListComponent implements OnInit {
 
   stores : [Stores] | undefined;
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
     var data = '';
@@ -36,6 +37,9 @@ export class StoreListComponent implements OnInit {
     })
     .catch(function (error:any) {
       console.log(error);
+      if (error.response.status == 401 || 500){
+        instance.route.navigate(['/login']) 
+      }
     });
 
   }

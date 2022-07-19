@@ -18,6 +18,17 @@ namespace Controller.Controllers
             return result;
         }
 
+        [Authorize]
+        [HttpGet]
+        [Route("all/{ownerLogin}")]
+        public IActionResult allProducts(string ownerLogin)
+        {
+            var produtos = Model.Product.getProductsFromOwner(ownerLogin);
+            var result = new ObjectResult(produtos);
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            return result;
+        }
+
         [HttpGet]
         [Route("{product}/{store}")]
         public IActionResult singleProduct(int product, int store)
@@ -54,6 +65,8 @@ namespace Controller.Controllers
             nproduct.deleteProduct();
             return "produto deletado";
         }
+
+        [Authorize]
         [HttpPut("update/{bar_code}")]
         public string updateProduct(ProductDTO product, string bar_code)
         {

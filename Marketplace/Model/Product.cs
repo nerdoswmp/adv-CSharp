@@ -150,6 +150,23 @@ namespace Model
             }
         }
 
+        public static List<object> getProductsFromOwner(string login)
+        {
+            using (var context = new DAOContext())
+            {
+                var products = context.stock.Include(s => s.product).Include(s => s.store)
+                    .ThenInclude(s => s.owner).Where(s => s.store.owner.login == login);
+
+                List<object> produtos = new List<object>();
+                foreach (var produto in products)
+                {
+                    produtos.Add(produto);
+                }
+
+                return produtos;
+            }
+        }
+
         public int save()
         {
             var id = 0;

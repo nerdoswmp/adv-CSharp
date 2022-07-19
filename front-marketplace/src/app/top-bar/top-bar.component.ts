@@ -20,6 +20,7 @@ export class TopBarComponent implements OnInit {
     else{
       localStorage.removeItem('authToken');
       localStorage.removeItem('user');
+      localStorage.removeItem('isOwner');
       this.logado = false;
       alert("Logout realizado com sucesso");
       window.location.reload();

@@ -1,0 +1,45 @@
+<app-top-bar [titulo]="titlePage" [ngStyle]="{'background-color': (isOwner == 'true') ? '#7851a9' : (isOwner == 'false') ? '#1976d2' : null}"></app-top-bar>
+
+<br>
+<div class="container">
+    <button type="button" class="btn btn-primary" [routerLink]="['/product/register']">Cadastrar novo produto</button>
+</div>
+
+<div class="productsList">
+    <div class="productComponent" *ngFor="let product of products">
+        <div style="height:50%">
+            <h3>
+                <img src={{product.product.image}} class="img-responsive">
+            </h3>
+        </div>
+        <div>
+            <h3>
+                <a [title]="product.product.name + 'details'"
+                    [routerLink]="['/product/', product.product.id, product.store.id]">
+                    {{product.product.name}}
+                </a>
+            </h3>
+        </div>
+        <div>
+            <h2>
+                <p style="font-weight:bold; font-size:large">
+                    {{product.unit_price | currency}}
+                </p>
+            </h2>
+        </div>
+        <div>
+            <h2>
+                <p>
+                    {{product.product.description}}
+                </p>
+            </h2>
+        </div>
+        <div>
+            <h2>
+                <a style="font-weight:bold" [routerLink]="['/store/sales', product.store.id]">
+                    {{product.store.name}}
+                </a>
+            </h2>
+        </div>
+    </div>
+</div>
