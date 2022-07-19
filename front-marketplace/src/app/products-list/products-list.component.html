@@ -33,11 +33,10 @@
             <h2>
                 <p style="font-weight:bold">
                     {{product.store.name}}
-                    {{product.id}}
                 </p>
             </h2>
         </div>
-        <div>
+        <div *ngIf="isOwner == 'false'">
             <h2>
                 <img [src]="setarIMG(product.id)" type="button" class="img-responsive img-coracao" id="imgCoracao{{product.id}}" style="cursor: pointer;" (click)="mudarCoracao('imgCoracao'+product.id, product.id)" >              
             </h2>

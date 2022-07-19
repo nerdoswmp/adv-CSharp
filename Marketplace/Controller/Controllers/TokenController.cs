@@ -51,7 +51,6 @@ public class TokenController : ControllerBase
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                     new Claim("UserId", user.getId().ToString()),
-                    
                     new Claim("UserName", user.getName()),
                     new Claim("Email", user.getEmail())
                 };
@@ -68,7 +67,7 @@ public class TokenController : ControllerBase
                 
             }
             else
-{
+            {
                 return BadRequest("Invalid credentials");
             }
         }

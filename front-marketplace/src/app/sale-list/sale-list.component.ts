@@ -1,30 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Purchases } from '../purchases';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import axios from 'axios';
-import { InstantiateExpr } from '@angular/compiler';
 
 @Component({
-  selector: 'app-purchase-list',
-  templateUrl: './purchase-list.component.html',
-  styleUrls: ['./purchase-list.component.css']
+  selector: 'app-sale-list',
+  templateUrl: './sale-list.component.html',
+  styleUrls: ['./sale-list.component.css']
 })
-export class PurchaseListComponent implements OnInit {
+export class SaleListComponent implements OnInit {
   title = 'front-marketplace';
-  titlePage = 'Purchases';
+  titlePage = 'Stores';
 
   purchases : [Purchases] | undefined;
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {  
-
+  ngOnInit(): void {
+    const routeParams = this.route.snapshot.paramMap;
+    const storeIdFromRoute = Number(routeParams.get('storeID'));
     var instance = this;
     var token = localStorage.getItem('authToken')
 
     var config = {
       method: 'get',
-      url: 'http://localhost:5009/purchase/client/'+ localStorage.getItem('user'),
+      url: 'http://localhost:5009/purchase/store/'+ storeIdFromRoute,
       headers: { 
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token

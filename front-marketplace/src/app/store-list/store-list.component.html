@@ -1,0 +1,21 @@
+<app-top-bar [titulo]="titlePage" style="background-color: #7851a9;"></app-top-bar>
+<br>
+
+
+<div class="container">
+    <button type="button" class="btn btn-primary">Cadastrar nova loja</button>
+
+    <div class="purchaseListComponent" *ngFor="let store of stores">
+
+        <div class="wishdetails" style="max-width: 25%;">
+            <h3> CNPJ: {{store.cnpj}}</h3>
+        </div>
+        <div class="wishdetails">
+            <h3>
+                <a [routerLink]="['/store/sales', store.id]">{{store.name}}</a>
+            </h3>
+        </div>
+        <br><br>
+    </div>
+
+</div>

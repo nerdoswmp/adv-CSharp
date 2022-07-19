@@ -21,7 +21,7 @@ public class PurchaseController : ControllerBase
     [Authorize]
     [HttpGet]
     [Route("store/{storeID}")]
-    public object getStorePurchase(string storeID)
+    public object getStorePurchase(int storeID)
     {
         return Purchase.findByStoreId(storeID);
     }

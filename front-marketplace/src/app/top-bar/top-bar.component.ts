@@ -7,7 +7,7 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
-
+  isOwner = localStorage.getItem('isOwner');
   user = "Não logado"
   logado = false
   @Input() titulo = ""

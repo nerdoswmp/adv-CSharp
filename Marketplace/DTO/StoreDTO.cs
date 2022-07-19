@@ -8,9 +8,11 @@ namespace DTO
 {
     public class StoreDTO
     {
-        public string name;
-        public string CNPJ;
-        public OwnerDTO owner;
+        public int? id { get; set; }
+        public string name { get; set; }
+        public string CNPJ { get; set; }
+        public OwnerDTO? owner { get; set; }
         public List<PurchaseDTO> purchases = new List<PurchaseDTO>();
+
     }
 }

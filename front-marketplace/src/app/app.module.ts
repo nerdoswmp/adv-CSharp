@@ -15,6 +15,8 @@ import { MarketplaceLoginComponent } from './marketplace-login/marketplace-login
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { LoginownerComponent } from './loginowner/loginowner.component';
 import { OwnerRegisterComponent } from './owner-register/owner-register.component';
+import { StoreListComponent } from './store-list/store-list.component';
+import { SaleListComponent } from './sale-list/sale-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { OwnerRegisterComponent } from './owner-register/owner-register.componen
     MarketplaceLoginComponent,
     PurchaseListComponent,
     LoginownerComponent,
-    OwnerRegisterComponent
+    OwnerRegisterComponent,
+    StoreListComponent,
+    SaleListComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ import { OwnerRegisterComponent } from './owner-register/owner-register.componen
       {path: 'address/register', component:AddressRegisterComponent},
       {path: 'login', component:MarketplaceLoginComponent},
       {path: 'purchases', component:PurchaseListComponent},
-      {path: 'owner/register', component:OwnerRegisterComponent}
+      {path: 'owner/register', component:OwnerRegisterComponent},
+      {path: 'store/list', component:StoreListComponent},
+      {path: 'store/sales/:storeID', component:SaleListComponent}
     ])
   ],
   providers: [],

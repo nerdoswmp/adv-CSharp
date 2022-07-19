@@ -164,7 +164,7 @@ namespace Model
             return new PurchaseDTO();
         }
 
-        public static List<object> findByStoreId(string CNPJ)
+        public static List<object> findByStoreId(int id)
         {
             List<object> purchases = new List<object>();
             using (var contexto = new DAOContext())
@@ -172,46 +172,31 @@ namespace Model
                 var purchaseConsulta = contexto.purchases.Include(purchase => purchase.client).ThenInclude(client => client.address)
                     .Include(purchase => purchase.store).ThenInclude(store => store.owner).ThenInclude(owner => owner.address)
                     .Include(purchase => purchase.product)
-                    .Where(c => c.store.CNPJ == CNPJ);
+                    .Where(c => c.store.id == id);
 
 
                 var distinctPurchase = purchaseConsulta.Select(x => new
                 {
-                    x.number_nf,
-                    x.store,
-                    x.client,
-                    x.confirmation_number,
-                    x.purchase_value,
-                    x.purchase_status,
-                    x.payment_type,
-                    x.data_purchase
+                    id = x.id,
+                    confirmation_number = x.confirmation_number,
+                    date = x.data_purchase,
+                    nf = x.number_nf,
+                    payment_type = x.payment_type,
+                    purchase_status = x.purchase_status,
+                    price = x.purchase_value,
+                    clientid = x.client.id,
+                    storeid = x.store.id,
+                    store = x.store.name,
+                    name = x.product.name,
+                    description = x.product.description,
+                    image = x.product.image,
+                    productid = x.product.id,
+                    clientname = x.client.name
                 }).Distinct().ToList();
 
-                List<object> list = new List<object>();
+                foreach (var x in distinctPurchase)
+                    purchases.Add(x);
 
-                foreach (var nf in distinctPurchase)
-                {
-                    foreach (var item in purchaseConsulta.Where(c => c.number_nf == nf.number_nf))
-                    {
-                        list.Add(item.product);
-                    };
-
-                    purchases.Add(new
-                    {
-                        nf.confirmation_number,
-                        nf.data_purchase,
-                        nf.number_nf,
-                        nf.payment_type,
-                        nf.purchase_status,
-                        nf.purchase_value,
-                        nf.client,
-                        nf.store,
-                        products = new List<object>(list),
-                    });
-
-                    list.Clear();
-                }
-            
             }
             return purchases;
         }

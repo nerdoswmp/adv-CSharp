@@ -123,15 +123,22 @@ namespace Model
             }
         }
 
-        public static List<object> getStores()
+        public static List<StoreDTO> getStores()
         {
             using (var context = new DAOContext())
             {
                 var stores = context.store.Include(s => s.owner);
-                List<object> lojas = new List<object>();
+                List<StoreDTO> lojas = new List<StoreDTO>();
                 foreach (var store in stores)
                 {
-                    lojas.Add(store);
+                    lojas.Add(new (){
+                        id = store.id,
+                        name = store.name,
+                        CNPJ = store.CNPJ,
+                        owner = new OwnerDTO(){
+                            login = store.owner.login 
+                        }
+                    });
                 }
 
                 return lojas;

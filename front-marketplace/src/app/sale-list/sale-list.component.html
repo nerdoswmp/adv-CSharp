@@ -1,0 +1,38 @@
+<app-top-bar [titulo]="titlePage" style="background-color: #7851a9;"></app-top-bar>
+<br>
+
+<div>
+    <div class="purchaseListComponent" *ngFor="let purchase of purchases">
+        <div class="wishdetails" style="max-width: 25%;">
+            <h3> Nº NF {{purchase.nf}}</h3>
+            <h3>Data da compra: </h3>
+            <h3>{{purchase.date}}</h3>
+        </div>
+        <div class="wishimage">
+            <img src={{purchase.image}} class="img-wishlist">
+        </div>
+        <div class="wishdetails">
+            <h3>
+                <a [title]="purchase.name"
+                    [routerLink]="['/product', purchase.productid, purchase.storeid]">
+                    {{purchase.name}}
+                </a>
+            </h3>
+            <h3>
+                <p>
+                    {{purchase.price | currency}}
+                </p>
+            </h3>
+            <h3>
+                <p class="description">
+                    {{purchase.description}}
+                </p>
+            </h3>
+            <h3>
+                Vendido para: {{purchase.clientname}}
+            </h3>
+        </div>
+        <br><br>
+    </div>
+
+</div>

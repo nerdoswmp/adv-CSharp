@@ -12,6 +12,7 @@ export interface Purchases {
     description: string;
     image: string;
     productid: number;
+    clientname: string;
 
   }
   

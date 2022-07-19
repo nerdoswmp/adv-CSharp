@@ -129,6 +129,19 @@ namespace Model
             return obj;
         }
 
+        public static int findByUsername(string username)
+        {
+            int id;
+
+            using (var contexto = new DAOContext())
+            {
+                var ownerConsulta = contexto.owner.Include(owner => owner.address).Where(c => c.login == username).Single();
+
+                id = ownerConsulta.id;
+            }
+            return id;
+        }
+
         public List<OwnerDTO> getAll()
         {
             return this.ownerDTO;

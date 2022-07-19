@@ -7,10 +7,16 @@
 <div>
     <div class="dropdown" style="float:left;">
         <a class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" class="apptopbarimg" alt=""></a>
-        <div class="dropdown-content">
+        <div class="dropdown-content" *ngIf="isOwner == 'false' || isOwner == null">
           <h3>{{user}}</h3>
           <a href="/wishlist">Wishlist</a>
           <a href="/purchases">Compras</a>
+          <a (click)="logout()">{{logado === true ? "Logout" : "Login"}}</a>
+        </div>
+        <div class="dropdown-content" *ngIf="isOwner == 'true'">
+          <h3>{{user}}</h3>
+          <a href="/wishlist">Produtos</a>
+          <a href="/store/list">Lojas</a>
           <a (click)="logout()">{{logado === true ? "Logout" : "Login"}}</a>
         </div>
       </div>
