@@ -3,8 +3,21 @@
 <div *ngIf="product" class="product-detail-text">
     <img src={{product.image}} class="img-responsive big-img-responsive">
     <br>
-    <h3>{{product.name}} from {{product.storename}}</h3>
+    <div *ngIf="stores.length > 0; else elseBlock">
+        <div *ngFor="let store of stores; index as i">
+            <div *ngIf="store.id == product.storeid; else elsierBlock">
+                <h1>{{product.name}} from <a [routerLink]="['/store/sales', store.id]">{{product.storename}}</a></h1>
+                {{setPlotTrue()}}
+            </div>
+            <ng-template #elsierBlock>
+                <div *ngIf="i == stores.length-1 && plot == false; then elseBlock"></div>
+            </ng-template>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <h1>{{product.name}} from {{product.storename}}</h1>
+    </ng-template>
     <p>{{product.description}}</p>
     <h4>{{product.price | currency}}</h4>
-    <a id="purchase_button" (click)="makePurchase()" style="color:white"> Purchase </a>
+    <a id="purchase_button" (click)="makePurchase()" style="color:white" class="prod-detail-button"> Purchase </a>
 </div>

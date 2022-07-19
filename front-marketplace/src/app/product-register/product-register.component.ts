@@ -116,7 +116,10 @@ export class ProductRegisterComponent implements OnInit {
       method: 'get',
       url: 'http://localhost:5009/store/all/' + localStorage.getItem('user'),
       headers: {
-        'Content-Type': 'application/json'
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        'Authorization': 'Bearer ' + localStorage.getItem("authToken"),
+        'Content-Type': 'application/json',
       },
       data: data
     };
