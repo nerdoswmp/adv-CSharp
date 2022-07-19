@@ -62,7 +62,7 @@ public class TokenController : ControllerBase
                     _configuration["Jwt:Issuer"],
                     _configuration["Jwt:Audience"],
                     claims,
-                    expires: DateTime.UtcNow.AddMinutes(10),
+                    expires: DateTime.UtcNow.AddMinutes(10000),
                     signingCredentials: signIn);
                 return Ok(new JwtSecurityTokenHandler().WriteToken(token));
                 

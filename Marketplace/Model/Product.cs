@@ -160,8 +160,7 @@ namespace Model
                     name = this.name,
                     bar_code = this.bar_code,
                     description = this.description,
-                    image = this.image
-                    
+                    image = this.image                    
                 };
                 context.product.Add(product);
                 context.SaveChanges();

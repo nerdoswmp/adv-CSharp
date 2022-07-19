@@ -32,7 +32,7 @@ namespace Controller.Controllers
         [HttpPost]
         [Route("register")]
         public object createProduct([FromBody] ProductDTO product)
-        {
+        {            
             var productModel = Model.Product.convertDTOToModel(product);
             var id = productModel.save();
             return new
