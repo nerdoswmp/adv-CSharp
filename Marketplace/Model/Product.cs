@@ -191,10 +191,13 @@ namespace Model
             using (var context = new DAOContext())
             {
                 var produto = context.product.Where(s => s.bar_code == bar_code).First();
-                produto.name = this.name;
-                produto.bar_code = this.bar_code;
-                produto.description = this.description;
-                produto.image = this.image;
+                if(produto.name != null || produto.name != "") { 
+                    produto.name = this.name;
+                }
+                if (produto.description != null || produto.description != "")
+                {
+                    produto.description = this.description;
+                }
 
                 context.SaveChanges();
             }          
