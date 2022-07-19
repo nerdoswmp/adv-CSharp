@@ -108,7 +108,7 @@ export class ProductRegisterComponent implements OnInit {
     let self = this;
     var config = {
       method: 'get',
-      url: 'http://localhost:5009/store/get/all',
+      url: 'http://localhost:5009/store/all/' + localStorage.getItem('user'),
       headers: {
         'Content-Type': 'application/json'
       },
