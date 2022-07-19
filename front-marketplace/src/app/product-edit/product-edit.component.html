@@ -1,0 +1,18 @@
+<app-top-bar [titulo]="titlePage" style='background-color: #7851a9'></app-top-bar>
+
+<div class="register-box">
+    <br><br>
+    <input type="text" placeholder="Nome" id="name">
+    <br>    
+    <input type="text" placeholder="Descrição" id="description">    
+    <br>
+    <input type="text" placeholder="Quantidade" id="quantidade">
+    <br>
+    <input type="text" placeholder="Preço" id="preco">
+    <br><br><br>
+    <div class="register-buttons">
+        <a type="button" (click)="editProduct()">Save Changes</a>
+        <a [routerLink]="['']">Cancel</a>
+    </div>
+    <br>
+</div>

@@ -1,23 +1,47 @@
-<app-top-bar [titulo]="titlePage"></app-top-bar>
+<app-top-bar [titulo]="titlePage" [ngStyle]="{'background-color': (isOwner == 'true') ? '#7851a9' : (isOwner == 'false') ? '#1976d2' : null}"></app-top-bar>
 
 <div *ngIf="product" class="product-detail-text">
     <img src={{product.image}} class="img-responsive big-img-responsive">
     <br>
-    <div *ngIf="stores.length > 0; else elseBlock">
-        <div *ngFor="let store of stores; index as i">
-            <div *ngIf="store.id == product.storeid; else elsierBlock">
-                <h1>{{product.name}} from <a [routerLink]="['/store/sales', store.id]">{{product.storename}}</a></h1>
-                {{setPlotTrue()}}
-            </div>
-            <ng-template #elsierBlock>
-                <div *ngIf="i == stores.length-1 && plot == false; then elseBlock"></div>
-            </ng-template>
+    <div *ngIf="isOwner != 'true';else voumemat">
+        <h1>{{product.name}} from {{product.storename}}</h1>
+        <p>{{product.description}}</p>
+                <h4>{{product.price | currency}}</h4>
+        <div>
+            <a id="purchase_button" (click)="makePurchase()" style="color:white" class="prod-detail-button"> Purchase </a>
         </div>
     </div>
-    <ng-template #elseBlock>
-        <h1>{{product.name}} from {{product.storename}}</h1>
+    <ng-template #voumemat>
+
+        <div *ngIf="stores.length > 0 && stores != undefined;">
+            <div *ngFor="let store of stores; index as i">
+                <div *ngIf="store.id == product.storeid; else elsierBlock">
+                    <h1>{{product.name}} from <a [routerLink]="['/store/sales', store.id]">{{product.storename}}</a></h1>
+                    {{setPlotTrue()}}
+                    <p>{{product.description}}</p>
+                    <h4>{{product.price | currency}}</h4>
+                    <div *ngIf="isOwner == 'true'">
+                        <a id="purchase_button" [routerLink]="['/edit/', product.id, product.storeid]" style="color:white" class="prod-detail-button"> Editar </a>
+                    </div>
+                </div>
+                <ng-template #elsierBlock>
+                    <div *ngIf="i == stores.length-1 && plot == false; then elseBlock"></div>
+                </ng-template>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <h1>{{product.name}} from {{product.storename}}</h1>
+            <p>{{product.description}}</p>
+            <h4>{{product.price | currency}}</h4>
+        </ng-template>
+        
     </ng-template>
-    <p>{{product.description}}</p>
-    <h4>{{product.price | currency}}</h4>
-    <a id="purchase_button" (click)="makePurchase()" style="color:white" class="prod-detail-button"> Purchase </a>
+    
+    
 </div>
+
+<!--
+codigo horrivel perdi 6 anos de linha capilar nessa bosta
+pqq é tão dificil
+
+-->

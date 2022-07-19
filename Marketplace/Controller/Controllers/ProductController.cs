@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DTO;
+using Model;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Controller.Controllers
@@ -67,12 +68,19 @@ namespace Controller.Controllers
         }
 
         [Authorize]
-        [HttpPut("update/{bar_code}")]
-        public string updateProduct(ProductDTO product, string bar_code)
-        {
-            var nProduct = Model.Product.convertDTOToModel(product);
-            nProduct.updateProduct(bar_code);
+        [HttpPut]
+        [Route("update/{id}/{storeID}")]
+        public string updateProduct([FromBody]ProductEditDTO product, int id,int storeID)
+        {            
+            Model.Product.updateProduct(id, storeID, product);
             return "produto atualizado";
+        }
+
+        [HttpPost]
+        [Route("verify/{id}/{ownerLogin}")]
+        public bool verifyExistence(int id, string ownerLogin)
+        {
+            return Model.Product.verify(id, ownerLogin);
         }
     }
 }

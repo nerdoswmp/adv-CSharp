@@ -16,6 +16,7 @@ export class ProductDetailComponent implements OnInit {
   product: Product | undefined;
   stores : [Stores] | any;
   plot = false;
+  isOwner = localStorage.getItem('isOwner');
 
   constructor(private route: ActivatedRoute, private router: Router) { }
   

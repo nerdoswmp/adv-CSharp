@@ -186,17 +186,27 @@ namespace Model
             return id;
         }
         public void update(ProductDTO obj){}
-        public void updateProduct(string bar_code)
+        public static void updateProduct(int id,int storeID, ProductEditDTO product)
         {
             using (var context = new DAOContext())
             {
-                var produto = context.product.Where(s => s.bar_code == bar_code).First();
-                if(produto.name != null || produto.name != "") { 
-                    produto.name = this.name;
+                var produto = context.product.Where(s => s.id == id).First();
+                var stock = context.stock.Where(s => s.store.id == storeID).Where(t => t.product.id == id).First();
+
+                if(String.IsNullOrWhiteSpace(product.name) == false) { 
+                    produto.name = product.name;
                 }
-                if (produto.description != null || produto.description != "")
+                if (String.IsNullOrWhiteSpace(product.description) == false)
                 {
-                    produto.description = this.description;
+                    produto.description = product.description;
+                }
+                if (String.IsNullOrWhiteSpace(product.quantidade) == false)
+                {
+                    stock.quantity = int.Parse(product.quantidade);
+                }
+                if (String.IsNullOrWhiteSpace(product.preço) == false)
+                {
+                    stock.unit_price = double.Parse(product.preço);
                 }
 
                 context.SaveChanges();
@@ -233,6 +243,16 @@ namespace Model
                 context.product.Remove(prlis);
                 context.SaveChanges();
             }
+        }
+
+        public static bool verify(int id, string login)
+        {
+            using var context = new DAOContext();
+
+            var query = context.stock.Include(s => s.product).Include(s => s.store).ThenInclude(s => s.owner)
+                .Any(s => s.product.id == id && s.store.owner.login == login);
+
+            return query;
         }
     }
 }

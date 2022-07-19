@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -19,6 +20,7 @@ import { StoreListComponent } from './store-list/store-list.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 import { ProductRegisterComponent } from './product-register/product-register.component';
 import { OwnerProductsComponent } from './owner-products/owner-products.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { OwnerProductsComponent } from './owner-products/owner-products.componen
     SaleListComponent,
     ProductRegisterComponent,
     StoreListComponent,
+    ProductEditComponent,
     OwnerProductsComponent
   ],
   imports: [
@@ -47,19 +50,21 @@ import { OwnerProductsComponent } from './owner-products/owner-products.componen
     AppRoutingModule,
     RouterModule.forRoot([
       {path: '', component : ProductsListComponent},
+      {path: 'edit/:productID/:storeID', component:ProductEditComponent},
       {path: 'product/:productID/:storeID', component:ProductDetailComponent},
       {path: 'address/register', component:AddressRegisterComponent},
       {path: 'store/register', component:StoreRegisterComponent},
       {path: 'wishlist', component:WishlistComponent},
       {path: 'product/register', component:ProductRegisterComponent}, 
       {path: 'client/register', component:ClientRegisterComponent},
+      {path: 'address/register', component:AddressRegisterComponent},
       {path: 'login', component:MarketplaceLoginComponent},
       {path: 'purchases', component:PurchaseListComponent},
       {path: 'owner/register', component:OwnerRegisterComponent},
       {path: 'product/:productID', component:ProductDetailComponent},
       {path: 'store/list', component:StoreListComponent},
-      {path: 'store/sales/:storeID', component:SaleListComponent},
-      {path: 'owner/products', component:OwnerProductsComponent}
+      {path: 'owner/products', component:OwnerProductsComponent},
+      {path: 'store/sales/:storeID', component:SaleListComponent}
     ])
   ],
   providers: [],
