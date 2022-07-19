@@ -46,14 +46,18 @@ export class StoreRegisterComponent implements OnInit {
       })
       .catch(function (error:any) {
         console.log(error);
-        // if (error.response.status == 401){
-        //   instance.router.navigate(['/login']) 
-        // }
+        if (error.response.status == 401){
+          instance.router.navigate(['/login']) 
+        }
     });
 
   }
 
   ngOnInit(): void {
+    var instance = this;
+    if (localStorage.getItem("isOwner") != 'true'){
+      instance.router.navigate(['/login']) 
+    }
   }
 
 }

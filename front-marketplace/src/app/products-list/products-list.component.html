@@ -36,7 +36,7 @@
                 </p>
             </h2>
         </div>
-        <div *ngIf="isOwner == 'false'">
+        <div *ngIf="isOwner != 'true' ">
             <h2>
                 <img [src]="setarIMG(product.id)" type="button" class="img-responsive img-coracao" id="imgCoracao{{product.id}}" style="cursor: pointer;" (click)="mudarCoracao('imgCoracao'+product.id, product.id)" >              
             </h2>

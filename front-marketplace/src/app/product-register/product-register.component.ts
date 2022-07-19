@@ -20,7 +20,7 @@ export class ProductRegisterComponent implements OnInit {
   stores: [Stores] | undefined;
 
   isOwner = localStorage.getItem('isOwner');
-  constructor() { }
+  constructor(private route: Router) { }
   registerProduct() {
     let name = document.getElementById("name") as HTMLInputElement;
     let description = document.getElementById("description") as HTMLInputElement;
@@ -60,6 +60,9 @@ export class ProductRegisterComponent implements OnInit {
       })
       .catch(function (error: any) {
         console.log(error);
+        if (error.response.status == 401){
+          instance.route.navigate(['/login']) 
+        }
       });
             
   }
@@ -77,7 +80,7 @@ export class ProductRegisterComponent implements OnInit {
       }
     })
 
-
+    var instance = this;
     var config2 = {
       method: 'post',
       url: 'http://localhost:5009/stock/add',
@@ -96,6 +99,9 @@ export class ProductRegisterComponent implements OnInit {
       })
       .catch(function (error) {
         console.log(error);
+        if (error.response.status == 401){
+          instance.route.navigate(['/login']) 
+        }
       });
 
   }
@@ -115,6 +121,7 @@ export class ProductRegisterComponent implements OnInit {
       data: data
     };
 
+    var instance = this;
     axios(config)
       .then(function (response: any) {
         console.log(JSON.stringify(response.data));
@@ -122,6 +129,9 @@ export class ProductRegisterComponent implements OnInit {
       })
       .catch(function (error: any) {
         console.log(error);
+        if (error.response.status == 401){
+          instance.route.navigate(['/login']) 
+        }
       });
 
   }

@@ -53,7 +53,6 @@ import { OwnerProductsComponent } from './owner-products/owner-products.componen
       {path: 'wishlist', component:WishlistComponent},
       {path: 'product/register', component:ProductRegisterComponent}, 
       {path: 'client/register', component:ClientRegisterComponent},
-      {path: 'address/register', component:AddressRegisterComponent},
       {path: 'login', component:MarketplaceLoginComponent},
       {path: 'purchases', component:PurchaseListComponent},
       {path: 'owner/register', component:OwnerRegisterComponent},

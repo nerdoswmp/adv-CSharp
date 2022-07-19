@@ -17,6 +17,7 @@ namespace Controller.Controllers
             return lojas;
         }
 
+        [Authorize]
         [HttpGet]
         [Route("all/{ownerlogin}")]
         public object getAllStoreFromOwner(string ownerLogin)
