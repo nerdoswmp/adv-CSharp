@@ -5,6 +5,7 @@ import { Product } from '../products';
 import { WishList} from '../wishlist';
 import axios from 'axios';
 import { NumberValueAccessor } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-list',
@@ -24,7 +25,7 @@ export class ProductsListComponent implements OnInit {
   source : string;
   arrAdds : Array<Number>;
   
-  constructor() {
+  constructor(private router: Router) {
     this.source = "";
     this.arrAdds = [];
     this.srcCoracaoCheio = "../assets/coraçãoCheio.png";
@@ -32,14 +33,14 @@ export class ProductsListComponent implements OnInit {
     this.coracao = false;
    }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     var config = {
       method: 'get',
       url: 'http://localhost:5009/product/all/',
       headers: { 
         "Access-Control-Allow-Origin":"*",
         "Access-Control-Allow-Headers":"Content-Type",
-        'Authorization':'Bearer'+localStorage.getItem("authToken"),
+        'Authorization':'Bearer '+localStorage.getItem("authToken"),
         'Content-Type' : 'application/json',
       }
     };
@@ -116,7 +117,7 @@ export class ProductsListComponent implements OnInit {
   addWishList(IdStocks : Number){
     this.coracao = true;
     this.arrAdds.push(IdStocks);
-
+    var instance = this;
     var data = JSON.stringify({
       id : IdStocks,
     })
@@ -136,11 +137,15 @@ export class ProductsListComponent implements OnInit {
     .then(function (response) {
       console.log(JSON.stringify(response.data));
       alert("O produto foi add a lista de desejos!");
+      window.location.reload();
     })
     .catch(function (error) {
       
-      alert("Erro ao adicionar na lista de desejos!");
+      alert("Faça Login para adicionar na lista de desejos!");
       console.log(error);
+      if(error.response.status == 401){
+        instance.router.navigate(['/login']) 
+      }
     });
   }
 

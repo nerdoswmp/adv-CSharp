@@ -17,6 +17,7 @@ import { LoginownerComponent } from './loginowner/loginowner.component';
 import { OwnerRegisterComponent } from './owner-register/owner-register.component';
 import { StoreListComponent } from './store-list/store-list.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
+import { ProductRegisterComponent } from './product-register/product-register.component';
 
 @NgModule({
   declarations: [
@@ -35,11 +36,10 @@ import { SaleListComponent } from './sale-list/sale-list.component';
     PurchaseListComponent,
     LoginownerComponent,
     OwnerRegisterComponent,
-    StoreListComponent,
-    SaleListComponent
+    SaleListComponent,
+    ProductRegisterComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
       {path: '', component : ProductsListComponent},
@@ -47,7 +47,7 @@ import { SaleListComponent } from './sale-list/sale-list.component';
       {path: 'address/register', component:AddressRegisterComponent},
       {path: 'store/register', component:StoreRegisterComponent},
       {path: 'wishlist', component:WishlistComponent},
-      {path: 'product/:productID', component:ProductDetailComponent},
+      {path: 'product/register', component:ProductRegisterComponent}, 
       {path: 'client/register', component:ClientRegisterComponent},
       {path: 'address/register', component:AddressRegisterComponent},
       {path: 'login', component:MarketplaceLoginComponent},
