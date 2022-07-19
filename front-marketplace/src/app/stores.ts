@@ -1,4 +1,4 @@
-export interface Store{
+export interface Stores{
     id:number;
     name:string;
     cnpj:string;

@@ -37,9 +37,11 @@ import { ProductRegisterComponent } from './product-register/product-register.co
     LoginownerComponent,
     OwnerRegisterComponent,
     SaleListComponent,
-    ProductRegisterComponent
+    ProductRegisterComponent,
+    StoreListComponent
   ],
   imports: [
+    BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
       {path: '', component : ProductsListComponent},
@@ -53,6 +55,7 @@ import { ProductRegisterComponent } from './product-register/product-register.co
       {path: 'login', component:MarketplaceLoginComponent},
       {path: 'purchases', component:PurchaseListComponent},
       {path: 'owner/register', component:OwnerRegisterComponent},
+      {path: 'product/:productID', component:ProductDetailComponent},
       {path: 'store/list', component:StoreListComponent},
       {path: 'store/sales/:storeID', component:SaleListComponent}
     ])

@@ -6,7 +6,7 @@ import { WishList } from '../wishlist';
 import axios from 'axios';
 import { NumberValueAccessor } from '@angular/forms';
 import { Route, Router } from '@angular/router';
-import { Store } from '../stores';
+import { Stores } from '../stores';
 
 @Component({
   selector: 'app-product-register',
@@ -17,7 +17,7 @@ export class ProductRegisterComponent implements OnInit {
   titlePage = "Product Register";
   title = 'front-marketplace';
 
-  stores: [Store] | undefined;
+  stores: [Stores] | undefined;
 
   isOwner = localStorage.getItem('isOwner');
   constructor() { }
