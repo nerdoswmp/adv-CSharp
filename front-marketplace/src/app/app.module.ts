@@ -18,6 +18,7 @@ import { OwnerRegisterComponent } from './owner-register/owner-register.componen
 import { StoreListComponent } from './store-list/store-list.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 import { ProductRegisterComponent } from './product-register/product-register.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +39,15 @@ import { ProductRegisterComponent } from './product-register/product-register.co
     OwnerRegisterComponent,
     SaleListComponent,
     ProductRegisterComponent,
-    StoreListComponent
+    StoreListComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
       {path: '', component : ProductsListComponent},
+      {path: 'edit/:productID/:storeID', component:ProductEditComponent},
       {path: 'product/:productID/:storeID', component:ProductDetailComponent},
       {path: 'address/register', component:AddressRegisterComponent},
       {path: 'store/register', component:StoreRegisterComponent},

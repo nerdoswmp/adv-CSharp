@@ -1,4 +1,4 @@
-<app-top-bar [titulo]="titlePage"></app-top-bar>
+<app-top-bar [titulo]="titlePage" [ngStyle]="{'background-color': (isOwner == 'true') ? '#7851a9' : (isOwner == 'false') ? '#1976d2' : null}"></app-top-bar>
 
 <div *ngIf="product" class="product-detail-text">
     <img src={{product.image}} class="img-responsive big-img-responsive">
@@ -6,5 +6,10 @@
     <h3>{{product.name}} from {{product.storename}}</h3>
     <p>{{product.description}}</p>
     <h4>{{product.price | currency}}</h4>
-    <a id="purchase_button" (click)="makePurchase()"> Purchase </a>
+    <div *ngIf="isOwner != 'true'">
+        <a id="purchase_button" (click)="makePurchase()"> Purchase </a>
+    </div>
+    <div *ngIf="isOwner == 'true'">
+        <a id="purchase_button" [routerLink]="['/edit/', product.id, product.storeid]"> Editar </a>
+    </div>
 </div>

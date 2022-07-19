@@ -14,6 +14,7 @@ export class ProductDetailComponent implements OnInit {
   titlePage="Product Detail";
   title = 'front-marketplace';
   product: Product | undefined
+  isOwner = localStorage.getItem('isOwner');
 
   constructor(private route: ActivatedRoute, private router: Router) { }
   makePurchase(): void{

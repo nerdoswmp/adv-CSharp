@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DTO;
+using Model;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Controller.Controllers
@@ -54,11 +55,10 @@ namespace Controller.Controllers
             nproduct.deleteProduct();
             return "produto deletado";
         }
-        [HttpPut("update/{bar_code}")]
-        public string updateProduct(ProductDTO product, string bar_code)
-        {
-            var nProduct = Model.Product.convertDTOToModel(product);
-            nProduct.updateProduct(bar_code);
+        [HttpPut("update/{id}/{storeID}")]
+        public string updateProduct([FromBody]ProductEditDTO product, int id,int storeID)
+        {            
+            Model.Product.updateProduct(id, storeID, product);
             return "produto atualizado";
         }
     }
