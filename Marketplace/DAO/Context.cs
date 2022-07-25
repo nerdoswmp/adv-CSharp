@@ -34,7 +34,7 @@ namespace DAO
             }
             else
             {
-                optionsBuilder.UseSqlServer(@"Data Source=JVLPC0587;Initial Catalog=marketplace; Integrated Security = True");
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-GGRN2GL;Initial Catalog=marketplace; Integrated Security = True");
             }
         }
 

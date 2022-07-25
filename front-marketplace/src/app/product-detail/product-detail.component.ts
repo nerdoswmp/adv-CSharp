@@ -80,7 +80,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getStores();
+    if (localStorage.getItem("isOwner") == 'true'){
+      this.getStores();
+    }
 
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productID'));
@@ -101,12 +103,5 @@ export class ProductDetailComponent implements OnInit {
     .catch(function (error) {
       console.log(error);
     });
-    
-
-    
-
-    
-
   }
-
 }
