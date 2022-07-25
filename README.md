@@ -1,6 +1,6 @@
 # Front + Back
 
-###Passo a passo pra rodar o projeto
+##Passo a passo pra rodar o projeto
 
 1. dar npm install na pasta do front-marketplace
 
